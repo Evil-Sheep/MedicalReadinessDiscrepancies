@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -36,6 +36,7 @@
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,9 +95,13 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="623.9999999999999,1686" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="688,2061.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strBeginReconciliationMessageChoice" />
     </Sequence.Variables>
@@ -105,27 +110,27 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox sap2010:Annotation.AnnotationText="Open message box to decide to begin reconciliation. This gives the user time to prepare for process start, i.e. insert CAC into computer." AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Begin Reconciliation" ChosenButton="[strBeginReconciliationMessageChoice]" DisplayName="Message Box - Begin Reconciliation" sap:VirtualizedContainerService.HintSize="620,180.66666666666666" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Begin reconciliation between NMO and MRRS?&quot;]">
+    <ui:MessageBox sap2010:Annotation.AnnotationText="Open message box to decide to begin reconciliation. This gives the user time to prepare for process start, i.e. insert CAC into computer." AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Begin Reconciliation" ChosenButton="[strBeginReconciliationMessageChoice]" DisplayName="Message Box - Begin Reconciliation" sap:VirtualizedContainerService.HintSize="688,180.66666666666666" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Begin reconciliation between NMO and MRRS?&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="620,1482.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="688,1858" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="586,1074.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="654,1450" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Navigate to Nave Medicine Online and download IMR Report" DisplayName="Sequence - Download NMO Report" sap:VirtualizedContainerService.HintSize="552,966.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence sap2010:Annotation.AnnotationText="Navigate to Nave Medicine Online and download IMR Report" DisplayName="Sequence - Download NMO Report" sap:VirtualizedContainerService.HintSize="620,1310" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:UiElement" Name="uieMainBrowser" />
             </Sequence.Variables>
@@ -135,52 +140,73 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard sap2010:Annotation.AnnotationText="Launch Edge browser if not open, wait for user to log in to website, and download IMR report." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: NMO IMR Site" sap:VirtualizedContainerService.HintSize="518,844" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" OpenMode="IfNotOpen" OutUiElement="[uieMainBrowser]" ScopeGuid="fa921d81-a705-424d-809d-b9752bd8c268" Version="V2">
+            <uix:NApplicationCard sap2010:Annotation.AnnotationText="Launch Edge browser if not open, wait for user to log in to website, and download IMR report." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: NMO IMR Site" sap:VirtualizedContainerService.HintSize="586,1219.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" OpenMode="IfNotOpen" OutUiElement="[uieMainBrowser]" ScopeGuid="fa921d81-a705-424d-809d-b9752bd8c268" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,556.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,946.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" sap2010:Annotation.AnnotationText="Wait for &quot;Data&quot; text link to appear before proceeding." DisplayName="On Element Appear - &quot;Data&quot; text link" sap:VirtualizedContainerService.HintSize="450,494" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" WaitActive="True" WaitVisible="True">
+                    <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" sap2010:Annotation.AnnotationText="Wait for &quot;Data&quot; text link to appear before proceeding." DisplayName="On Element Appear - &quot;Data&quot; text link" sap:VirtualizedContainerService.HintSize="518,884" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" WaitActive="True" WaitVisible="True">
                       <ui:OnUiElementAppear.Body>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,310.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,700.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="si:FileInfo" Name="fileNMOIMRReport" />
+                          </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Data&quot; text link to download IMR Report" ClickType="Single" DisplayName="Click 'Data'" sap:VirtualizedContainerService.HintSize="382,250.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fa921d81-a705-424d-809d-b9752bd8c268" Version="V4">
-                            <uix:NClick.Target>
-                              <uix:TargetAnchorable BrowserURL="https://nmo.med.navy.mil/nmkmsweb/imr/imrhome.action" CVScreenId="75c46e59-fada-4a95-b363-9275becd3de0" CvTextArea="1188, 926, 34, 13" CvTextArgument="Data" CvType="Text" DesignTimeRectangle="1189, 923, 32, 17" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='assigneduicListxx' tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='A' /&gt;" Guid="725d81fb-867f-4575-b593-1446ee8024c9" ScopeSelectorArgument="&lt;html app='msedge.exe' title='NMO IMR Site' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
-                                <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                    <uix:Target DesignTimeRectangle="1187, 844, 63, 61" FuzzySelectorArgument="&lt;webctrl id='assigneduicListxx' tag='TABLE' /&gt;&lt;webctrl type='' class='tableheader1' tag='TH' aaname='' /&gt;" Guid="1b0e8e8b-17e4-4e72-b5cb-bb68a9cff09c" SearchSteps="FuzzySelector" />
-                                  </scg:List>
-                                </uix:TargetAnchorable.Anchors>
-                              </uix:TargetAnchorable>
-                            </uix:NClick.Target>
-                            <uix:NClick.VerifyOptions>
-                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                <uix:VerifyExecutionOptions.Retry>
-                                  <InArgument x:TypeArguments="x:Boolean" />
-                                </uix:VerifyExecutionOptions.Retry>
-                                <uix:VerifyExecutionOptions.Timeout>
-                                  <InArgument x:TypeArguments="x:Double" />
-                                </uix:VerifyExecutionOptions.Timeout>
-                              </uix:VerifyExecutionOptions>
-                            </uix:NClick.VerifyOptions>
+                          <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" sap2010:Annotation.AnnotationText="Wait for IMR Report to download before extracting data for further processing" DisplayName="Wait for Download - IMR Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[fileNMOIMRReport]" sap:VirtualizedContainerService.HintSize="450,640.6666666666666" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp">
+                            <ui:GetLastDownloadedFile.Body>
+                              <ActivityAction>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,310.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Data&quot; text link to download IMR Report" ClickType="Single" DisplayName="Click 'Data'" sap:VirtualizedContainerService.HintSize="382,250.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fa921d81-a705-424d-809d-b9752bd8c268" Version="V4">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://nmo.med.navy.mil/nmkmsweb/imr/imrhome.action" CVScreenId="75c46e59-fada-4a95-b363-9275becd3de0" CvTextArea="1188, 926, 34, 13" CvTextArgument="Data" CvType="Text" DesignTimeRectangle="1189, 923, 32, 17" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='assigneduicListxx' tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='A' /&gt;" Guid="725d81fb-867f-4575-b593-1446ee8024c9" ScopeSelectorArgument="&lt;html app='msedge.exe' title='NMO IMR Site' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                        <uix:TargetAnchorable.Anchors>
+                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                            <uix:Target DesignTimeRectangle="1187, 844, 63, 61" FuzzySelectorArgument="&lt;webctrl id='assigneduicListxx' tag='TABLE' /&gt;&lt;webctrl type='' class='tableheader1' tag='TH' aaname='' /&gt;" Guid="1b0e8e8b-17e4-4e72-b5cb-bb68a9cff09c" SearchSteps="FuzzySelector" />
+                                          </scg:List>
+                                        </uix:TargetAnchorable.Anchors>
+                                      </uix:TargetAnchorable>
+                                    </uix:NClick.Target>
+                                    <uix:NClick.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NClick.VerifyOptions>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </uix:NClick>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:GetLastDownloadedFile.Body>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </uix:NClick>
+                          </ui:GetLastDownloadedFile>
                         </Sequence>
                       </ui:OnUiElementAppear.Body>
                       <ui:OnUiElementAppear.RepeatForever>
@@ -212,7 +238,7 @@
               </sap:WorkflowViewStateService.ViewState>
             </uix:NApplicationCard>
           </Sequence>
-          <Flowchart sap:VirtualizedContainerService.HintSize="552,48" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+          <Flowchart sap:VirtualizedContainerService.HintSize="620,48" sap2010:WorkflowViewState.IdRef="Flowchart_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
