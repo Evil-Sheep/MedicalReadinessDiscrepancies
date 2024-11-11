@@ -556,24 +556,24 @@
                           <av:PointCollection x:Key="ConnectorLocation">60,175 60,200</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="552,2118.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="552,2232.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,2058.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,2172.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,1896.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,2010.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                                   <Variable x:TypeArguments="x:String" Name="strLastName" />
-                                  <Variable x:TypeArguments="x:Boolean" Name="boolNoResultFound" />
+                                  <Variable x:TypeArguments="x:Boolean" Name="boolSailorFoundInMRRS" />
                                 </Sequence.Variables>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -673,9 +673,9 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </uix:NClick>
-                                <ui:UiElementExists sap2010:Annotation.AnnotationText="Determine if &quot;No Records Found Meeting Selection Criteria&quot; text appears" DisplayName="Element Exists - &quot;No Records&quot;" Exists="[boolNoResultFound]" sap:VirtualizedContainerService.HintSize="450,164.66666666666666" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                                <ui:UiElementExists sap2010:Annotation.AnnotationText="Determine if search returns a Sailor (vs. &quot;No Records Found Meeting Selection Criteria&quot; message)&#xD;&#xA;&#xD;&#xA;Main attribute for determining this is [style='width:45%; padding-left:4px']. If a Sailor is found, the name column will use that style and that field can be clicked to pull up their information. If no Sailor is found, the &quot;No Records&quot; message spans all columns, so a different style is used." DisplayName="Element Exists - Sailor found" Exists="[boolSailorFoundInMRRS]" sap:VirtualizedContainerService.HintSize="450,281.3333333333333" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                                   <ui:UiElementExists.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fa4736a-b1cb-4027-97da-3626981987a2" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl tableRow='3' tag='TABLE' idx='1' /&gt;&lt;webctrl tableRow='1' idx='1' colspan='4' /&gt;">
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5fa4736a-b1cb-4027-97da-3626981987a2" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' style='width:45%; padding-left:4px' /&gt;">
                                       <ui:Target.TimeoutMS>
                                         <InArgument x:TypeArguments="x:Int32" />
                                       </ui:Target.TimeoutMS>
@@ -690,9 +690,18 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:UiElementExists>
-                                <If Condition="[boolNoResultFound]" sap:VirtualizedContainerService.HintSize="450,482.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+                                <If Condition="[boolSailorFoundInMRRS]" sap:VirtualizedContainerService.HintSize="450,480" sap2010:WorkflowViewState.IdRef="If_2">
                                   <If.Then>
-                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,226.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -700,15 +709,6 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:Beep sap:VirtualizedContainerService.HintSize="382,57.333333333333336" sap2010:WorkflowViewState.IdRef="Beep_2" />
                                       <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Failed to find Sailor in MRRS&quot;]" />
-                                    </Sequence>
-                                  </If.Then>
-                                  <If.Else>
-                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
                                     </Sequence>
                                   </If.Else>
                                 </If>
