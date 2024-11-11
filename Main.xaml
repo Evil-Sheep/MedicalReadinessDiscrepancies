@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -47,6 +47,7 @@
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
       <x:String>System.Security</x:String>
+      <x:String>System.Net</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -116,9 +117,17 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="736,1806" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="736,1920.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strBeginReconciliationMessageChoice" />
     </Sequence.Variables>
@@ -134,7 +143,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="736,1602.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="736,1717.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -403,7 +412,7 @@
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/secure/welcome.m" CVScreenId="bf6c897b-b2c5-4c50-8652-e34519a8e13d" CvElementArea="718, 824, 103, 31" CvTextArea="737, 830, 63, 21" CvTextArgument="Accept" CvType="Button" DesignTimeRectangle="721, 676, 97, 26" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='wblock' tag='TABLE' /&gt;&lt;webctrl tableRow='1' type='button' tag='INPUT' /&gt;" Guid="f3d53050-e822-4333-b6ed-28864707001b" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                               <uix:Target CVScreenId="bf6c897b-b2c5-4c50-8652-e34519a8e13d" CvTextArea="246, 684, 411, 20" CvTextArgument="disclosed or used for any USG-authorized purpose." CvType="Text" DesignTimeRectangle="188, 676, 1163, 26" FuzzySelectorArgument="&lt;webctrl parentid='wblock' tag='TABLE' /&gt;&lt;webctrl type='' aaname='  ' class='' tag='P' check:text='Accept' /&gt;" Guid="ad72f30e-2994-49ee-adc4-0573c761f086" SearchSteps="FuzzySelector, CV" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
@@ -424,7 +433,7 @@
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/secure/welcome.m" CVScreenId="bdc12ca8-57eb-4a2c-934e-26f741d5fb24" CvElementArea="91, 458, 155, 31" CvTextArea="120, 462, 96, 21" CvTextArgument="CAC Login" CvType="Button" DesignTimeRectangle="91, 458, 155, 30" DesignTimeScaleFactor="1.5" ElementType="Button" Guid="1d256e77-f40e-4aaf-86eb-33549a3a78c5" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                               <uix:Target CVScreenId="bdc12ca8-57eb-4a2c-934e-26f741d5fb24" CvElementArea="91, 458, 155, 31" CvTextArea="120, 462, 96, 21" CvTextArgument="CAC Login" CvType="Button" DesignTimeRectangle="20, 449, 297, 48" FuzzySelectorArgument="&lt;webctrl parentid='login' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='' check:text='CAC Login' /&gt;" Guid="4dd853c8-9ef4-4790-b41b-535fe8172efa" SearchSteps="FuzzySelector, CV" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
@@ -450,7 +459,7 @@
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="6e7e3d89-7f0c-4324-9e8d-602800d34709" CvTextArea="156, 413, 243, 22" CvTextArgument="Comprehensive Medical Entry" CvType="Text" DesignTimeRectangle="144, 408, 338, 31" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='MEDICAL_ENTRY_1' tableRow='1' tag='DIV' aaname='Comprehensive Medical Entry' /&gt;" Guid="820062d7-df31-4c97-ae34-aae6453570a8" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                           <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                               <uix:Target CVScreenId="6e7e3d89-7f0c-4324-9e8d-602800d34709" CvElementArea="287, 377, 25, 22" CvTextArea="173, 377, 112, 22" CvTextArgument="Medical Entry" CvType="ArrowButton" DesignTimeRectangle="143, 377, 165, 30" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar1' type='' tag='DIV' class='barOver' aaname='Medical Entry' check:innerText='Medical Entry&amp;#xA;6' /&gt;" Guid="2061f414-7930-440e-8087-98ae89d33f14" SearchSteps="FuzzySelector, CV" />
                             </scg:List>
                           </uix:TargetAnchorable.Anchors>
@@ -510,10 +519,7 @@
                     <Flowchart.StartNode>
                       <x:Reference>__ReferenceID2</x:Reference>
                     </Flowchart.StartNode>
-                    <FlowDecision x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Checks if member is delinquent for PHA" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                      <FlowDecision.Condition>
-                        <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;Preventive&quot;)" />
-                      </FlowDecision.Condition>
+                    <FlowDecision x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Checks if member is delinquent for PHA" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;Preventive&quot;)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -550,22 +556,22 @@
                           <av:PointCollection x:Key="ConnectorLocation">60,175 60,200</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="536,1088.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="536,1204.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="502,1028.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="502,1144.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,866.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,982.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                 <Sequence.Variables>
-                                  <Variable x:TypeArguments="x:String" Name="strLastFour" />
+                                  <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                                   <Variable x:TypeArguments="x:String" Name="strLastName" />
                                 </Sequence.Variables>
                                 <sap:WorkflowViewStateService.ViewState>
@@ -575,10 +581,10 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <Assign sap2010:Annotation.AnnotationText="Split the last four characters off the &quot;SSN&quot; field, removing the &quot;xxx-xx-&quot; portion and leaving only the four numbers." DisplayName="Assign - strLastFour" sap:VirtualizedContainerService.HintSize="434,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:String">[strLastFour]</OutArgument>
+                                    <OutArgument x:TypeArguments="ss:SecureString">[strLastFour]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:String">[CurrentRow("SSN").ToString.Substring(CurrentRow("SSN").ToString.Length - 4)]</InArgument>
+                                    <InArgument x:TypeArguments="ss:SecureString">[(new System.Net.NetworkCredential(String.Empty, CurrentRow("SSN").ToString.Substring(CurrentRow("SSN").ToString.Length - 4))).SecurePassword]</InArgument>
                                   </Assign.Value>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -586,23 +592,27 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </Assign>
-                                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Type the last four into the Last Four field." DisplayName="Type Into - Last Four" sap:VirtualizedContainerService.HintSize="434,200" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[strLastFour]">
-                                  <ui:TypeInto.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="96ccd089-22e3-45b9-9032-3fc8a2c4ecea" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='SUBSTR(SSN,6,4)' tableRow='6' tag='INPUT' /&gt;">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                      <ui:Target.WaitForReady>
-                                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                                      </ui:Target.WaitForReady>
-                                    </ui:Target>
-                                  </ui:TypeInto.Target>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:TypeInto>
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Last Four'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" SecureText="[strLastFour]" Version="V4">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvElementArea="26, 553, 216, 29" CvType="InputBox" DesignTimeRectangle="28, 554, 213, 28" DesignTimeScaleFactor="1.5" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='SUBSTR(SSN,6,4)' tableRow='6' tag='INPUT' /&gt;" Guid="bab4627c-8d02-46d3-b341-65ad0081eb49" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvTextArea="27, 533, 82, 16" CvTextArgument="Last Four:" CvType="Text" DesignTimeRectangle="28, 531, 413, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='selectdiv' tag='TABLE' /&gt;&lt;webctrl id='promptLast Four' type='' tag='TD' class='prompt' aaname='Last Four:                                    ' check:innerText='Last Four:' /&gt;" Guid="f38ddfc0-a076-4883-a984-a5db7ff66f80" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                  <uix:NTypeInto.VerifyOptions>
+                                    <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                      <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                        <InArgument x:TypeArguments="x:Boolean" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                      <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                    </uix:VerifyExecutionTypeIntoOptions>
+                                  </uix:NTypeInto.VerifyOptions>
+                                </uix:NTypeInto>
                                 <Assign sap2010:Annotation.AnnotationText="Split the &quot;NAME&quot; field at the comma, saving only the last name." DisplayName="Assign - strLastName" sap:VirtualizedContainerService.HintSize="434,148" sap2010:WorkflowViewState.IdRef="Assign_2">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">[strLastName]</OutArgument>
@@ -616,7 +626,16 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </Assign>
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,296" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Version="V4">
+                                <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Type strLastName into &quot;Name:&quot; field" ClickBeforeMode="Single" DisplayName="Type Into - &quot;Name:&quot;" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,316.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Text="[strLastName]" Version="V4">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvElementArea="26, 606, 216, 30" CvType="InputBox" DesignTimeRectangle="28, 607, 213, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='NAME' tableRow='8' tag='INPUT' /&gt;" Guid="2240088e-88ed-4035-8602-080221cf8676" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvTextArea="27, 587, 52, 15" CvTextArgument="Name:" CvType="Text" DesignTimeRectangle="28, 584, 413, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='selectdiv' tag='TABLE' /&gt;&lt;webctrl id='promptName' type='' tag='TD' class='prompt' aaname='Name:                                    ' check:innerText='Name:' /&gt;" Guid="31dcdec0-702b-4113-beb4-dc4730526171" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
                                   <uix:NTypeInto.VerifyOptions>
                                     <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
                                       <uix:VerifyExecutionTypeIntoOptions.Retry>
@@ -627,6 +646,11 @@
                                       </uix:VerifyExecutionTypeIntoOptions.Timeout>
                                     </uix:VerifyExecutionTypeIntoOptions>
                                   </uix:NTypeInto.VerifyOptions>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
                                 </uix:NTypeInto>
                               </Sequence>
                             </ActivityAction>
