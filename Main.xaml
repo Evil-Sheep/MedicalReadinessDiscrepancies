@@ -556,20 +556,20 @@
                           <av:PointCollection x:Key="ConnectorLocation">60,175 60,200</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="552,2232.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="552,2467.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,2172.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
+                        <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,2407.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
                           <uix:NApplicationCard.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,2010.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,2245.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                                   <Variable x:TypeArguments="x:String" Name="strLastName" />
@@ -690,14 +690,40 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:UiElementExists>
-                                <If Condition="[boolSailorFoundInMRRS]" sap:VirtualizedContainerService.HintSize="450,480" sap2010:WorkflowViewState.IdRef="If_2">
+                                <If Condition="[boolSailorFoundInMRRS]" sap:VirtualizedContainerService.HintSize="450,714.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
                                   <If.Then>
-                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,325.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click on Sailor name, based on same criteria used to determine if the search succeeded." ClickType="Single" DisplayName="Click - Sailor Name" sap:VirtualizedContainerService.HintSize="382,265.3333333333333" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
+                                        <uix:NClick.Target>
+                                          <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/applyfilter.m" CVScreenId="23de0485-3181-48de-a93c-2c1febf219ee" CvTextArea="522, 416, 323, 18" CvTextArgument="BORREROBATIZ HECTOR LUIS AOAN" CvType="Text" DesignTimeRectangle="517, 411, 453, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' style='width:45%; padding-left:4px' /&gt;" Guid="68d7aec1-9cab-4f59-8996-6a1f1cb37c4c" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                            <uix:TargetAnchorable.Anchors>
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                <uix:Target CVScreenId="23de0485-3181-48de-a93c-2c1febf219ee" CvElementArea="588, 380, 26, 24" CvTextArea="522, 383, 894, 18" CvTextArgument="Name SSN Activity Unit" CvType="ArrowButton" DesignTimeRectangle="513, 371, 986, 38" FuzzySelectorArgument="&lt;webctrl class='tablebordered' parentname='filter' tag='TABLE' /&gt;&lt;webctrl type='' parentname='filter' class='' aaname='  ' tag='TD' check:innerText='Name  &amp;#x9;SSN  &amp;#x9;Activity  &amp;#x9;Unit' /&gt;" Guid="a05d235e-44ac-4c1e-89df-9daa69b8f3a6" SearchSteps="FuzzySelector, CV" />
+                                              </scg:List>
+                                            </uix:TargetAnchorable.Anchors>
+                                          </uix:TargetAnchorable>
+                                        </uix:NClick.Target>
+                                        <uix:NClick.VerifyOptions>
+                                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                            <uix:VerifyExecutionOptions.Retry>
+                                              <InArgument x:TypeArguments="x:Boolean" />
+                                            </uix:VerifyExecutionOptions.Retry>
+                                            <uix:VerifyExecutionOptions.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:VerifyExecutionOptions.Timeout>
+                                          </uix:VerifyExecutionOptions>
+                                        </uix:NClick.VerifyOptions>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NClick>
                                     </Sequence>
                                   </If.Then>
                                   <If.Else>
