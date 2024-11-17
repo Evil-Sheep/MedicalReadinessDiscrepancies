@@ -554,20 +554,20 @@
                                   <av:Size x:Key="ShapeSize">110,70</av:Size>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence sap2010:Annotation.AnnotationText="Check for any accidental changes, and return to search menu for next Sailor" DisplayName="Sequence - Return to Search Menu" sap:VirtualizedContainerService.HintSize="484,697.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                              <Sequence sap2010:Annotation.AnnotationText="Check for any accidental changes, and return to search menu for next Sailor" DisplayName="Sequence - Return to Search Menu" sap:VirtualizedContainerService.HintSize="552,1050.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach Edge browser with MRRS open" AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="450,637.3333333333334" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="7234e900-c9e1-4de3-8f57-650a9b0ef022" Version="V2">
+                                <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach Edge browser with MRRS open" AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="518,990.6666666666666" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="7234e900-c9e1-4de3-8f57-650a9b0ef022" Version="V2">
                                   <uix:NApplicationCard.Body>
                                     <ActivityAction x:TypeArguments="x:Object">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,444.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,798" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="uix:NVisibilityLevel" Name="nvisCancelButtonVisibility" />
                                         </Sequence.Variables>
@@ -576,7 +576,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <uix:NGetAttributeGeneric x:TypeArguments="uix:NVisibilityLevel" sap2010:Annotation.AnnotationText="Gets the visibility of the &quot;Cancel&quot; button.&#xD;&#xA;&#xD;&#xA;If information in MRRS is changed, the &quot;Find&quot; button becomes invisible and the &quot;Save&quot; and &quot;Cancel&quot; buttons become visible. Since this robot shouldn't be changing information, if the &quot;Cancel&quot; button becomes visible, it should be clicked to cancel any accidental changes the robot made." Attribute="visibility" DisplayName="Get Attribute - &quot;Cancel&quot; button visibility" sap:VirtualizedContainerService.HintSize="382,382" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_3" Result="[nvisCancelButtonVisibility]" ScopeIdentifier="7234e900-c9e1-4de3-8f57-650a9b0ef022" Version="V4">
+                                        <uix:NGetAttributeGeneric x:TypeArguments="uix:NVisibilityLevel" sap2010:Annotation.AnnotationText="Gets the visibility of the &quot;Cancel&quot; button.&#xD;&#xA;&#xD;&#xA;If information in MRRS is changed, the &quot;Find&quot; button becomes invisible and the &quot;Save&quot; and &quot;Cancel&quot; buttons become visible. Since this robot shouldn't be changing information, if the &quot;Cancel&quot; button becomes visible, it should be clicked to cancel any accidental changes the robot made." Attribute="visibility" DisplayName="Get Attribute - &quot;Cancel&quot; button visibility" sap:VirtualizedContainerService.HintSize="450,388.6666666666667" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_3" Result="[nvisCancelButtonVisibility]" ScopeIdentifier="7234e900-c9e1-4de3-8f57-650a9b0ef022" Version="V4">
                                           <uix:NGetAttributeGeneric.Target>
                                             <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="78a6551c-e009-49a0-97b5-bc6aac6fb229" CvElementArea="1283, 376, 101, 40" CvTextArea="1295, 386, 76, 19" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="1285, 377, 97, 37" DesignTimeScaleFactor="1.5" ElementType="Icon" FullSelectorArgument="&lt;webctrl tableCol='9' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='cancelimg' tableRow='1' tag='IMG' /&gt;" Guid="4099223b-c956-42da-af66-24a93b33c8a1" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                                               <uix:TargetAnchorable.Anchors>
@@ -592,6 +592,26 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </uix:NGetAttributeGeneric>
+                                        <If sap:VirtualizedContainerService.HintSize="450,346.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+                                          <If.Then>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
                                       </Sequence>
                                     </ActivityAction>
                                   </uix:NApplicationCard.Body>
