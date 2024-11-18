@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="vtvcDsHmkUCD6YOt2eSV9w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="78a6551c-e009-49a0-97b5-bc6aac6fb229" CvElementArea="1283, 376, 101, 40" CvTextArea="1295, 386, 76, 19" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="1285, 377, 97, 37" DesignTimeScaleFactor="1.5" ElementType="Icon" FullSelectorArgument="&lt;webctrl id='cancelimg' class='cancelbutton' /&gt;" Guid="4099223b-c956-42da-af66-24a93b33c8a1" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="1033, 367, 485, 60" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='' /&gt;" Guid="3731fbb3-ce95-4046-ac23-3e9e81fa6f2f" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetAttributeGeneric</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="N8Le4DMiD0SH8zUQo0GNPg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="0, 0, 0, 0" Selector="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" Url="https://mrrs.dc3n.navy.mil/mrrs/257.m" />
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>

@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Get Attribute - Cancel button visibility",
+  "Type": "Element",
+  "TaxonomyType": "Icon",
+  "Id": "f6NGMIsiTUO8dsg0yNOMrQ",
+  "Reference": "g_j_fYTbaEKkplU0mkdm6Q/f6NGMIsiTUO8dsg0yNOMrQ",
+  "ParentRef": "g_j_fYTbaEKkplU0mkdm6Q/9h2k1k3WdEmEyMfWsl-joQ",
+  "Created": "2024-11-18T21:54:08.1339797Z",
+  "Updated": "2024-11-18T21:54:08.1339797Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
