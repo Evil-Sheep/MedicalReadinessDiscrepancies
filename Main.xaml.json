@@ -6,8 +6,8 @@
   "OriginalIconFileName": null,
   "Arguments": [
     {
-      "Name": "uieMainBrowser",
-      "DisplayName": "uieMainBrowser",
+      "Name": "in_uieMainBrowser",
+      "DisplayName": "in_uieMainBrowser",
       "Category": null,
       "Tooltip": null,
       "Placeholder": null,
@@ -18,8 +18,8 @@
       "DataSourceItems": null
     },
     {
-      "Name": "fileNMOIMRReport",
-      "DisplayName": "fileNMOIMRReport",
+      "Name": "in_fileNMOIMRReport",
+      "DisplayName": "in_fileNMOIMRReport",
       "Category": null,
       "Tooltip": null,
       "Placeholder": null,

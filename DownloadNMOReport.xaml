@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="DownloadNMOReport" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="uieMainBrowser" Type="OutArgument(ui:UiElement)" />
-    <x:Property Name="fileNMOIMRReport" Type="OutArgument(si:FileInfo)" />
+    <x:Property Name="out_uieMainBrowser" Type="OutArgument(ui:UiElement)" />
+    <x:Property Name="out_fileNMOIMRReport" Type="OutArgument(si:FileInfo)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -142,7 +142,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Launch Edge browser if not open, wait for user to log in to website, and download IMR report." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: NMO IMR Site" sap:VirtualizedContainerService.HintSize="586,1219.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" OpenMode="IfNotOpen" OutUiElement="[uieMainBrowser]" ScopeGuid="fa921d81-a705-424d-809d-b9752bd8c268" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Launch Edge browser if not open, wait for user to log in to website, and download IMR report." AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: NMO IMR Site" sap:VirtualizedContainerService.HintSize="586,1219.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" OpenMode="IfNotOpen" OutUiElement="[out_uieMainBrowser]" ScopeGuid="fa921d81-a705-424d-809d-b9752bd8c268" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -162,7 +162,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" sap2010:Annotation.AnnotationText="Wait for IMR Report to download before extracting data for further processing" DisplayName="Wait for Download - IMR Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[fileNMOIMRReport]" sap:VirtualizedContainerService.HintSize="450,640.6666666666666" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdownload">
+                    <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" sap2010:Annotation.AnnotationText="Wait for IMR Report to download before extracting data for further processing" DisplayName="Wait for Download - IMR Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[out_fileNMOIMRReport]" sap:VirtualizedContainerService.HintSize="450,640.6666666666666" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdownload">
                       <ui:GetLastDownloadedFile.Body>
                         <ActivityAction>
                           <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,310.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
