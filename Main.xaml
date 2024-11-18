@@ -207,8 +207,8 @@
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="382,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList" />
-              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser" />
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtIMRProfileHitList]</InArgument>
+              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
