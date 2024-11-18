@@ -157,7 +157,6 @@
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="702,3376" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
-            <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileInput" />
             <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileHitList" />
             <Variable x:TypeArguments="ui:UiElement" Name="uieMainBrowser" />
             <Variable x:TypeArguments="si:FileInfo" Name="fileNMOIMRReport" />
