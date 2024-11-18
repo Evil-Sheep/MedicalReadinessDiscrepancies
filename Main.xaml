@@ -148,14 +148,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="736,3604.6666666666665" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="736,3761.3333333333335" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="702,3219.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="702,3376" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileInput" />
             <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileHitList" />
@@ -189,7 +189,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:Beep sap:VirtualizedContainerService.HintSize="668,57.333333333333336" sap2010:WorkflowViewState.IdRef="Beep_1" />
+          <ui:MessageBox ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Lets the user know the NMO data was imported successfully. This also pauses the robot so, should the user be unavailable, the robot doesn't immediately load MRRS just for the connection to time out when the user returns." AutoCloseAfter="00:00:00" Caption="NMO data loaded successfully" DisplayName="Message Box - IMR Profile Imported" sap:VirtualizedContainerService.HintSize="668,214" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;NMO IMR data imported. Preparing to load MRRS website&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:MessageBox>
           <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="668,1512.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
