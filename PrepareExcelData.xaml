@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="PrepareExcelData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="fileNMOIMRReport" Type="InArgument(si:FileInfo)" />
-    <x:Property Name="dtIMRProfileHitList" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_fileNMOIMRReport" Type="InArgument(si:FileInfo)" />
+    <x:Property Name="out_dtIMRProfileHitList" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -158,7 +158,7 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ueab:ExcelApplicationCard Password="{x:Null}" SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Uses the Excel file downloaded previously in Edge browser (fileNMOIMRReport.ToString)" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File - IMRProfile.xls" sap:VirtualizedContainerService.HintSize="512,1146.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ReadFormatting="Default" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[fileNMOIMRReport.ToString]">
+              <ueab:ExcelApplicationCard Password="{x:Null}" SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Uses the Excel file downloaded previously in Edge browser (fileNMOIMRReport.ToString)" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File - IMRProfile.xls" sap:VirtualizedContainerService.HintSize="512,1146.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ReadFormatting="Default" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_fileNMOIMRReport.ToString]">
                 <ueab:ExcelApplicationCard.Body>
                   <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                     <ActivityAction.Argument>
@@ -184,7 +184,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ueab:ReadRangeX>
-                      <ui:FilterDataTable sap2010:Annotation.AnnotationText="Filters dtIMRProfileInput to only rows that have text in the &quot;OVERDUE&quot; column, and saves only the &quot;SSN&quot;, &quot;NAME&quot;, and &quot;OVERDUE&quot; columns into dtIMRProfileHitList." DataTable="[dtIMRProfileInput]" DisplayName="Filter Data Table - dtIMRProfileHitList" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="444,265.3333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dtIMRProfileHitList]" SelectColumnsMode="Keep">
+                      <ui:FilterDataTable sap2010:Annotation.AnnotationText="Filters dtIMRProfileInput to only rows that have text in the &quot;OVERDUE&quot; column, and saves only the &quot;SSN&quot;, &quot;NAME&quot;, and &quot;OVERDUE&quot; columns into dtIMRProfileHitList." DataTable="[dtIMRProfileInput]" DisplayName="Filter Data Table - dtIMRProfileHitList" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="444,265.3333333333333" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[out_dtIMRProfileHitList]" SelectColumnsMode="Keep">
                         <ui:FilterDataTable.Filters>
                           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                             <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">
