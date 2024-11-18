@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ReconcileNMOAndMRRS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="dtIMRProfileHitList" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="uieMainBrowser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="in_dtIMRProfileHitList" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_uieMainBrowser" Type="InArgument(ui:UiElement)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -125,13 +125,13 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_36">
+  <Sequence sap:VirtualizedContainerService.HintSize="668,966.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_36">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,944" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,944" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -198,7 +198,7 @@
                               <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach Edge browser with MRRS open" AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="588.6666666666666,1153.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="7234e900-c9e1-4de3-8f57-650a9b0ef022" Version="V2">
+                          <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach Edge browser with MRRS open" AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="588.6666666666666,1153.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_8" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="7234e900-c9e1-4de3-8f57-650a9b0ef022" Version="V2">
                             <uix:NApplicationCard.Body>
                               <ActivityAction x:TypeArguments="x:Object">
                                 <ActivityAction.Argument>
@@ -297,7 +297,7 @@
                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,2407.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="518,2407.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
