@@ -181,7 +181,6 @@
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - PrepareExcelData.xaml" sap:VirtualizedContainerService.HintSize="668,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="PrepareExcelData.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="si:FileInfo" x:Key="fileNMOIMRReport">[fileNMOIMRReport]</InArgument>
-              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dtIMRProfileInput">[dtIMRProfileInput]</InOutArgument>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="dtIMRProfileHitList">[dtIMRProfileHitList]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
