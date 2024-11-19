@@ -167,7 +167,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="615.3333333333334,415.37333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="615.3333333333334,100.03999999999999" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -391,7 +391,7 @@
                                 <av:PointCollection x:Key="ConnectorLocation">190,405 190,435 60,435 60,460</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="620,2776" sap2010:WorkflowViewState.IdRef="Sequence_41">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -415,9 +415,9 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                       <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="DNA data is under the &quot;Blood&quot; tab." ClickType="Single" DisplayName="Click 'Blood'" sap:VirtualizedContainerService.HintSize="518,260" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
                                         <uix:NClick.Target>
-                                          <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="c8312489-1012-4c74-85c0-dd04f30f733d" CvElementArea="232, 432, 110, 40" CvTextArea="263, 443, 54, 18" CvTextArgument="Blood" CvType="Button" DesignTimeRectangle="236, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='bodydiv' tag='TABLE' /&gt;&lt;webctrl id='tab3' type='' tag='TD' class='thistab70x24' aaname='Blood' check:innerText='Blood' /&gt;" Guid="aacad7c5-7507-46ca-9a5e-190241967453" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="c8312489-1012-4c74-85c0-dd04f30f733d" CvElementArea="232, 432, 110, 40" CvTextArea="263, 443, 54, 18" CvTextArgument="Blood" CvType="Button" DesignTimeRectangle="236, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tab3' tag='TD' aaname='Blood' /&gt;" Guid="aacad7c5-7507-46ca-9a5e-190241967453" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
                                                 <uix:Target DesignTimeRectangle="19, 365, 1501, 64" FuzzySelectorArgument="&lt;webctrl type='' tag='TABLE' class='tablebordered' aaname='' check:innerText='ROEPKE ANDREW STEVEN HM1&amp;#xA;XXX-XX-8708&amp;#x9;&amp;#xA;IMR Status: Fully Medically Ready' /&gt;" Guid="39339f14-7c74-4889-9b4a-75ea3043e8b7" SearchSteps="FuzzySelector" />
                                               </scg:List>
                                             </uix:TargetAnchorable.Anchors>
