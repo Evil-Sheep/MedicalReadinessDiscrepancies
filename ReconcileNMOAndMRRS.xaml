@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ReconcileNMOAndMRRS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ReconcileNMOAndMRRS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_dtIMRProfileHitList" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_uieMainBrowser" Type="InArgument(ui:UiElement)" />
@@ -46,6 +46,9 @@
       <x:String>System.Numerics</x:String>
       <x:String>System.Globalization</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Word</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Word.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -127,6 +130,12 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="668,1520" sap2010:WorkflowViewState.IdRef="Sequence_36">
@@ -139,7 +148,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Create DataTable to track readiness changes.&#xD;&#xA;&#xD;&#xA;Rows:&#xD;&#xA;- Name (String): Self-explanatory.&#xD;&#xA;- Last 4 SSN (String): Self-explanatory.&#xD;&#xA;- NMO Delinquency (String): Readiness item needing update, per NMO report.&#xD;&#xA;- Corrected Data (String): The MRRS information that needs to be entered into Health Services to fix NMO delinquency." DataTable="[dtReadinessChanges]" DisplayName="Build Data Table - dtReadinessChanges" sap:VirtualizedContainerService.HintSize="668,270.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last_x0020_4_x0020_SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NMO_x0020_Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Corrected_x0020_Data&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Create DataTable to track readiness changes.&#xA;&#xA;Rows:&#xA;- Name (String): Self-explanatory.&#xA;- Last 4 SSN (String): Self-explanatory.&#xA;- NMO Delinquency (String): Readiness item needing update, per NMO report.&#xA;- Corrected Data (String): The MRRS information that needs to be entered into Health Services to fix NMO delinquency." DataTable="[dtReadinessChanges]" DisplayName="Build Data Table - dtReadinessChanges" sap:VirtualizedContainerService.HintSize="668,270.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Last_x0020_4_x0020_SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;NMO_x0020_Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Corrected_x0020_Data&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -191,19 +200,19 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2015.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="710.6666666666666,2094" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,1955.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="676.6666666666666,2034" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522.6666666666666,1748" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="642.6666666666666,1826.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strPHADate" />
                               </Sequence.Variables>
@@ -212,11 +221,11 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="PHA data is under the &quot;Exams&quot; tab." ClickType="Single" DisplayName="Click 'Exams'" sap:VirtualizedContainerService.HintSize="488.6666666666667,260" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
+                              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="PHA data is under the &quot;Exams&quot; tab." ClickType="Single" DisplayName="Click 'Exams'" sap:VirtualizedContainerService.HintSize="608.6666666666666,260" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="85c85ee2-10d5-4022-984e-1aac6248bb41" CvElementArea="888, 432, 111, 40" CvTextArea="914, 443, 60, 18" CvTextArgument="Exams" CvType="Button" DesignTimeRectangle="890, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='bodydiv' tag='TABLE' /&gt;&lt;webctrl id='tab9' type='' tag='TD' class='tab70x24' aaname='Exams' check:innerText='Exams' /&gt;" Guid="ce890ad8-2a06-4da6-b57e-8d0936745c92" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target DesignTimeRectangle="1434, 433, 83, 39" FuzzySelectorArgument="&lt;webctrl parentid='bodydiv' tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='TD' aaname=' ' /&gt;" Guid="7e1b4998-dd16-4237-a9ca-93687254d998" SearchSteps="FuzzySelector" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
@@ -238,11 +247,11 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
-                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;PHA Date:&quot; text box." Attribute="text" DisplayName="Get Attribute 'PHA Date'" sap:VirtualizedContainerService.HintSize="488.6666666666667,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" Result="[strPHADate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
+                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;PHA Date:&quot; text box." Attribute="text" DisplayName="Get Attribute 'PHA Date'" sap:VirtualizedContainerService.HintSize="608.6666666666666,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" Result="[strPHADate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
                                 <uix:NGetAttributeGeneric.Target>
                                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="487f84a0-e392-4e4a-8ba6-2a315b5cffde" CvElementArea="785, 595, 149, 29" CvType="InputBox" DesignTimeRectangle="786, 596, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl parentid='box9' tag='TABLE' /&gt;&lt;webctrl id='pha_dt' type='text' tag='INPUT' class='inputdate' aaname='' /&gt;" Guid="dbd7e6ed-a2ec-4e76-ac9d-5cd68c9e24d0" InformativeScreenshot="caf6f3cb753a396fcfeadd8516457663.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target CVScreenId="487f84a0-e392-4e4a-8ba6-2a315b5cffde" CvTextArea="533, 602, 81, 16" CvTextArgument="PHA Date:" CvType="Text" DesignTimeRectangle="532, 591, 234, 39" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='box9' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='prompt' aaname='PHA Date:' check:innerText='PHA Date:' /&gt;" Guid="a03909c0-a0dc-4fcd-91d7-1e1ad07f17fe" SearchSteps="FuzzySelector, CV" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
@@ -254,7 +263,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NGetAttributeGeneric>
-                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="488.6666666666667,1151.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="608.6666666666666,1230" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                 <TryCatch.Variables>
                                   <Variable x:TypeArguments="s:DateTime" Name="datetimePHADate" />
                                 </TryCatch.Variables>
@@ -274,7 +283,7 @@
                                   </Assign>
                                 </TryCatch.Try>
                                 <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:FormatException" sap:VirtualizedContainerService.HintSize="454.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                  <Catch x:TypeArguments="s:FormatException" sap:VirtualizedContainerService.HintSize="574.6666666666666,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -302,21 +311,37 @@
                                   </Catch>
                                 </TryCatch.Catches>
                                 <TryCatch.Finally>
-                                  <If sap2010:Annotation.AnnotationText="Checks if PHA is out of date.&#xD;&#xA;&#xD;&#xA;Calculated the number of days between the date in the &quot;PHA Date:&quot; text box and today's date, and if that value is less than 335 (one year, minus one month), then their PHA is current and they should have their information in NMO updated to reflect that." Condition="[(DateTime.Now.Date - datetimePHADate).TotalDays &lt; 335]" DisplayName="If - PHA not out of Date" sap:VirtualizedContainerService.HintSize="450,824.6666666666666" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If sap2010:Annotation.AnnotationText="Checks if PHA is out of date.&#xA;&#xA;Calculated the number of days between the date in the &quot;PHA Date:&quot; text box and today's date, and if that value is less than 335 (one year, minus one month), then their PHA is current and they should have their information in NMO updated to reflect that." Condition="[(DateTime.Now.Date - datetimePHADate).TotalDays &lt; 335]" DisplayName="If - PHA not out of Date" sap:VirtualizedContainerService.HintSize="570,920" sap2010:WorkflowViewState.IdRef="If_5">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <If.Then>
-                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,398" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,510" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, strPHADate}]" DataTable="[dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" />
+                                        <p:WordApplicationScope SensitivityLabel="{x:Null}" DisplayName="Word Application Scope" FilePath="Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,335.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityOperation="None">
+                                          <p:WordApplicationScope.Body>
+                                            <ActivityAction x:TypeArguments="ui:WordDocument">
+                                              <ActivityAction.Argument>
+                                                <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+                                              </ActivityAction.Argument>
+                                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,193.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <p:WordAppendText DisplayName="Append Text" sap:VirtualizedContainerService.HintSize="434,133.33333333333334" sap2010:WorkflowViewState.IdRef="WordAppendText_1" Text="[CurrentRow(&quot;NAME&quot;).ToString+vbTab+CurrentRow(&quot;SSN&quot;).ToString+vbTab+&quot;PHA&quot;+vbTab+strPHADate]" />
+                                              </Sequence>
+                                            </ActivityAction>
+                                          </p:WordApplicationScope.Body>
+                                        </p:WordApplicationScope>
+                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="502,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" />
                                       </Sequence>
                                     </If.Then>
                                     <If.Else>
@@ -346,10 +371,7 @@
                       </uix:NApplicationCard>
                     </Sequence>
                     <FlowStep.Next>
-                      <FlowDecision x:Name="__ReferenceID7" sap2010:Annotation.AnnotationText="Checks if member is missing DNA Data" DisplayName="Flow Decision - DNA" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                        <FlowDecision.Condition>
-                          <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;DNA&quot;)" />
-                        </FlowDecision.Condition>
+                      <FlowDecision x:Name="__ReferenceID7" sap2010:Annotation.AnnotationText="Checks if member is missing DNA Data" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;DNA&quot;)]" DisplayName="Flow Decision - DNA" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -361,7 +383,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <FlowDecision.True>
-                          <FlowStep x:Name="__ReferenceID10">
+                          <FlowStep x:Name="__ReferenceID10" sap2010:WorkflowViewState.IdRef="FlowStep_1">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">135,335</av:Point>
@@ -395,7 +417,7 @@
                                         <uix:NClick.Target>
                                           <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="c8312489-1012-4c74-85c0-dd04f30f733d" CvElementArea="232, 432, 110, 40" CvTextArea="263, 443, 54, 18" CvTextArgument="Blood" CvType="Button" DesignTimeRectangle="236, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='bodydiv' tag='TABLE' /&gt;&lt;webctrl id='tab3' type='' tag='TD' class='thistab70x24' aaname='Blood' check:innerText='Blood' /&gt;" Guid="aacad7c5-7507-46ca-9a5e-190241967453" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                                 <uix:Target DesignTimeRectangle="19, 365, 1501, 64" FuzzySelectorArgument="&lt;webctrl type='' tag='TABLE' class='tablebordered' aaname='' check:innerText='ROEPKE ANDREW STEVEN HM1&amp;#xA;XXX-XX-8708&amp;#x9;&amp;#xA;IMR Status: Fully Medically Ready' /&gt;" Guid="39339f14-7c74-4889-9b4a-75ea3043e8b7" SearchSteps="FuzzySelector" />
                                               </scg:List>
                                             </uix:TargetAnchorable.Anchors>
@@ -421,7 +443,7 @@
                                         <uix:NGetAttributeGeneric.Target>
                                           <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="43cf1bee-6dae-4927-889b-c9674e37f9a3" CvElementArea="321, 813, 150, 30" CvType="InputBox" DesignTimeRectangle="323, 814, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dna_dt_reg' type='text' tag='INPUT' class='inputdategray' aaname='' /&gt;" Guid="7631b0e0-a0d1-4678-beb4-c81d74eca480" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                                 <uix:Target CVScreenId="43cf1bee-6dae-4927-889b-c9674e37f9a3" CvTextArea="45, 819, 215, 16" CvTextArgument="Date Reqistered at AFMES:" CvType="Text" DesignTimeRectangle="46, 812, 275, 31" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='prompt' aaname='Date Reqistered at AFMES:' check:innerText='Date Reqistered at AFMES:' /&gt;" Guid="e88d56d1-fe06-439b-ab79-ee7ac61a4cca" SearchSteps="FuzzySelector, CV" />
                                               </scg:List>
                                             </uix:TargetAnchorable.Anchors>
@@ -465,7 +487,7 @@
                                               <uix:NGetAttributeGeneric.Target>
                                                 <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="001a402b-92ec-47b2-9c27-2a87af621aa0" CvElementArea="321, 608, 150, 31" CvType="InputBox" DesignTimeRectangle="323, 611, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dna_sentdt' type='text' tag='INPUT' class='inputdategray' aaname='' /&gt;" Guid="eab67e9c-5c8b-49b9-a005-d430bfcb16dc" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                                   <uix:TargetAnchorable.Anchors>
-                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                                       <uix:Target CVScreenId="001a402b-92ec-47b2-9c27-2a87af621aa0" CvTextArea="45, 615, 168, 16" CvTextArgument="Date Sent To AFMES:" CvType="Text" DesignTimeRectangle="46, 609, 275, 31" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='prompt' aaname='Date Sent To AFMES:' check:innerText='Date Sent To AFMES:' /&gt;" Guid="14dab6e4-3491-475e-ace2-84e512948277" SearchSteps="FuzzySelector, CV" />
                                                     </scg:List>
                                                   </uix:TargetAnchorable.Anchors>
@@ -494,7 +516,7 @@
                                                     <uix:NGetAttributeGeneric.Target>
                                                       <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="e5291296-e870-4e29-9672-907b0008d783" CvElementArea="815, 403, 151, 31" CvType="InputBox" DesignTimeRectangle="818, 406, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl parentid='box3' tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='inputdate' aaname='' /&gt;" Guid="71684414-f71f-4930-8976-2b63f4bf98b8" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                                         <uix:TargetAnchorable.Anchors>
-                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                                             <uix:Target CVScreenId="e5291296-e870-4e29-9672-907b0008d783" CvTextArea="560, 411, 148, 16" CvTextArgument="Date of G6pD Test:" CvType="Text" DesignTimeRectangle="559, 402, 238, 37" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='box3' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='prompt' aaname='Date of G6pD Test:' check:innerText='Date of G6pD Test:' /&gt;" Guid="a861d3f5-100c-4cf6-9282-7732440b338c" SearchSteps="FuzzySelector, CV" />
                                                           </scg:List>
                                                         </uix:TargetAnchorable.Anchors>
@@ -533,10 +555,7 @@
                               </uix:NApplicationCard>
                             </Sequence>
                             <FlowStep.Next>
-                              <FlowDecision x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Checks if member is missing DNA Data" DisplayName="Flow Decision - G6PD" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
-                                <FlowDecision.Condition>
-                                  <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;G6PD&quot;)" />
-                                </FlowDecision.Condition>
+                              <FlowDecision x:Name="__ReferenceID6" sap2010:Annotation.AnnotationText="Checks if member is missing DNA Data" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;G6PD&quot;)]" DisplayName="Flow Decision - G6PD" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -548,7 +567,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <FlowDecision.True>
-                                  <FlowStep x:Name="__ReferenceID11">
+                                  <FlowStep x:Name="__ReferenceID11" sap2010:WorkflowViewState.IdRef="FlowStep_2">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">135,455</av:Point>
@@ -564,10 +583,7 @@
                                       </sap:WorkflowViewStateService.ViewState>
                                     </Sequence>
                                     <FlowStep.Next>
-                                      <FlowDecision x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Checks if member is delinquent for HIV" DisplayName="Flow Decision - HIV" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
-                                        <FlowDecision.Condition>
-                                          <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;G6PD&quot;)" />
-                                        </FlowDecision.Condition>
+                                      <FlowDecision x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Checks if member is delinquent for HIV" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;G6PD&quot;)]" DisplayName="Flow Decision - HIV" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -595,10 +611,7 @@
                                               </sap:WorkflowViewStateService.ViewState>
                                             </Sequence>
                                             <FlowStep.Next>
-                                              <FlowDecision x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Checks if member is missing Hepatitis vaccinations" DisplayName="Flow Decision - HEPA" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
-                                                <FlowDecision.Condition>
-                                                  <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;HEPA&quot;)" />
-                                                </FlowDecision.Condition>
+                                              <FlowDecision x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="Checks if member is missing Hepatitis vaccinations" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;HEPA&quot;)]" DisplayName="Flow Decision - HEPA" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -626,10 +639,7 @@
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </Sequence>
                                                     <FlowStep.Next>
-                                                      <FlowDecision x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Checks if member is missing MMR vaccinations" DisplayName="Flow Decision - MMR" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
-                                                        <FlowDecision.Condition>
-                                                          <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;MMR&quot;)" />
-                                                        </FlowDecision.Condition>
+                                                      <FlowDecision x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Checks if member is missing MMR vaccinations" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;MMR&quot;)]" DisplayName="Flow Decision - MMR" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -641,7 +651,7 @@
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
                                                         <FlowDecision.True>
-                                                          <FlowStep x:Name="__ReferenceID14">
+                                                          <FlowStep x:Name="__ReferenceID14" sap2010:WorkflowViewState.IdRef="FlowStep_3">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <av:Point x:Key="ShapeLocation">315,695</av:Point>
@@ -657,10 +667,7 @@
                                                               </sap:WorkflowViewStateService.ViewState>
                                                             </Sequence>
                                                             <FlowStep.Next>
-                                                              <FlowDecision x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Checks if member is missing Polio vaccination" DisplayName="Flow Decision - Polio" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
-                                                                <FlowDecision.Condition>
-                                                                  <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;POLIO&quot;)" />
-                                                                </FlowDecision.Condition>
+                                                              <FlowDecision x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Checks if member is missing Polio vaccination" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;POLIO&quot;)]" DisplayName="Flow Decision - Polio" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_7">
                                                                 <sap:WorkflowViewStateService.ViewState>
                                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -672,7 +679,7 @@
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
                                                                 <FlowDecision.True>
-                                                                  <FlowStep x:Name="__ReferenceID15">
+                                                                  <FlowStep x:Name="__ReferenceID15" sap2010:WorkflowViewState.IdRef="FlowStep_4">
                                                                     <sap:WorkflowViewStateService.ViewState>
                                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                         <av:Point x:Key="ShapeLocation">315,575</av:Point>
@@ -688,10 +695,7 @@
                                                                       </sap:WorkflowViewStateService.ViewState>
                                                                     </Sequence>
                                                                     <FlowStep.Next>
-                                                                      <FlowDecision x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Checks if member is missing Tetanus vaccination" DisplayName="Flow Decision - TD" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
-                                                                        <FlowDecision.Condition>
-                                                                          <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;TD&quot;)" />
-                                                                        </FlowDecision.Condition>
+                                                                      <FlowDecision x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Checks if member is missing Tetanus vaccination" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;TD&quot;)]" DisplayName="Flow Decision - TD" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
                                                                         <sap:WorkflowViewStateService.ViewState>
                                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -703,7 +707,7 @@
                                                                           </scg:Dictionary>
                                                                         </sap:WorkflowViewStateService.ViewState>
                                                                         <FlowDecision.True>
-                                                                          <FlowStep x:Name="__ReferenceID16">
+                                                                          <FlowStep x:Name="__ReferenceID16" sap2010:WorkflowViewState.IdRef="FlowStep_5">
                                                                             <sap:WorkflowViewStateService.ViewState>
                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                 <av:Point x:Key="ShapeLocation">315,455</av:Point>
@@ -749,7 +753,7 @@
                                                                                             <uix:NClick.Target>
                                                                                               <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="158266e4-b077-40d0-82ba-255cc13f2be7" CvElementArea="1283, 376, 101, 40" CvTextArea="1295, 386, 76, 19" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="1285, 377, 97, 37" DesignTimeScaleFactor="1.5" ElementType="Icon" FullSelectorArgument="&lt;webctrl id='cancelimg' class='cancelbutton' /&gt;" Guid="1ae1d0d4-aff9-48a1-a2aa-c33653a6d586" ImageBase64="" InformativeScreenshot="05cde1e6784172260c72b4b78c85f3a9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                                                                                                 <uix:TargetAnchorable.Anchors>
-                                                                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                                                                                     <uix:Target DesignTimeRectangle="1033, 367, 485, 60" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='' /&gt;" Guid="399d2ea3-627e-462b-8277-1c7fba58ad5d" SearchSteps="FuzzySelector" />
                                                                                                   </scg:List>
                                                                                                 </uix:TargetAnchorable.Anchors>
@@ -775,7 +779,7 @@
                                                                                             <uix:NClick.Target>
                                                                                               <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="0ae624c0-e72b-4e33-adc7-3fa913a74c2f" CvElementArea="1398, 376, 103, 40" CvTextArea="1424, 384, 49, 21" CvTextArgument="Find" CvType="Button" DesignTimeRectangle="1400, 377, 98, 37" DesignTimeScaleFactor="1.5" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='findimg' type='' tag='IMG' class='findbutton' aaname='' /&gt;" Guid="3bee48aa-d3af-4893-a2b3-7537e4d909f8" InformativeScreenshot="b5e1d512c2254fcf1917785337ad2380.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                                                                                 <uix:TargetAnchorable.Anchors>
-                                                                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                                                                                     <uix:Target CVScreenId="0ae624c0-e72b-4e33-adc7-3fa913a74c2f" CvElementArea="1398, 376, 103, 40" CvTextArea="1424, 384, 49, 21" CvTextArgument="Find" CvType="Button" DesignTimeRectangle="1033, 367, 485, 60" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='' /&gt;" Guid="4da61094-03bb-407f-96e5-3aded57df3fc" SearchSteps="FuzzySelector, CV" />
                                                                                                   </scg:List>
                                                                                                 </uix:TargetAnchorable.Anchors>
