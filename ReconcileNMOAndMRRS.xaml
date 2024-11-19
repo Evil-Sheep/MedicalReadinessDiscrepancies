@@ -200,19 +200,19 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="710.6666666666666,1259.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="710.6666666666666,2094" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="676.6666666666666,1199.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="676.6666666666666,2034" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="642.6666666666666,992" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="642.6666666666666,1826.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_37">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strPHADate" />
                               </Sequence.Variables>
@@ -263,7 +263,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NGetAttributeGeneric>
-                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="608.6666666666666,395.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="608.6666666666666,1230" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                 <TryCatch.Variables>
                                   <Variable x:TypeArguments="s:DateTime" Name="datetimePHADate" />
                                 </TryCatch.Variables>
@@ -324,7 +324,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <p:WordApplicationScope SensitivityLabel="{x:Null}" DisplayName="Word Application Scope" FilePath="Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,335.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityOperation="None">
+                                        <p:WordApplicationScope SensitivityLabel="{x:Null}" DisplayName="Word Application Scope" FilePath="C:\Users\evils\Documents\Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,335.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityOperation="None">
                                           <p:WordApplicationScope.Body>
                                             <ActivityAction x:TypeArguments="ui:WordDocument">
                                               <ActivityAction.Argument>
