@@ -191,13 +191,13 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2015.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,1995.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,1955.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
@@ -315,7 +315,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), CurrentRow(&quot;OVERDUE&quot;), strPHADate}]" DataTable="[dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, strPHADate}]" DataTable="[dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" />
                                       </Sequence>
                                     </If.Then>
@@ -369,7 +369,7 @@
                                 <av:PointCollection x:Key="ConnectorLocation">190,405 190,435 60,435 60,460</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="620,2776" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_41">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
