@@ -200,7 +200,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="710.6666666666666,2094" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -391,19 +391,19 @@
                                 <av:PointCollection x:Key="ConnectorLocation">190,405 190,435 60,435 60,460</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="672,2807.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_41">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="586,2716" sap2010:WorkflowViewState.IdRef="NApplicationCard_10" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
+                              <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="638,2747.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_10" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V2">
                                 <uix:NApplicationCard.Body>
                                   <ActivityAction x:TypeArguments="x:Object">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                     </ActivityAction.Argument>
-                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,2508.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,2540" sap2010:WorkflowViewState.IdRef="Sequence_48">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:String" Name="strPHADate" />
                                         <Variable x:TypeArguments="x:String" Name="strDNARegistrationDate" />
@@ -413,7 +413,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="DNA data is under the &quot;Blood&quot; tab." ClickType="Single" DisplayName="Click 'Blood'" sap:VirtualizedContainerService.HintSize="518,260" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
+                                      <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="DNA data is under the &quot;Blood&quot; tab." ClickType="Single" DisplayName="Click 'Blood'" sap:VirtualizedContainerService.HintSize="570,260" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
                                         <uix:NClick.Target>
                                           <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="c8312489-1012-4c74-85c0-dd04f30f733d" CvElementArea="232, 432, 110, 40" CvTextArea="263, 443, 54, 18" CvTextArgument="Blood" CvType="Button" DesignTimeRectangle="236, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl id='tab3' tag='TD' aaname='Blood' /&gt;" Guid="aacad7c5-7507-46ca-9a5e-190241967453" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
@@ -439,7 +439,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </uix:NClick>
-                                      <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;DNA Registered in AFMES:&quot; text box." Attribute="text" DisplayName="Get Attribute 'DNA Registered Date'" sap:VirtualizedContainerService.HintSize="518,288.6666666666667" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_5" Result="[strDNARegistrationDate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
+                                      <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;DNA Registered in AFMES:&quot; text box." Attribute="text" DisplayName="Get Attribute 'DNA Registered Date'" sap:VirtualizedContainerService.HintSize="570,288.6666666666667" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_5" Result="[strDNARegistrationDate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
                                         <uix:NGetAttributeGeneric.Target>
                                           <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="43cf1bee-6dae-4927-889b-c9674e37f9a3" CvElementArea="321, 813, 150, 30" CvType="InputBox" DesignTimeRectangle="323, 814, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dna_dt_reg' type='text' tag='INPUT' class='inputdategray' aaname='' /&gt;" Guid="7631b0e0-a0d1-4678-beb4-c81d74eca480" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                             <uix:TargetAnchorable.Anchors>
@@ -457,7 +457,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </uix:NGetAttributeGeneric>
-                                      <If sap2010:Annotation.AnnotationText="Checks if DNA Registration date is null. If it is null, DNA is not registered and cannot be corrected by this robot. If it is not null, get the &quot;Date Sent&quot; date." Condition="[String.IsNullOrEmpty(strDNARegistrationDate.ToString.Trim)]" DisplayName="If - DNA Registration is null" sap:VirtualizedContainerService.HintSize="518,1897.3333333333333" sap2010:WorkflowViewState.IdRef="If_7">
+                                      <If sap2010:Annotation.AnnotationText="Checks if DNA Registration date is null. If it is null, DNA is not registered and cannot be corrected by this robot. If it is not null, get the &quot;Date Sent&quot; date." Condition="[String.IsNullOrEmpty(strDNARegistrationDate.ToString.Trim)]" DisplayName="If - DNA Registration is null" sap:VirtualizedContainerService.HintSize="570,1928.6666666666667" sap2010:WorkflowViewState.IdRef="If_7">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -474,7 +474,7 @@
                                           </Sequence>
                                         </If.Then>
                                         <If.Else>
-                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,1512" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,1543.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_52">
                                             <Sequence.Variables>
                                               <Variable x:TypeArguments="x:String" Name="strDNASentDate" />
                                             </Sequence.Variables>
@@ -483,7 +483,7 @@
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;DNA Sent to AFMES:&quot; text box." Attribute="text" DisplayName="Get Attribute - 'Date Sent To AFMES'" sap:VirtualizedContainerService.HintSize="450,288.6666666666667" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_6" Result="[strDNASentDate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
+                                            <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;DNA Sent to AFMES:&quot; text box." Attribute="text" DisplayName="Get Attribute - 'Date Sent To AFMES'" sap:VirtualizedContainerService.HintSize="502,288.6666666666667" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_6" Result="[strDNASentDate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Version="V4">
                                               <uix:NGetAttributeGeneric.Target>
                                                 <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="001a402b-92ec-47b2-9c27-2a87af621aa0" CvElementArea="321, 608, 150, 31" CvType="InputBox" DesignTimeRectangle="323, 611, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dna_sentdt' type='text' tag='INPUT' class='inputdategray' aaname='' /&gt;" Guid="eab67e9c-5c8b-49b9-a005-d430bfcb16dc" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                                   <uix:TargetAnchorable.Anchors>
@@ -499,7 +499,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </uix:NGetAttributeGeneric>
-                                            <If sap2010:Annotation.AnnotationText="Checks if DNA Sent date is null and, if it is null, use the G6PD date instead (both are drawn the same day, and G6PD is also required in Health Services)." Condition="[String.IsNullOrEmpty(strDNASentDate.ToString.Trim)]" DisplayName="If - DNA Sent is null" sap:VirtualizedContainerService.HintSize="450,602" sap2010:WorkflowViewState.IdRef="If_8">
+                                            <If sap2010:Annotation.AnnotationText="Checks if DNA Sent date is null and, if it is null, use the G6PD date instead (both are drawn the same day, and G6PD is also required in Health Services)." Condition="[String.IsNullOrEmpty(strDNASentDate.ToString.Trim)]" DisplayName="If - DNA Sent is null" sap:VirtualizedContainerService.HintSize="502,602" sap2010:WorkflowViewState.IdRef="If_8">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -535,9 +535,25 @@
                                                 </Sequence>
                                               </If.Else>
                                             </If>
-                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA Sent Date&quot;, strDNASentDate}]" DataTable="[dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
-                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA Registration Date&quot;, strDNARegistrationDate}]" DataTable="[dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
-                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: DNA registered in MRRS&quot;]" />
+                                            <p:WordApplicationScope SensitivityLabel="{x:Null}" DisplayName="Word Application Scope" FilePath="C:\Users\evils\Documents\Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,478" sap2010:WorkflowViewState.IdRef="WordApplicationScope_3" SensitivityOperation="None">
+                                              <p:WordApplicationScope.Body>
+                                                <ActivityAction x:TypeArguments="ui:WordDocument">
+                                                  <ActivityAction.Argument>
+                                                    <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+                                                  </ActivityAction.Argument>
+                                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,336" sap2010:WorkflowViewState.IdRef="Sequence_56">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <p:WordAppendText DisplayName="Append Text" sap:VirtualizedContainerService.HintSize="434,142.66666666666666" sap2010:WorkflowViewState.IdRef="WordAppendText_2" Text="[CurrentRow(&quot;NAME&quot;).ToString+vbTab+CurrentRow(&quot;SSN&quot;).ToString+vbTab+&quot;DNA Sent Date&quot;+vbTab+strDNASentDate]" />
+                                                    <p:WordAppendText DisplayName="Append Text" sap:VirtualizedContainerService.HintSize="434,133.33333333333334" sap2010:WorkflowViewState.IdRef="WordAppendText_3" Text="[CurrentRow(&quot;NAME&quot;).ToString+vbTab+CurrentRow(&quot;SSN&quot;).ToString+vbTab+&quot;DNA Registration Date&quot;+vbTab+strDNARegistrationDate]" />
+                                                  </Sequence>
+                                                </ActivityAction>
+                                              </p:WordApplicationScope.Body>
+                                            </p:WordApplicationScope>
+                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="502,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: DNA registered in MRRS&quot;]" />
                                           </Sequence>
                                         </If.Else>
                                       </If>
