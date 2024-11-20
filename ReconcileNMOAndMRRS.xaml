@@ -1290,11 +1290,12 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,3034" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,2931.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_25">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                             <Variable x:TypeArguments="x:String" Name="strLastName" />
                             <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
+                            <Variable x:TypeArguments="x:String" Name="strBrowserAddress" />
                           </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1340,13 +1341,10 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </Assign>
-                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="526,2040.666666666667" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
+                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="526,1860" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
                             <ui:RetryScope.ActivityBody>
                               <ActivityAction>
-                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,1746.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_77">
-                                  <Sequence.Variables>
-                                    <Variable x:TypeArguments="x:String" Name="strBrowserAddress" />
-                                  </Sequence.Variables>
+                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,1534" sap2010:WorkflowViewState.IdRef="Sequence_77">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1441,7 +1439,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </uix:NClick>
-                                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the current web address. If the &quot;Apply&quot; button activates correctly, the web address changes from &quot;../filter.m&quot; to &quot;../applyfilter.m&quot;" Attribute="text" DisplayName="Get Attribute - Web Address" sap:VirtualizedContainerService.HintSize="450,287.3333333333333" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_20" InUiElement="[in_uieMainBrowser]" Result="[strBrowserAddress]" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
+                                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the current web address. If the &quot;Apply&quot; button activates correctly, the web address changes from &quot;../filter.m&quot; to &quot;../applyfilter.m&quot;" Attribute="text" DisplayName="Get Attribute - Web Address" sap:VirtualizedContainerService.HintSize="450,278" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_20" InUiElement="[in_uieMainBrowser]" Result="[strBrowserAddress]" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
                                     <uix:NGetAttributeGeneric.Target>
                                       <uix:TargetAnchorable CVScreenId="c7fd0985-1bb6-402d-82a9-33f613011eae" CvElementArea="230, 66, 1159, 50" CvType="InputBox" DesignTimeRectangle="294, 71, 1026, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl name='Address and search bar' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl name='Address and search bar' role='editable text' automationid='' /&gt;" Guid="35bfb97e-08de-404d-a77d-f36eab01298a" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Medical Readiness Reporting System - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                         <uix:TargetAnchorable.Anchors>
@@ -1457,29 +1455,16 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </uix:NGetAttributeGeneric>
-                                  <Assign sap2010:Annotation.AnnotationText="Determine if the page needs to be reloaded.&#xD;&#xA;&#xD;&#xA;If the web address contains &quot;applyfilter&quot;, the &quot;Apply&quot; button worked successfully and the page does not need to be reloaded. Otherwise it will need to be refreshed." DisplayName="Assign - boolPageNeedsToBeReloaded" sap:VirtualizedContainerService.HintSize="450,203.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_8">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:Boolean">[boolPageNeedsToBeReloaded]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:Boolean">[Not strBrowserAddress.Contains("applyfilter")]</InArgument>
-                                    </Assign.Value>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </Assign>
                                 </Sequence>
                               </ActivityAction>
                             </ui:RetryScope.ActivityBody>
                             <ui:RetryScope.Condition>
                               <ActivityFunc x:TypeArguments="x:Boolean">
-                                <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[boolPageNeedsToBeReloaded]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+                                <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[Not strBrowserAddress.Contains(&quot;applyfilter&quot;)]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckTrue_1" Result="[boolPageNeedsToBeReloaded]" />
                               </ActivityFunc>
                             </ui:RetryScope.Condition>
                           </ui:RetryScope>
-                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="526,507.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="526,504.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                             <TryCatch.Try>
                               <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click on Sailor name, based on same criteria used to determine if the search succeeded." ClickType="Single" DisplayName="Click - Sailor Name" sap:VirtualizedContainerService.HintSize="334,242.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
                                 <uix:NClick.Target>
