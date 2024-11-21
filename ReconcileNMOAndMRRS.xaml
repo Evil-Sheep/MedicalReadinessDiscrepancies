@@ -1290,12 +1290,13 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,2931.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,4296" sap2010:WorkflowViewState.IdRef="Sequence_25">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                             <Variable x:TypeArguments="x:String" Name="strLastName" />
                             <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
                             <Variable x:TypeArguments="x:String" Name="strBrowserAddress" />
+                            <Variable x:TypeArguments="x:Boolean" Name="boolPageLoadedCorrectly" />
                           </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1464,7 +1465,97 @@
                               </ActivityFunc>
                             </ui:RetryScope.Condition>
                           </ui:RetryScope>
-                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="526,504.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                          <Assign sap:VirtualizedContainerService.HintSize="526,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[boolPageLoadedCorrectly]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="526,1253.3333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3">
+                            <ui:RetryScope.ActivityBody>
+                              <ActivityAction>
+                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="484,927.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_78">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If Condition="[Not boolPageLoadedCorrectly]" sap:VirtualizedContainerService.HintSize="450,662" sap2010:WorkflowViewState.IdRef="If_15">
+                                    <If.Then>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,399.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="382,57.333333333333336" sap2010:WorkflowViewState.IdRef="RefreshBrowser_2" />
+                                        <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Refreshing the page here requires resubmitting the search information, so this is to click the &quot;Continue&quot; button on the &quot;Resubmit the form?&quot; error message" ClickType="Single" DisplayName="Click - 'Continue'" sap:VirtualizedContainerService.HintSize="382,282" sap2010:WorkflowViewState.IdRef="NClick_19" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable CVScreenId="9873eeeb-656d-4a70-9875-046abb5e6844" CvElementArea="1023, 285, 126, 52" CvTextArea="1046, 300, 79, 18" CvTextArgument="Continue" CvType="Button" DesignTimeRectangle="1025, 287, 123, 48" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' automationid='' check:fulltext='Continue' /&gt;" Guid="b4731766-0504-4681-b3ea-4f10cfbc1eab" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='mrrs.dc3n.navy.mil - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                  <uix:Target DesignTimeRectangle="635, 117, 672, 242" FullSelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' automationid='' check:fulltext='Resubmit the form?&amp;#xD;&amp;#xA;The page you&amp;apos;re looking for used information that you entered. Returning to that page might trigger a repetition of any action you took there. Do you want to continue?&amp;#xD;&amp;#xA;Continue&amp;#xD;&amp;#xA;Cancel' /&gt;" Guid="6afd5537-756c-4db0-a9bb-213b388ad411" SearchSteps="Selector, FuzzySelector" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NClick.Target>
+                                          <uix:NClick.VerifyOptions>
+                                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                              <uix:VerifyExecutionOptions.Retry>
+                                                <InArgument x:TypeArguments="x:Boolean" />
+                                              </uix:VerifyExecutionOptions.Retry>
+                                              <uix:VerifyExecutionOptions.Timeout>
+                                                <InArgument x:TypeArguments="x:Double" />
+                                              </uix:VerifyExecutionOptions.Timeout>
+                                            </uix:VerifyExecutionOptions>
+                                          </uix:NClick.VerifyOptions>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NClick>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                  <ui:UiElementExists sap2010:Annotation.AnnotationText="Checks for the Menu button at the top of the page.&#xD;&#xA;&#xD;&#xA;If it exists, the page loaded fine and doesn't need to be reloaded. If it doesn't exist, the page errored and needs to be refreshed." DisplayName="Element Exists - Menu button" Exists="[boolPageLoadedCorrectly]" sap:VirtualizedContainerService.HintSize="450,205.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                                    <ui:UiElementExists.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0ff9f3eb-7ada-4e9f-9bd2-77e23bff97ed" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='Home' tableRow='1' tag='DIV' /&gt;">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:UiElementExists.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:UiElementExists>
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:RetryScope.ActivityBody>
+                            <ui:RetryScope.Condition>
+                              <ActivityFunc x:TypeArguments="x:Boolean">
+                                <ui:CheckFalse ErrorMessage="{x:Null}" DisplayName="Check False" Expression="[boolPageLoadedCorrectly]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckFalse_1" />
+                              </ActivityFunc>
+                            </ui:RetryScope.Condition>
+                          </ui:RetryScope>
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="526,498.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                             <TryCatch.Try>
                               <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click on Sailor name, based on same criteria used to determine if the search succeeded." ClickType="Single" DisplayName="Click - Sailor Name" sap:VirtualizedContainerService.HintSize="334,242.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
                                 <uix:NClick.Target>
@@ -1494,10 +1585,10 @@
                               </uix:NClick>
                             </TryCatch.Try>
                             <TryCatch.Catches>
-                              <Catch x:TypeArguments="uue:NodeNotFoundException" sap:VirtualizedContainerService.HintSize="400,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                              <Catch x:TypeArguments="uue:NodeNotFoundException" sap:VirtualizedContainerService.HintSize="422,304" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -1505,14 +1596,14 @@
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="uue:NodeNotFoundException" Name="exception" />
                                   </ActivityAction.Argument>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="416,237.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="416,232" sap2010:WorkflowViewState.IdRef="Sequence_57">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,124" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: Sailor not found locally in MRRS&quot;]" />
-                                    <ui:Continue sap:VirtualizedContainerService.HintSize="382,50.666666666666664" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                                    <ui:Continue sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Continue_1" />
                                   </Sequence>
                                 </ActivityAction>
                               </Catch>
