@@ -41,6 +41,7 @@
       <x:String>System.Net.Mail</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -122,15 +123,16 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="597.9999999999999,1526" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap:VirtualizedContainerService.HintSize="594.6666666666666,1523.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="484,1503.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="484,1500.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,13 +140,16 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="450,1420.6666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="450,1418" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1213.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1210.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
+              </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -225,7 +230,7 @@
                   </uix:VerifyExecutionOptions>
                 </uix:NHover.VerifyOptions>
               </uix:NHover>
-              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'Comprehensive Medical Entry' option to enter search page for looking up medical information of individual Sailors." ClickType="Single" DisplayName="Click 'Comprehensive Medical E…'" sap:VirtualizedContainerService.HintSize="382,284.6666666666667" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'Comprehensive Medical Entry' option to enter search page for looking up medical information of individual Sailors." ClickType="Single" DisplayName="Click 'Comprehensive Medical E…'" sap:VirtualizedContainerService.HintSize="382,282" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="6e7e3d89-7f0c-4324-9e8d-602800d34709" CvTextArea="156, 413, 243, 22" CvTextArgument="Comprehensive Medical Entry" CvType="Text" DesignTimeRectangle="144, 408, 338, 31" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='MEDICAL_ENTRY_1' tableRow='1' tag='DIV' aaname='Comprehensive Medical Entry' /&gt;" Guid="820062d7-df31-4c97-ae34-aae6453570a8" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>

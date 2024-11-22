@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Click 'Continue'",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "dNUQn4tGVUGEQ2fSyBTyyw",
+  "Reference": "g_j_fYTbaEKkplU0mkdm6Q/dNUQn4tGVUGEQ2fSyBTyyw",
+  "ParentRef": "g_j_fYTbaEKkplU0mkdm6Q/q63W2N9UDkyVYlC5GyAAGw",
+  "Created": "2024-11-22T22:32:52.3361673Z",
+  "Updated": "2024-11-22T22:32:52.3361673Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
