@@ -209,19 +209,19 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2015.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2238.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,1955.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,2178.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522.6666666666666,1748" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522.6666666666666,1971.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_37">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strPHADate" />
                               </Sequence.Variables>
@@ -272,7 +272,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NGetAttributeGeneric>
-                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="488.6666666666667,1151.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="488.6666666666667,1374.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                 <TryCatch.Variables>
                                   <Variable x:TypeArguments="s:DateTime" Name="datetimePHADate" />
                                 </TryCatch.Variables>
@@ -320,7 +320,7 @@
                                   </Catch>
                                 </TryCatch.Catches>
                                 <TryCatch.Finally>
-                                  <If sap2010:Annotation.AnnotationText="Checks if PHA is out of date.&#xA;&#xA;Calculated the number of days between the date in the &quot;PHA Date:&quot; text box and today's date, and if that value is less than 335 (one year, minus one month), then their PHA is current and they should have their information in NMO updated to reflect that." Condition="[(DateTime.Now.Date - datetimePHADate).TotalDays &lt; 335]" DisplayName="If - PHA not out of Date" sap:VirtualizedContainerService.HintSize="450,824.6666666666666" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If sap2010:Annotation.AnnotationText="Checks if PHA is out of date.&#xA;&#xA;Calculated the number of days between the date in the &quot;PHA Date:&quot; text box and today's date, and if that value is less than 335 (one year, minus one month), then their PHA is current and they should have their information in NMO updated to reflect that." Condition="[(DateTime.Now.Date - datetimePHADate).TotalDays &lt; 335]" DisplayName="If - PHA not out of Date" sap:VirtualizedContainerService.HintSize="450,1048" sap2010:WorkflowViewState.IdRef="If_5">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -338,12 +338,13 @@
                                       </Sequence>
                                     </If.Then>
                                     <If.Else>
-                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,398" sap2010:WorkflowViewState.IdRef="Sequence_39">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Check physical record for unrecorded PHA&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - PHA into dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA also out of date in MRRS&quot;]" TextWriter="{x:Null}" />
                                       </Sequence>
                                     </If.Else>
