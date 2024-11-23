@@ -176,7 +176,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="611.3333333333333,411.37333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="611.3333333333334,411.37333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -385,7 +385,7 @@
                                 <av:PointCollection x:Key="ConnectorLocation">190,405 190,435 60,435 60,460</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="620,3154" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                            <Sequence DisplayName="Sequence - Get DNA Data" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_41">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -587,19 +587,19 @@
                                         <av:PointCollection x:Key="ConnectorLocation">190,525 190,555 60,555 60,580</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Sequence - Get G6PD and Sickle Cell Data" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                    <Sequence DisplayName="Sequence - Get G6PD and Sickle Cell Data" sap:VirtualizedContainerService.HintSize="672,3990.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="638,3391.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_12" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+                                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="638,3930.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_12" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
                                         <uix:NApplicationCard.Body>
                                           <ActivityAction x:TypeArguments="x:Object">
                                             <ActivityAction.Argument>
                                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                             </ActivityAction.Argument>
-                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,3184" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,3723.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_58">
                                               <Sequence.Variables>
                                                 <Variable x:TypeArguments="x:String" Name="strG6PDDate" />
                                                 <Variable x:TypeArguments="x:String" Name="strSCTDate" />
@@ -651,24 +651,31 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </uix:NGetAttributeGeneric>
-                                              <If sap2010:Annotation.AnnotationText="Checks if G6PD date is null. If it is null, the information hasn't been entered into MRRS and cannot be corrected by this robot. If it is not null, get the G6PD results." Condition="[String.IsNullOrEmpty(strG6PDDate.ToString.Trim)]" DisplayName="If - G6PD Date is null" sap:VirtualizedContainerService.HintSize="570,1145.3333333333333" sap2010:WorkflowViewState.IdRef="If_9">
+                                              <If sap2010:Annotation.AnnotationText="Checks if G6PD date is null. If it is null, the information hasn't been entered into MRRS and cannot be corrected by this robot. If it is not null, get the G6PD results." Condition="[String.IsNullOrEmpty(strG6PDDate.ToString.Trim)]" DisplayName="If - G6PD Date is null" sap:VirtualizedContainerService.HintSize="570,1684.6666666666667" sap2010:WorkflowViewState.IdRef="If_9">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <If.Then>
-                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,460" sap2010:WorkflowViewState.IdRef="Sequence_61">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add missing G6PD to dtPossibleChanges (will need to check electronic medical record to get G6PD date and results)" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;G6PD&quot;, &quot;Get G6PD results from Genesis&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - Missing G6PD to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_6">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:AddDataRow>
                                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: G6PD not in MRRS.&quot;]" TextWriter="{x:Null}" />
                                                   </Sequence>
                                                 </If.Then>
                                                 <If.Else>
-                                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,753.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="536,1007.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_59">
                                                     <Sequence.Variables>
                                                       <Variable x:TypeArguments="x:String" Name="strG6PDResult" />
                                                     </Sequence.Variables>
@@ -688,18 +695,25 @@
                                                         </uix:TargetAnchorable>
                                                       </uix:NGetAttributeGeneric.Target>
                                                     </uix:NGetAttributeGeneric>
-                                                    <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="C:\Users\evils\Documents\Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,335.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_4" SensitivityLabel="{x:Null}" SensitivityOperation="None">
+                                                    <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="C:\Users\evils\Documents\Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,589.3333333333334" sap2010:WorkflowViewState.IdRef="WordApplicationScope_4" SensitivityLabel="{x:Null}" SensitivityOperation="None">
                                                       <p:WordApplicationScope.Body>
                                                         <ActivityAction x:TypeArguments="ui:WordDocument">
                                                           <ActivityAction.Argument>
                                                             <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
                                                           </ActivityAction.Argument>
-                                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,193.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,447.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_64">
                                                             <sap:WorkflowViewStateService.ViewState>
                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
+                                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add G6PD date and results to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;G6PD&quot;, strG6PDDate+&quot;: &quot;+strG6PDResult}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - G6PD Date and results to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="434,254" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ui:AddDataRow>
                                                             <p:WordAppendText DisplayName="Append Text" sap:VirtualizedContainerService.HintSize="434,133.33333333333334" sap2010:WorkflowViewState.IdRef="WordAppendText_4" Text="[CurrentRow(&quot;NAME&quot;).ToString+vbTab+CurrentRow(&quot;SSN&quot;).ToString+vbTab+&quot;G6PD&quot;+vbTab+strG6PDDate+&quot;: &quot;+strG6PDResult]" />
                                                           </Sequence>
                                                         </ActivityAction>
