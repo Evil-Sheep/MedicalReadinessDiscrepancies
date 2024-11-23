@@ -1336,14 +1336,7 @@
                           </Assign>
                           <ui:UiElementExists sap2010:Annotation.AnnotationText="Checks for the presence of the text &quot;ERR_CONNECTION_RESET&quot; indicating the page failed to load and needs to be refreshed." DisplayName="Element Exists - ERR_CONNECTION_RESET" Exists="[boolPageNeedsToBeReloaded]" sap:VirtualizedContainerService.HintSize="526,181.33333333333334" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                             <ui:UiElementExists.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8d45c2bd-9f01-47b9-a728-c31aa45f3777" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='mrrs.dc3n.navy.mil - Personal - Microsoft​ Edge' /&gt;&lt;ctrl name='ERR_CONNECTION_RESET' role='text' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8d45c2bd-9f01-47b9-a728-c31aa45f3777" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='mrrs.dc3n.navy.mil - Personal - Microsoft​ Edge' /&gt;&lt;ctrl name='ERR_CONNECTION_RESET' role='text' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
                             </ui:UiElementExists.Target>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
