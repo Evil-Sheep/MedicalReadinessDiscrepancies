@@ -775,7 +775,7 @@
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                     </ui:AddDataRow>
-                                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: G6PD information in MRRS&quot;]" TextWriter="{x:Null}" />
+                                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: SCT information in MRRS&quot;]" TextWriter="{x:Null}" />
                                                   </Sequence>
                                                 </If.Else>
                                               </If>
