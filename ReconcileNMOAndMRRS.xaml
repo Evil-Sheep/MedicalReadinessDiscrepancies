@@ -587,19 +587,19 @@
                                         <av:PointCollection x:Key="ConnectorLocation">190,525 190,555 60,555 60,580</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Sequence - Get G6PD and Sickle Cell Data" sap:VirtualizedContainerService.HintSize="672,3990.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                    <Sequence DisplayName="Sequence - Get G6PD and Sickle Cell Data" sap:VirtualizedContainerService.HintSize="672,4276" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="638,3930.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_12" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+                                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="638,4216" sap2010:WorkflowViewState.IdRef="NApplicationCard_12" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
                                         <uix:NApplicationCard.Body>
                                           <ActivityAction x:TypeArguments="x:Object">
                                             <ActivityAction.Argument>
                                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                             </ActivityAction.Argument>
-                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,3723.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,4008.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_58">
                                               <Sequence.Variables>
                                                 <Variable x:TypeArguments="x:String" Name="strG6PDDate" />
                                                 <Variable x:TypeArguments="x:String" Name="strSCTDate" />
@@ -739,19 +739,26 @@
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                               </uix:NGetAttributeGeneric>
-                                              <If sap2010:Annotation.AnnotationText="Checks if Sickle Cell date is null. If it is null, the information hasn't been entered into MRRS and cannot be corrected by this robot. If it is not null, get the Sickle Cell results." Condition="[String.IsNullOrEmpty(strSCTDate.ToString.Trim)]" DisplayName="If - Sickle Cell Date is null" sap:VirtualizedContainerService.HintSize="570,1138.6666666666667" sap2010:WorkflowViewState.IdRef="If_11">
+                                              <If sap2010:Annotation.AnnotationText="Checks if Sickle Cell date is null. If it is null, the information hasn't been entered into MRRS and cannot be corrected by this robot. If it is not null, get the Sickle Cell results." Condition="[String.IsNullOrEmpty(strSCTDate.ToString.Trim)]" DisplayName="If - Sickle Cell Date is null" sap:VirtualizedContainerService.HintSize="570,1424" sap2010:WorkflowViewState.IdRef="If_11">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <If.Then>
-                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,460" sap2010:WorkflowViewState.IdRef="Sequence_66">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="The lack of Sickle Cell results usually means the results haven't been moved from the Sailor's electronic medical record." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;Sickle Cell&quot;, &quot;Get SCT results from Genesis&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - Add Sickle Cell to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:AddDataRow>
                                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: Sickle Cell not in MRRS.&quot;]" TextWriter="{x:Null}" />
                                                   </Sequence>
                                                 </If.Then>
