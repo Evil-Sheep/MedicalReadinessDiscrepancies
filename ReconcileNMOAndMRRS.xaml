@@ -209,19 +209,19 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2015.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="540.6666666666666,1216" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,1955.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="506.6666666666667,1008.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522.6666666666666,1748" sap2010:WorkflowViewState.IdRef="Sequence_37">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strPHADate" />
                               </Sequence.Variables>
@@ -230,7 +230,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" sap2010:Annotation.AnnotationText="PHA data is under the &quot;Exams&quot; tab." ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click 'Exams'" sap:VirtualizedContainerService.HintSize="472.6666666666667,260" sap2010:WorkflowViewState.IdRef="NClick_13" InScope="{x:Null}" InUiElement="{x:Null}" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
+                              <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" sap2010:Annotation.AnnotationText="PHA data is under the &quot;Exams&quot; tab." ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click 'Exams'" sap:VirtualizedContainerService.HintSize="488.6666666666667,260" sap2010:WorkflowViewState.IdRef="NClick_13" InScope="{x:Null}" InUiElement="{x:Null}" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="85c85ee2-10d5-4022-984e-1aac6248bb41" CvElementArea="888, 432, 111, 40" CvTextArea="914, 443, 60, 18" CvTextArgument="Exams" CvType="Button" DesignTimeRectangle="890, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='bodydiv' tag='TABLE' /&gt;&lt;webctrl id='tab9' type='' tag='TD' class='tab70x24' aaname='Exams' check:innerText='Exams' /&gt;" Guid="ce890ad8-2a06-4da6-b57e-8d0936745c92" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -256,7 +256,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
-                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;PHA Date:&quot; text box." Attribute="text" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Attribute 'PHA Date'" sap:VirtualizedContainerService.HintSize="472.6666666666667,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" Result="[strPHADate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
+                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;PHA Date:&quot; text box." Attribute="text" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Attribute 'PHA Date'" sap:VirtualizedContainerService.HintSize="488.6666666666667,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" Result="[strPHADate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
                                 <uix:NGetAttributeGeneric.Target>
                                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="487f84a0-e392-4e4a-8ba6-2a315b5cffde" CvElementArea="785, 595, 149, 29" CvType="InputBox" DesignTimeRectangle="786, 596, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl parentid='box9' tag='TABLE' /&gt;&lt;webctrl id='pha_dt' type='text' tag='INPUT' class='inputdate' aaname='' /&gt;" Guid="dbd7e6ed-a2ec-4e76-ac9d-5cd68c9e24d0" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -272,7 +272,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NGetAttributeGeneric>
-                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="472.6666666666667,412" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="488.6666666666667,1151.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                 <TryCatch.Variables>
                                   <Variable x:TypeArguments="s:DateTime" Name="datetimePHADate" />
                                 </TryCatch.Variables>
@@ -292,7 +292,7 @@
                                   </Assign>
                                 </TryCatch.Try>
                                 <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:FormatException" sap:VirtualizedContainerService.HintSize="438.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                  <Catch x:TypeArguments="s:FormatException" sap:VirtualizedContainerService.HintSize="454.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -303,7 +303,7 @@
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="s:FormatException" Name="exception" />
                                       </ActivityAction.Argument>
-                                      <Assign sap2010:Annotation.AnnotationText="Sets datetimePHADate as 01-Jan-1900" DisplayName="Assign - strPHADate" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                      <Assign sap2010:Annotation.AnnotationText="Sets datetimePHADate as 01-Jan-1900" DisplayName="Assign - strPHADate" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_4">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="s:DateTime">[datetimePHADate]</OutArgument>
                                         </Assign.To>
@@ -320,37 +320,21 @@
                                   </Catch>
                                 </TryCatch.Catches>
                                 <TryCatch.Finally>
-                                  <If sap2010:Annotation.AnnotationText="Checks if PHA is out of date.&#xA;&#xA;Calculated the number of days between the date in the &quot;PHA Date:&quot; text box and today's date, and if that value is less than 335 (one year, minus one month), then their PHA is current and they should have their information in NMO updated to reflect that." Condition="[(DateTime.Now.Date - datetimePHADate).TotalDays &lt; 335]" DisplayName="If - PHA not out of Date" sap:VirtualizedContainerService.HintSize="570,920" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If sap2010:Annotation.AnnotationText="Checks if PHA is out of date.&#xA;&#xA;Calculated the number of days between the date in the &quot;PHA Date:&quot; text box and today's date, and if that value is less than 335 (one year, minus one month), then their PHA is current and they should have their information in NMO updated to reflect that." Condition="[(DateTime.Now.Date - datetimePHADate).TotalDays &lt; 335]" DisplayName="If - PHA not out of Date" sap:VirtualizedContainerService.HintSize="450,824.6666666666666" sap2010:WorkflowViewState.IdRef="If_5">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <If.Then>
-                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="536,510" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,398" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="C:\Users\evils\Documents\Readiness Updates.docx" sap:VirtualizedContainerService.HintSize="502,335.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityLabel="{x:Null}" SensitivityOperation="None">
-                                          <p:WordApplicationScope.Body>
-                                            <ActivityAction x:TypeArguments="ui:WordDocument">
-                                              <ActivityAction.Argument>
-                                                <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
-                                              </ActivityAction.Argument>
-                                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,193.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
-                                                <sap:WorkflowViewStateService.ViewState>
-                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                  </scg:Dictionary>
-                                                </sap:WorkflowViewStateService.ViewState>
-                                                <p:WordAppendText DisplayName="Append Text" sap:VirtualizedContainerService.HintSize="434,133.33333333333334" sap2010:WorkflowViewState.IdRef="WordAppendText_1" Text="[CurrentRow(&quot;NAME&quot;).ToString+vbTab+CurrentRow(&quot;SSN&quot;).ToString+vbTab+&quot;PHA&quot;+vbTab+strPHADate]" />
-                                              </Sequence>
-                                            </ActivityAction>
-                                          </p:WordApplicationScope.Body>
-                                        </p:WordApplicationScope>
-                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="502,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" TextWriter="{x:Null}" />
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Update to &quot;+strPHADate}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - PHA into dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" TextWriter="{x:Null}" />
                                       </Sequence>
                                     </If.Then>
                                     <If.Else>
