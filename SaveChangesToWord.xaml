@@ -110,77 +110,32 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SaveChangesToWord" sap:VirtualizedContainerService.HintSize="604,1292.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SaveChangesToWord" sap:VirtualizedContainerService.HintSize="604,2028.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Takes the two argument DataTables (in_dtImmediateChanges and in_dtPossibleChanges) and saves them to a template word file as a report of the robot's findings." DisplayName="Sequence - Save Changes to Word" sap:VirtualizedContainerService.HintSize="604,1270" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="Takes the two argument DataTables (in_dtImmediateChanges and in_dtPossibleChanges) and saves them to a template word file as a report of the robot's findings." DisplayName="Sequence - Save Changes to Word" sap:VirtualizedContainerService.HintSize="604,2006" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <p:WordApplicationScope SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Opens the &quot;Readiness Updates - TEMPLATE.docx&quot; file for inputting the findings of reconciling NMO and MRRS." DisplayName="Word Application Scope - Readiness Updates - TEMPLATE.docx" FilePath="C:\Users\evils\Documents\Readiness Updates - TEMPLATE.docx" sap:VirtualizedContainerService.HintSize="570,1142" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityOperation="None">
+      <p:WordApplicationScope SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Opens the &quot;Readiness Updates - TEMPLATE.docx&quot; file for inputting the findings of reconciling NMO and MRRS." DisplayName="Word Application Scope - Readiness Updates - TEMPLATE.docx" FilePath="C:\Users\evils\Documents\Readiness Updates - TEMPLATE.docx" sap:VirtualizedContainerService.HintSize="570,1878" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityOperation="None">
         <p:WordApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WordDocument">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do - Readiness Updates - TEMPLATE.docx" sap:VirtualizedContainerService.HintSize="536,964" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Do - Readiness Updates - TEMPLATE.docx" sap:VirtualizedContainerService.HintSize="536,1700" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtImmediateChanges and adds them to the first page of the file." DataTable="[in_dtImmediateChanges]" DisplayName="For Each Row in Data Table - in_dtImmediateChanges" sap:VirtualizedContainerService.HintSize="502,698.6666666666666" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-                <ui:ForEachRow.Body>
-                  <ActivityAction x:TypeArguments="sd:DataRow">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,453.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Hit Down key two times to move onto the first bullet on the first page." DisplayName="Type Into - Down key x2" sap:VirtualizedContainerService.HintSize="434,214.66666666666666" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="%[k(down)][k(down)]">
-                        <ui:TypeInto.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3bfaae82-b86a-4499-b301-6a1b5d01ec52">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:TypeInto.Target>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:TypeInto>
-                      <p:WordAppendText sap2010:Annotation.AnnotationText="Adds all information (tab-separated) on the current line of the file and adds a new line to the end." DisplayName="Append Text - CurrentRow Delinquency" sap:VirtualizedContainerService.HintSize="434,178.66666666666666" sap2010:WorkflowViewState.IdRef="WordAppendText_1" NewLine="False" Text="[CurrentRow(&quot;SailorName&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;Last4SSN&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;Delinquency&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;NewValue&quot;).ToString+&#xD;&#xA;vbNewLine]">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </p:WordAppendText>
-                    </Sequence>
-                  </ActivityAction>
-                </ui:ForEachRow.Body>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:ForEachRow>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Hit Down key four times to move cursor at bottom of file." DisplayName="Type Into - Down key x4" sap:VirtualizedContainerService.HintSize="502,205.33333333333334" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="%[k(down)][k(down)][k(down)][k(down)]">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Hit Down key two times to move onto the first bullet on the first page." DisplayName="Type Into - Down key x2" sap:VirtualizedContainerService.HintSize="502,214.66666666666666" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="%[k(down)][k(down)]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3bfaae82-b86a-4499-b301-6a1b5d01ec52">
                     <ui:Target.TimeoutMS>
@@ -197,6 +152,86 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:TypeInto>
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtImmediateChanges and adds them to the first page of the file." DataTable="[in_dtImmediateChanges]" DisplayName="For Each Row in Data Table - in_dtImmediateChanges" sap:VirtualizedContainerService.HintSize="502,484" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,238.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:WordAppendText sap2010:Annotation.AnnotationText="Adds all information (tab-separated) on the current line of the file and adds a new line to the end." DisplayName="Append Text - CurrentRow Delinquency" sap:VirtualizedContainerService.HintSize="434,178.66666666666666" sap2010:WorkflowViewState.IdRef="WordAppendText_1" NewLine="False" Text="[CurrentRow(&quot;SailorName&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;Last4SSN&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;Delinquency&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;NewValue&quot;).ToString+&#xD;&#xA;vbNewLine]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </p:WordAppendText>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Hit Down key four times to move cursor at bottom of file." DisplayName="Type Into - Down key x4" sap:VirtualizedContainerService.HintSize="502,214.66666666666666" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="%[k(down)][k(down)][k(down)][k(down)]">
+                <ui:TypeInto.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3bfaae82-b86a-4499-b301-6a1b5d01ec52">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:TypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:TypeInto>
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtPossibleChanges and adds them to the second page of the file." DataTable="[in_dtPossibleChanges]" DisplayName="For Each Row in Data Table - in_dtPossibleChanges" sap:VirtualizedContainerService.HintSize="502,484" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,238.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <p:WordAppendText sap2010:Annotation.AnnotationText="Adds all information (tab-separated) on the current line of the file and adds a new line to the end." DisplayName="Append Text - CurrentRow Delinquency" sap:VirtualizedContainerService.HintSize="434,178.66666666666666" sap2010:WorkflowViewState.IdRef="WordAppendText_2" NewLine="False" Text="[CurrentRow(&quot;SailorName&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;Last4SSN&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;Delinquency&quot;).ToString+&#xD;&#xA;vbTab+&#xD;&#xA;CurrentRow(&quot;ProposedFix&quot;).ToString+&#xD;&#xA;vbNewLine]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </p:WordAppendText>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <p:WordSaveAs sap2010:Annotation.AnnotationText="Saves the Template document as a new word document with today's date in file name." DisplayName="Save Document As - Readiness Updates" FilePath="[&quot;C:\Users\evils\Documents\Readiness Updates - &quot;+DateTime.Now.ToString(&quot;dd-MMM-yyyy&quot;)]" sap:VirtualizedContainerService.HintSize="502,242.66666666666666" sap2010:WorkflowViewState.IdRef="WordSaveAs_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </p:WordSaveAs>
             </Sequence>
           </ActivityAction>
         </p:WordApplicationScope.Body>
