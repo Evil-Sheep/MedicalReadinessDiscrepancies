@@ -2,6 +2,8 @@
   <x:Members>
     <x:Property Name="in_dtIMRProfileHitList" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_uieMainBrowser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="out_dtPossibleChanges" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_dtImmediateChanges" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -141,30 +143,26 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="668,1291.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_36">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dtImmediateChanges" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtPossibleChanges" />
-    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks any changes that can be changed immediately, such as PHA being out of date in NMO but current in MRRS." DataTable="[dtImmediateChanges]" DisplayName="Build Data Table - dtImmediateChanges" sap:VirtualizedContainerService.HintSize="668,154" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NewValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks any changes that can be changed immediately, such as PHA being out of date in NMO but current in MRRS." DataTable="[out_dtImmediateChanges]" DisplayName="Build Data Table - out_dtImmediateChanges" sap:VirtualizedContainerService.HintSize="668,154" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NewValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks changes that could be changed, but requires information or actions outside of NMO and MRRS, like contacting NBIMC to register DNA or checking Genesis for missing HIV labs" DataTable="[dtPossibleChanges]" DisplayName="Build Data Table - dtPossibleChanges" sap:VirtualizedContainerService.HintSize="668,170.66666666666666" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ProposedFix&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks changes that could be changed, but requires information or actions outside of NMO and MRRS, like contacting NBIMC to register DNA or checking Genesis for missing HIV labs" DataTable="[out_dtPossibleChanges]" DisplayName="Build Data Table - out_dtPossibleChanges" sap:VirtualizedContainerService.HintSize="668,170.66666666666666" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ProposedFix&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." CurrentIndex="{x:Null}" DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,921.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1" MaxIterations="{x:Null}" Values="{x:Null}">
+    <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." CurrentIndex="{x:Null}" DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,944" sap2010:WorkflowViewState.IdRef="ForEachRow_1" MaxIterations="{x:Null}" Values="{x:Null}">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -176,7 +174,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="611.3333333333334,411.37333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="600,648" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -215,13 +213,13 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="556.6666666666666,2178.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attaches to previously opened Edge browser. Should already have Sailor's MRRS data loaded after search in first step of flowchart." AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="540.6666666666666,1216" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
                         <uix:NApplicationCard.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522.6666666666666,1971.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="506.6666666666667,1008.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_37">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strPHADate" />
                               </Sequence.Variables>
@@ -230,7 +228,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" sap2010:Annotation.AnnotationText="PHA data is under the &quot;Exams&quot; tab." ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click 'Exams'" sap:VirtualizedContainerService.HintSize="488.6666666666667,260" sap2010:WorkflowViewState.IdRef="NClick_13" InScope="{x:Null}" InUiElement="{x:Null}" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
+                              <uix:NClick ActivateBefore="True" AlterIfDisabled="{x:Null}" sap2010:Annotation.AnnotationText="PHA data is under the &quot;Exams&quot; tab." ClickType="Single" ContinueOnError="{x:Null}" CursorMotionType="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Click 'Exams'" sap:VirtualizedContainerService.HintSize="472.6666666666667,260" sap2010:WorkflowViewState.IdRef="NClick_13" InScope="{x:Null}" InUiElement="{x:Null}" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" OutUiElement="{x:Null}" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="85c85ee2-10d5-4022-984e-1aac6248bb41" CvElementArea="888, 432, 111, 40" CvTextArea="914, 443, 60, 18" CvTextArgument="Exams" CvType="Button" DesignTimeRectangle="890, 433, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='bodydiv' tag='TABLE' /&gt;&lt;webctrl id='tab9' type='' tag='TD' class='tab70x24' aaname='Exams' check:innerText='Exams' /&gt;" Guid="ce890ad8-2a06-4da6-b57e-8d0936745c92" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -256,7 +254,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NClick>
-                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;PHA Date:&quot; text box." Attribute="text" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Attribute 'PHA Date'" sap:VirtualizedContainerService.HintSize="488.6666666666667,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" Result="[strPHADate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
+                              <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the default text data in &quot;PHA Date:&quot; text box." Attribute="text" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Get Attribute 'PHA Date'" sap:VirtualizedContainerService.HintSize="472.6666666666667,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" Result="[strPHADate]" ScopeIdentifier="883f7657-b0c4-4c23-a2fd-38d55cff0a7c" Timeout="{x:Null}" Version="V4">
                                 <uix:NGetAttributeGeneric.Target>
                                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="487f84a0-e392-4e4a-8ba6-2a315b5cffde" CvElementArea="785, 595, 149, 29" CvType="InputBox" DesignTimeRectangle="786, 596, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl parentid='box9' tag='TABLE' /&gt;&lt;webctrl id='pha_dt' type='text' tag='INPUT' class='inputdate' aaname='' /&gt;" Guid="dbd7e6ed-a2ec-4e76-ac9d-5cd68c9e24d0" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
@@ -272,7 +270,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </uix:NGetAttributeGeneric>
-                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="488.6666666666667,1374.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                              <TryCatch sap2010:Annotation.AnnotationText="If the PHA text box is empty, converting it to a DateTime will throw a FormatException. If that happens, set the MRRS PHA date as 01-Jan-1900 for further processing." DisplayName="Try Catch - Null PHA" sap:VirtualizedContainerService.HintSize="472.6666666666667,412" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                 <TryCatch.Variables>
                                   <Variable x:TypeArguments="s:DateTime" Name="datetimePHADate" />
                                 </TryCatch.Variables>
@@ -292,7 +290,7 @@
                                   </Assign>
                                 </TryCatch.Try>
                                 <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:FormatException" sap:VirtualizedContainerService.HintSize="454.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                  <Catch x:TypeArguments="s:FormatException" sap:VirtualizedContainerService.HintSize="438.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -303,7 +301,7 @@
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="s:FormatException" Name="exception" />
                                       </ActivityAction.Argument>
-                                      <Assign sap2010:Annotation.AnnotationText="Sets datetimePHADate as 01-Jan-1900" DisplayName="Assign - strPHADate" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                      <Assign sap2010:Annotation.AnnotationText="Sets datetimePHADate as 01-Jan-1900" DisplayName="Assign - strPHADate" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="s:DateTime">[datetimePHADate]</OutArgument>
                                         </Assign.To>
@@ -333,7 +331,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Update to &quot;+strPHADate}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - PHA into dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Update to &quot;+strPHADate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - PHA into dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" TextWriter="{x:Null}" />
                                       </Sequence>
                                     </If.Then>
@@ -344,7 +342,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Check physical record for unrecorded PHA&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - PHA into dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Check physical record for unrecorded PHA&quot;}]" DataTable="[out_dtPossibleChanges]" DisplayName="Add Data Row - PHA into dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA also out of date in MRRS&quot;]" TextWriter="{x:Null}" />
                                       </Sequence>
                                     </If.Else>
@@ -464,7 +462,7 @@
                                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="DNA is typically drawn during boot camp, meaning if there's no registration date, it didn't get processed by AFMES and they will need to be contacted to determine what happened." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA&quot;, &quot;Contact AFMES about missing DNA&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - Missing DNA to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,302" sap2010:WorkflowViewState.IdRef="AddDataRow_3">
+                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="DNA is typically drawn during boot camp, meaning if there's no registration date, it didn't get processed by AFMES and they will need to be contacted to determine what happened." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA&quot;, &quot;Contact AFMES about missing DNA&quot;}]" DataTable="[out_dtPossibleChanges]" DisplayName="Add Data Row - Missing DNA to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,302" sap2010:WorkflowViewState.IdRef="AddDataRow_3">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -537,14 +535,14 @@
                                                 </Sequence>
                                               </If.Else>
                                             </If>
-                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add the &quot;DNA Sent Date&quot; to dtImmediateChanges." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA Sent Date&quot;, strDNASentDate}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - DNA Sent Date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="450,254" sap2010:WorkflowViewState.IdRef="AddDataRow_4">
+                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add the &quot;DNA Sent Date&quot; to dtImmediateChanges." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA Sent Date&quot;, strDNASentDate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - DNA Sent Date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="450,254" sap2010:WorkflowViewState.IdRef="AddDataRow_4">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:AddDataRow>
-                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add the &quot;DNA Registration Date&quot; to dtImmediateChanges." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA Registration Date&quot;, strDNARegistrationDate}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - DNA Registration Date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="450,268.6666666666667" sap2010:WorkflowViewState.IdRef="AddDataRow_5">
+                                            <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add the &quot;DNA Registration Date&quot; to dtImmediateChanges." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;DNA Registration Date&quot;, strDNARegistrationDate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - DNA Registration Date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="450,268.6666666666667" sap2010:WorkflowViewState.IdRef="AddDataRow_5">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -666,7 +664,7 @@
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add missing G6PD to dtPossibleChanges (will need to check electronic medical record to get G6PD date and results)" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;G6PD&quot;, &quot;Get G6PD results from Genesis&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - Missing G6PD to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_6">
+                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add missing G6PD to dtPossibleChanges (will need to check electronic medical record to get G6PD date and results)" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;G6PD&quot;, &quot;Get G6PD results from Genesis&quot;}]" DataTable="[out_dtPossibleChanges]" DisplayName="Add Data Row - Missing G6PD to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_6">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -697,7 +695,7 @@
                                                         </uix:TargetAnchorable>
                                                       </uix:NGetAttributeGeneric.Target>
                                                     </uix:NGetAttributeGeneric>
-                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add G6PD date and results to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;G6PD&quot;, strG6PDDate+&quot;: &quot;+strG6PDResult}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - G6PD Date and results to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,254" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
+                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add G6PD date and results to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;G6PD&quot;, strG6PDDate+&quot;: &quot;+strG6PDResult}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - G6PD Date and results to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,254" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -737,7 +735,7 @@
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="The lack of Sickle Cell results usually means the results haven't been moved from the Sailor's electronic medical record." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;Sickle Cell&quot;, &quot;Get SCT results from Genesis&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - Add Sickle Cell to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
+                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="The lack of Sickle Cell results usually means the results haven't been moved from the Sailor's electronic medical record." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;Sickle Cell&quot;, &quot;Get SCT results from Genesis&quot;}]" DataTable="[out_dtPossibleChanges]" DisplayName="Add Data Row - Add Sickle Cell to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_9">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -768,7 +766,7 @@
                                                         </uix:TargetAnchorable>
                                                       </uix:NGetAttributeGeneric.Target>
                                                     </uix:NGetAttributeGeneric>
-                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Sickle Cell date and results to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;SCT&quot;, strSCTDate+&quot;: &quot;+strSCTResult}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - Sickle Cell Date and results to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,268.6666666666667" sap2010:WorkflowViewState.IdRef="AddDataRow_10">
+                                                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Sickle Cell date and results to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;SCT&quot;, strSCTDate+&quot;: &quot;+strSCTResult}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - Sickle Cell Date and results to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,268.6666666666667" sap2010:WorkflowViewState.IdRef="AddDataRow_10">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -962,14 +960,14 @@
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                 </uix:NGetAttributeGeneric>
-                                                                <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add HIV drawn date to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;HIV Drawn Date&quot;, strHIVDrawnDate}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - HIV drawn date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,254" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
+                                                                <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add HIV drawn date to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;HIV Drawn Date&quot;, strHIVDrawnDate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - HIV drawn date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,254" sap2010:WorkflowViewState.IdRef="AddDataRow_12">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
                                                                 </ui:AddDataRow>
-                                                                <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add HIV result date to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;HIV Result Date&quot;, strHIVResultDate}]" DataTable="[dtImmediateChanges]" DisplayName="Add Data Row - HIV result date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,254" sap2010:WorkflowViewState.IdRef="AddDataRow_13">
+                                                                <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add HIV result date to dtImmediateChanges" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;HIV Result Date&quot;, strHIVResultDate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - HIV result date to dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,254" sap2010:WorkflowViewState.IdRef="AddDataRow_13">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -986,7 +984,7 @@
                                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                   </scg:Dictionary>
                                                                 </sap:WorkflowViewStateService.ViewState>
-                                                                <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="HIV may not be out of date, but can't be fixed by this robot. Would need to check electronic health record and, if current, contact NBIMC to correct." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;HIV&quot;, &quot;Check HIV dates in Genesis&quot;}]" DataTable="[dtPossibleChanges]" DisplayName="Add Data Row - HIV to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
+                                                                <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="HIV may not be out of date, but can't be fixed by this robot. Would need to check electronic health record and, if current, contact NBIMC to correct." ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;HIV&quot;, &quot;Check HIV dates in Genesis&quot;}]" DataTable="[out_dtPossibleChanges]" DisplayName="Add Data Row - HIV to dtPossibleChanges" sap:VirtualizedContainerService.HintSize="382,285.3333333333333" sap2010:WorkflowViewState.IdRef="AddDataRow_11">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -1282,7 +1280,7 @@
                     <av:PointCollection x:Key="ConnectorLocation">60,175 60,220</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="628,5389.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
