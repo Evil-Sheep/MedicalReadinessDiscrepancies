@@ -1282,20 +1282,20 @@
                     <av:PointCollection x:Key="ConnectorLocation">60,175 60,220</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="628,5177.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="628,5389.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge - Member Search" sap:VirtualizedContainerService.HintSize="594,5117.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+                  <uix:NApplicationCard AttachMode="ByInstance" CloseMode="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Application/Browser - Edge - Member Search" sap:VirtualizedContainerService.HintSize="594,5329.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[in_uieMainBrowser]" IsIncognito="{x:Null}" OpenMode="Never" OutUiElement="{x:Null}" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do - Member Search" sap:VirtualizedContainerService.HintSize="560,4955.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <Sequence DisplayName="Do - Member Search" sap:VirtualizedContainerService.HintSize="560,5167.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                             <Variable x:TypeArguments="x:String" Name="strLastName" />
@@ -1344,7 +1344,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:UiElementExists>
-                          <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope - Refresh Browser for ERR_CONNECTION_RESET" sap:VirtualizedContainerService.HintSize="526,2134.6666666666665" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="{x:Null}">
+                          <ui:RetryScope ContinueOnError="{x:Null}" DisplayName="Retry Scope - Refresh Browser for ERR_CONNECTION_RESET" sap:VirtualizedContainerService.HintSize="526,2346.6666666666665" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="{x:Null}">
                             <ui:RetryScope.ActivityBody>
                               <ActivityAction>
                                 <Sequence DisplayName="Action - Refresh Browser for ERR_CONNECTION_RESET" sap:VirtualizedContainerService.HintSize="484,1808.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_77">
@@ -1489,7 +1489,13 @@
                             </ui:RetryScope.ActivityBody>
                             <ui:RetryScope.Condition>
                               <ActivityFunc x:TypeArguments="x:Boolean">
-                                <ui:CheckTrue DisplayName="Check True" ErrorMessage="{x:Null}" Expression="[Not strBrowserAddress.Contains(&quot;applyfilter&quot;)]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckTrue_1" Result="[boolPageNeedsToBeReloaded]" />
+                                <ui:CheckFalse ErrorMessage="{x:Null}" sap2010:Annotation.AnnotationText="Checks if the browser URL changed after hitting &quot;Apply&quot; button&#xD;&#xA;&#xD;&#xA;If URL contains &quot;applyfilter&quot; text, &quot;Apply&quot; button activated properly and page does not need to be reloaded.&#xD;&#xA;If URL does not contain &quot;applyfilter&quot;, &quot;Apply&quot; button functionality didn't load when page loaded and page needs to be refreshed to restore functionality.&#xD;&#xA;&#xD;&#xA;This activity's result is stored into boolPageNeedsToBeReloaded to flag need for refresh." DisplayName="Check False - Browser URL Change after search" Expression="[strBrowserAddress.Contains(&quot;applyfilter&quot;)]" sap:VirtualizedContainerService.HintSize="334,344" sap2010:WorkflowViewState.IdRef="CheckFalse_3" Result="[boolPageNeedsToBeReloaded]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:CheckFalse>
                               </ActivityFunc>
                             </ui:RetryScope.Condition>
                             <sap:WorkflowViewStateService.ViewState>
