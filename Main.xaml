@@ -133,7 +133,7 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="593.9999999999999,2083.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="593.9999999999999,2260.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strBeginReconciliationMessageChoice" />
     </Sequence.Variables>
@@ -149,14 +149,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="450,1880" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="450,2057.3333333333335" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1472" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1649.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileHitList" />
             <Variable x:TypeArguments="ui:UiElement" Name="uieMainBrowser" />
@@ -208,7 +208,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="382,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="382,239.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtIMRProfileHitList]</InArgument>
               <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
@@ -220,6 +220,12 @@
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveChangesToWord - Invoke Workflow File (SaveChangesToWord.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SaveChangesToWord.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtImmediateChanges">[dtImmediateChanges]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPossibleChanges">[dtPossibleChanges]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
         </Sequence>
       </If.Then>
