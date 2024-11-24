@@ -49,6 +49,7 @@
       <x:String>UiPath.UIAutomationNext.Activities</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -114,6 +115,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="SaveChangesToWord" sap:VirtualizedContainerService.HintSize="604,1814" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -129,7 +131,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <p:WordApplicationScope sap2010:Annotation.AnnotationText="Opens the &quot;Readiness Updates - TEMPLATE.docx&quot; file for inputting the findings of reconciling NMO and MRRS." DisplayName="Word Application Scope - Readiness Updates - TEMPLATE.docx" FilePath="C:\Users\evils\Documents\Readiness Updates - TEMPLATE.docx" sap:VirtualizedContainerService.HintSize="570,1663.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityLabel="{x:Null}" SensitivityOperation="None">
+      <p:WordApplicationScope SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Opens the &quot;Readiness Updates - TEMPLATE.docx&quot; file for inputting the findings of reconciling NMO and MRRS." DisplayName="Word Application Scope - Readiness Updates - TEMPLATE.docx" FilePath="C:\Users\evils\Documents\Readiness Updates - TEMPLATE.docx" sap:VirtualizedContainerService.HintSize="570,1663.3333333333333" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1" SensitivityOperation="None">
         <p:WordApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WordDocument">
             <ActivityAction.Argument>
@@ -141,7 +143,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtImmediateChanges and adds them to the first page of the file." CurrentIndex="{x:Null}" DataTable="[in_dtImmediateChanges]" DisplayName="For Each Row in Data Table - in_dtImmediateChanges" sap:VirtualizedContainerService.HintSize="502,484" sap2010:WorkflowViewState.IdRef="ForEachRow_1" MaxIterations="{x:Null}" Values="{x:Null}">
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtImmediateChanges and adds them to the first page of the file." DataTable="[in_dtImmediateChanges]" DisplayName="For Each Row in Data Table - in_dtImmediateChanges" sap:VirtualizedContainerService.HintSize="502,484" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>
@@ -169,7 +171,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ForEachRow>
-              <ui:TypeInto Activate="True" AlterIfDisabled="{x:Null}" sap2010:Annotation.AnnotationText="Hit Down key three times to move cursor at bottom of file." ClickBeforeTyping="{x:Null}" ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into - Down key x3" EmptyField="{x:Null}" sap:VirtualizedContainerService.HintSize="502,214.66666666666666" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Text="%[k(down)][k(down)][k(down)]">
+              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Inserts a page break to separate immediate fixes and possible fixes." DisplayName="Type Into - Page Break" sap:VirtualizedContainerService.HintSize="502,214.66666666666666" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[Chr(12)]">
                 <ui:TypeInto.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="3bfaae82-b86a-4499-b301-6a1b5d01ec52">
                     <ui:Target.TimeoutMS>
@@ -186,7 +188,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:TypeInto>
-              <ui:ForEachRow ColumnNames="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtPossibleChanges and adds them to the second page of the file." CurrentIndex="{x:Null}" DataTable="[in_dtPossibleChanges]" DisplayName="For Each Row in Data Table - in_dtPossibleChanges" sap:VirtualizedContainerService.HintSize="502,484" sap2010:WorkflowViewState.IdRef="ForEachRow_2" MaxIterations="{x:Null}" Values="{x:Null}">
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycles through each row in in_dtPossibleChanges and adds them to the second page of the file." DataTable="[in_dtPossibleChanges]" DisplayName="For Each Row in Data Table - in_dtPossibleChanges" sap:VirtualizedContainerService.HintSize="502,484" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                 <ui:ForEachRow.Body>
                   <ActivityAction x:TypeArguments="sd:DataRow">
                     <ActivityAction.Argument>
