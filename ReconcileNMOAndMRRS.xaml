@@ -167,7 +167,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,944" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,921.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -1285,20 +1285,20 @@
                     <av:PointCollection x:Key="ConnectorLocation">60,175 60,220</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="680,6188.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="558,2180.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge - Member Search" sap:VirtualizedContainerService.HintSize="646,6128.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge - Member Search" sap:VirtualizedContainerService.HintSize="524,2120.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="8d700678-8a23-4f16-bb92-096bca82daab" Version="V2">
                     <uix:NApplicationCard.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do - Member Search" sap:VirtualizedContainerService.HintSize="612,5966.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <Sequence DisplayName="Do - Member Search" sap:VirtualizedContainerService.HintSize="490,1958.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="ss:SecureString" Name="strLastFour" />
                             <Variable x:TypeArguments="x:String" Name="strLastName" />
@@ -1312,20 +1312,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign sap2010:Annotation.AnnotationText="By default, the browser does not need to be reloaded." DisplayName="Assign - boolPageNeedsToBeReloaded" sap:VirtualizedContainerService.HintSize="578,148" sap2010:WorkflowViewState.IdRef="Assign_11">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Boolean">[boolPageNeedsToBeReloaded]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-                            </Assign.Value>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </Assign>
-                          <Assign sap2010:Annotation.AnnotationText="Split the last four characters off the &quot;SSN&quot; field, removing the &quot;xxx-xx-&quot; portion and leaving only the four numbers." DisplayName="Assign - strLastFour" sap:VirtualizedContainerService.HintSize="578,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
+                          <Assign sap2010:Annotation.AnnotationText="Split the last four characters off the &quot;SSN&quot; field, removing the &quot;xxx-xx-&quot; portion and leaving only the four numbers." DisplayName="Assign - strLastFour" sap:VirtualizedContainerService.HintSize="456,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_1">
                             <Assign.To>
                               <OutArgument x:TypeArguments="ss:SecureString">[strLastFour]</OutArgument>
                             </Assign.To>
@@ -1338,7 +1325,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </Assign>
-                          <Assign sap2010:Annotation.AnnotationText="Split the &quot;NAME&quot; field at the comma, saving only the last name." DisplayName="Assign - strLastName" sap:VirtualizedContainerService.HintSize="578,148" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign sap2010:Annotation.AnnotationText="Split the &quot;NAME&quot; field at the comma, saving only the last name." DisplayName="Assign - strLastName" sap:VirtualizedContainerService.HintSize="456,148" sap2010:WorkflowViewState.IdRef="Assign_2">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[strLastName]</OutArgument>
                             </Assign.To>
@@ -1351,367 +1338,128 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </Assign>
-                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="578,344" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                            <ui:CommentOut.Body>
-                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,232" sap2010:WorkflowViewState.IdRef="Sequence_89">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:UiElementExists sap2010:Annotation.AnnotationText="Checks for the presence of the text &quot;ERR_CONNECTION_RESET&quot; indicating the page failed to load and needs to be refreshed." DisplayName="Element Exists - ERR_CONNECTION_RESET" Exists="[boolPageNeedsToBeReloaded]" sap:VirtualizedContainerService.HintSize="382,172" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-                                  <ui:UiElementExists.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8d45c2bd-9f01-47b9-a728-c31aa45f3777" Selector="&lt;wnd app='msedge.exe' /&gt;&lt;ctrl name='ERR_CONNECTION_RESET' role='text' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
-                                  </ui:UiElementExists.Target>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:UiElementExists>
-                              </Sequence>
-                            </ui:CommentOut.Body>
-                          </ui:CommentOut>
-                          <ui:RetryScope DisplayName="Retry Scope - Refresh Browser for ERR_CONNECTION_RESET" sap:VirtualizedContainerService.HintSize="578,2412" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
-                            <ui:RetryScope.ActivityBody>
-                              <ActivityAction>
-                                <Sequence DisplayName="Action - Refresh Browser for ERR_CONNECTION_RESET" sap:VirtualizedContainerService.HintSize="484,1874" sap2010:WorkflowViewState.IdRef="Sequence_77">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <If Condition="[boolPageNeedsToBeReloaded]" DisplayName="If - ERR_CONNECTION_RESET Error" sap:VirtualizedContainerService.HintSize="450,645.3333333333334" sap2010:WorkflowViewState.IdRef="If_14">
-                                    <If.Then>
-                                      <Sequence DisplayName="Then - Refresh Browser" sap:VirtualizedContainerService.HintSize="416,382.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_75">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:RefreshBrowser Browser="{x:Null}" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="382,57.333333333333336" sap2010:WorkflowViewState.IdRef="RefreshBrowser_1" />
-                                        <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Clicks the &quot;Continue&quot; button to resubmit data and finally reload the page." ClickType="Single" DisplayName="Click - Continue" sap:VirtualizedContainerService.HintSize="382,265.3333333333333" sap2010:WorkflowViewState.IdRef="NClick_21" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
-                                          <uix:NClick.Target>
-                                            <uix:TargetAnchorable CVScreenId="6ca944c3-7f39-4bdb-93c8-a30e0ecc1ac6" ContentHash="k0j3lyzQ6U204jxnO_1FKA" CvElementArea="1024, 286, 124, 49" CvTextArea="1046, 300, 79, 18" CvTextArgument="Continue" CvType="Button" DesignTimeRectangle="1025, 287, 123, 48" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' automationid='' check:fulltext='Continue' /&gt;" Guid="05535e10-cb18-4ef6-9097-c9caf58b2b9c" InformativeScreenshot="79265ae76a8946af700b6ea10f507eca.png" Reference="g_j_fYTbaEKkplU0mkdm6Q/dNUQn4tGVUGEQ2fSyBTyyw" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='mrrs.dc3n.navy.mil and 1 more page - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                              <uix:TargetAnchorable.Anchors>
-                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                  <uix:Target DesignTimeRectangle="635, 117, 672, 242" FullSelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' automationid='' check:fulltext='Resubmit the form?&amp;#xD;&amp;#xA;The page you&amp;apos;re looking for used information that you entered. Returning to that page might trigger a repetition of any action you took there. Do you want to continue?&amp;#xD;&amp;#xA;Continue&amp;#xD;&amp;#xA;Cancel' /&gt;" Guid="8708e8f2-6d03-479a-880e-0a7c38c01662" SearchSteps="Selector, FuzzySelector" />
-                                                </scg:List>
-                                              </uix:TargetAnchorable.Anchors>
-                                            </uix:TargetAnchorable>
-                                          </uix:NClick.Target>
-                                          <uix:NClick.VerifyOptions>
-                                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                              <uix:VerifyExecutionOptions.Retry>
-                                                <InArgument x:TypeArguments="x:Boolean" />
-                                              </uix:VerifyExecutionOptions.Retry>
-                                              <uix:VerifyExecutionOptions.Timeout>
-                                                <InArgument x:TypeArguments="x:Double" />
-                                              </uix:VerifyExecutionOptions.Timeout>
-                                            </uix:VerifyExecutionOptions>
-                                          </uix:NClick.VerifyOptions>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </uix:NClick>
-                                      </Sequence>
-                                    </If.Then>
-                                    <If.Else>
-                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_76">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                      </Sequence>
-                                    </If.Else>
-                                  </If>
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Last Four'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" SecureText="[strLastFour]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvElementArea="26, 553, 216, 29" CvType="InputBox" DesignTimeRectangle="28, 554, 213, 28" DesignTimeScaleFactor="1.5" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='SUBSTR(SSN,6,4)' tableRow='6' tag='INPUT' /&gt;" Guid="bab4627c-8d02-46d3-b341-65ad0081eb49" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvTextArea="27, 533, 82, 16" CvTextArgument="Last Four:" CvType="Text" DesignTimeRectangle="28, 531, 413, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='selectdiv' tag='TABLE' /&gt;&lt;webctrl id='promptLast Four' type='' tag='TD' class='prompt' aaname='Last Four:                                    ' check:innerText='Last Four:' /&gt;" Guid="f38ddfc0-a076-4883-a984-a5db7ff66f80" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                    <uix:NTypeInto.VerifyOptions>
-                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
-                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
-                                      </uix:VerifyExecutionTypeIntoOptions>
-                                    </uix:NTypeInto.VerifyOptions>
-                                  </uix:NTypeInto>
-                                  <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Type strLastName into &quot;Name:&quot; field" ClickBeforeMode="Single" DisplayName="Type Into - &quot;Name:&quot;" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="450,323.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Text="[strLastName]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvElementArea="26, 606, 216, 30" CvType="InputBox" DesignTimeRectangle="28, 607, 213, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='NAME' tableRow='8' tag='INPUT' /&gt;" Guid="2240088e-88ed-4035-8602-080221cf8676" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvTextArea="27, 587, 52, 15" CvTextArgument="Name:" CvType="Text" DesignTimeRectangle="28, 584, 413, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='selectdiv' tag='TABLE' /&gt;&lt;webctrl id='promptName' type='' tag='TD' class='prompt' aaname='Name:                                    ' check:innerText='Name:' /&gt;" Guid="31dcdec0-702b-4113-beb4-dc4730526171" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                    <uix:NTypeInto.VerifyOptions>
-                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
-                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
-                                      </uix:VerifyExecutionTypeIntoOptions>
-                                    </uix:NTypeInto.VerifyOptions>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </uix:NTypeInto>
-                                  <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Apply&quot; button to search for member. Has a one second Delay After to see if the web address changes." ClickType="Single" DelayAfter="1" DisplayName="Click - &quot;Apply&quot; button" sap:VirtualizedContainerService.HintSize="450,274.6666666666667" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="45d29d25-7a2e-4f0e-b638-cee4c12820db" CvElementArea="84, 953, 101, 40" CvTextArea="102, 962, 64, 24" CvTextArgument="Apply" CvType="Button" DesignTimeRectangle="86, 847, 98, 37" DesignTimeScaleFactor="1.5" ElementType="Icon" FullSelectorArgument="&lt;webctrl tableRow='39' tag='TABLE' /&gt;&lt;webctrl id='filterapply' tableRow='1' tag='IMG' /&gt;" Guid="4c7846e3-1c09-4380-82a2-32f8909444b0" InformativeScreenshot="82a93bde9d85e4e66e0b34c9da3de3b4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </uix:NClick>
-                                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the current web address. If the &quot;Apply&quot; button activates correctly, the web address changes from &quot;../filter.m&quot; to &quot;../applyfilter.m&quot;" Attribute="text" DisplayName="Get Attribute - Web Address" sap:VirtualizedContainerService.HintSize="450,278" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_20" InUiElement="[in_uieMainBrowser]" Result="[strBrowserAddress]" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
-                                    <uix:NGetAttributeGeneric.Target>
-                                      <uix:TargetAnchorable CVScreenId="c7fd0985-1bb6-402d-82a9-33f613011eae" CvElementArea="230, 66, 1159, 50" CvType="InputBox" DesignTimeRectangle="294, 71, 1026, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl name='Address and search bar' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl name='Address and search bar' role='editable text' automationid='' /&gt;" Guid="35bfb97e-08de-404d-a77d-f36eab01298a" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Medical Readiness Reporting System - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Complete">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target DesignTimeRectangle="11, 62, 1920, 60" FullSelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl role='pane' /&gt;" Guid="76dc73c2-8913-4ae1-aafb-7185cdf8a932" SearchSteps="Selector" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NGetAttributeGeneric.Target>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </uix:NGetAttributeGeneric>
-                                </Sequence>
-                              </ActivityAction>
-                            </ui:RetryScope.ActivityBody>
-                            <ui:RetryScope.Condition>
-                              <ActivityFunc x:TypeArguments="x:Boolean">
-                                <ui:CheckFalse ErrorMessage="{x:Null}" sap2010:Annotation.AnnotationText="Checks if the browser URL changed after hitting &quot;Apply&quot; button&#xA;&#xA;If URL contains &quot;applyfilter&quot; text, &quot;Apply&quot; button activated properly and page does not need to be reloaded.&#xA;If URL does not contain &quot;applyfilter&quot;, &quot;Apply&quot; button functionality didn't load when page loaded and page needs to be refreshed to restore functionality.&#xA;&#xA;This activity's result is stored into boolPageNeedsToBeReloaded to flag need for refresh." DisplayName="Check False - Browser URL Change after search" Expression="[strBrowserAddress.Contains(&quot;applyfilter&quot;)]" sap:VirtualizedContainerService.HintSize="334,344" sap2010:WorkflowViewState.IdRef="CheckFalse_3" Result="[boolPageNeedsToBeReloaded]">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:CheckFalse>
-                              </ActivityFunc>
-                            </ui:RetryScope.Condition>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:RetryScope>
-                          <ui:RetryScope sap2010:Annotation.AnnotationText="Like the &quot;Apply&quot; button, sometimes the search loads correctly but sometimes, instead of pulling up the Sailor's information, clicking on their name does nothing. The browser needs to be refreshed to fix this." DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="578,2689.3333333333335" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3">
-                            <ui:RetryScope.ActivityBody>
-                              <ActivityAction>
-                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="536,2246" sap2010:WorkflowViewState.IdRef="Sequence_95">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap2010:Annotation.AnnotationText="Determines if this Retry Scope will activate at the end. By default, this Retry Scope doesn't need to activate, but if the page errors in some fashion, this will be set to True so the Retry Scope...retries." DisplayName="Assign - boolRetryActions" sap:VirtualizedContainerService.HintSize="502,179.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_12">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:Boolean">[boolRetryActions]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
-                                    </Assign.Value>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </Assign>
-                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="502,701.3333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_7">
-                                    <TryCatch.Try>
-                                      <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click on Sailor name, based on same criteria used to determine if the search succeeded." ClickType="Single" DelayAfter="2" DisplayName="Click - Sailor Name" sap:VirtualizedContainerService.HintSize="334,242.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_24" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Timeout="3" Version="V4">
-                                        <uix:NClick.Target>
-                                          <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/applyfilter.m" CVScreenId="23de0485-3181-48de-a93c-2c1febf219ee" CvTextArea="522, 416, 323, 18" CvTextArgument="BORREROBATIZ HECTOR LUIS AOAN" CvType="Text" DesignTimeRectangle="517, 411, 453, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' style='width:45%; padding-left:4px' /&gt;" Guid="68d7aec1-9cab-4f59-8996-6a1f1cb37c4c" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
-                                            <uix:TargetAnchorable.Anchors>
-                                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                <uix:Target CVScreenId="23de0485-3181-48de-a93c-2c1febf219ee" CvElementArea="588, 380, 26, 24" CvTextArea="522, 383, 894, 18" CvTextArgument="Name SSN Activity Unit" CvType="ArrowButton" DesignTimeRectangle="513, 371, 986, 38" FuzzySelectorArgument="&lt;webctrl class='tablebordered' parentname='filter' tag='TABLE' /&gt;&lt;webctrl type='' parentname='filter' class='' aaname='  ' tag='TD' check:innerText='Name  &amp;#x9;SSN  &amp;#x9;Activity  &amp;#x9;Unit' /&gt;" Guid="a05d235e-44ac-4c1e-89df-9daa69b8f3a6" SearchSteps="FuzzySelector, CV" />
-                                              </scg:List>
-                                            </uix:TargetAnchorable.Anchors>
-                                          </uix:TargetAnchorable>
-                                        </uix:NClick.Target>
-                                        <uix:NClick.VerifyOptions>
-                                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                            <uix:VerifyExecutionOptions.Retry>
-                                              <InArgument x:TypeArguments="x:Boolean" />
-                                            </uix:VerifyExecutionOptions.Retry>
-                                            <uix:VerifyExecutionOptions.Timeout>
-                                              <InArgument x:TypeArguments="x:Double" />
-                                            </uix:VerifyExecutionOptions.Timeout>
-                                          </uix:VerifyExecutionOptions>
-                                        </uix:NClick.VerifyOptions>
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                      </uix:NClick>
-                                    </TryCatch.Try>
-                                    <TryCatch.Catches>
-                                      <Catch x:TypeArguments="uue:NodeNotFoundException" sap:VirtualizedContainerService.HintSize="422,106.66666666666667" sap2010:WorkflowViewState.IdRef="Catch`1_4">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ActivityAction x:TypeArguments="uue:NodeNotFoundException">
-                                          <ActivityAction.Argument>
-                                            <DelegateInArgument x:TypeArguments="uue:NodeNotFoundException" Name="exception" />
-                                          </ActivityAction.Argument>
-                                          <Sequence sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_91">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,124" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: Sailor not found locally in MRRS&quot;]" />
-                                            <ui:Continue sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Continue_3" />
-                                          </Sequence>
-                                        </ActivityAction>
-                                      </Catch>
-                                    </TryCatch.Catches>
-                                  </TryCatch>
-                                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the current web address. If clicking on the Sailor's name pulls up their information, the web address changes from &quot;../applyfilter.m&quot; to &quot;../257.m&quot;" Attribute="text" DisplayName="Get Attribute - Web Address" sap:VirtualizedContainerService.HintSize="502,287.3333333333333" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_23" InUiElement="[in_uieMainBrowser]" Result="[strBrowserAddress]" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
-                                    <uix:NGetAttributeGeneric.Target>
-                                      <uix:TargetAnchorable CVScreenId="c7fd0985-1bb6-402d-82a9-33f613011eae" CvElementArea="230, 66, 1159, 50" CvType="InputBox" DesignTimeRectangle="294, 71, 1026, 42" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl name='Address and search bar' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl name='Address and search bar' role='editable text' automationid='' /&gt;" Guid="35bfb97e-08de-404d-a77d-f36eab01298a" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Medical Readiness Reporting System - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive" WaitForReadyArgument="Complete">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target DesignTimeRectangle="11, 62, 1920, 60" FullSelectorArgument="&lt;ctrl name='Medical Readiness Reporting System - Microsoft Edge' role='pane' /&gt;&lt;ctrl name='App bar' role='tool bar' /&gt;&lt;ctrl role='pane' /&gt;" Guid="76dc73c2-8913-4ae1-aafb-7185cdf8a932" SearchSteps="Selector" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NGetAttributeGeneric.Target>
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </uix:NGetAttributeGeneric>
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="502,124" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[strBrowserAddress]" />
-                                  <If sap2010:Annotation.AnnotationText="Checks if URL does not contain &quot;257.m&quot;&#xA;&#xA;If it does not, clicking the Sailor's name didn't load a new page (the page didn't load correctly originally) and the page needs to be refreshed to correct his." Condition="[Not strBrowserAddress.Contains(&quot;257.m&quot;)]" DisplayName="If - URL contains &quot;257.m&quot;" sap:VirtualizedContainerService.HintSize="502,894" sap2010:WorkflowViewState.IdRef="If_18">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <If.Then>
-                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,562" sap2010:WorkflowViewState.IdRef="Sequence_93">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                        <ui:RefreshBrowser Browser="[in_uieMainBrowser]" DisplayName="Refresh Browser" sap:VirtualizedContainerService.HintSize="434,57.333333333333336" sap2010:WorkflowViewState.IdRef="RefreshBrowser_5" />
-                                        <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Refreshing this page means resubmitting the form to pull their information. This clicks the continue button on the pop-up dialog to proceed." ClickType="Single" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="434,291.3333333333333" sap2010:WorkflowViewState.IdRef="NClick_25" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
-                                          <uix:NClick.Target>
-                                            <uix:TargetAnchorable CVScreenId="b75f5af8-3309-46cd-8d48-73c4073bf70b" CvElementArea="1022, 284, 127, 53" CvTextArea="1046, 300, 79, 18" CvTextArgument="Continue" CvType="Button" DesignTimeRectangle="1025, 287, 123, 48" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;&lt;ctrl name='Continue' role='push button' automationid='' check:fulltext='Continue' /&gt;" Guid="57bdc4d9-b88b-4b68-b760-0af897230950" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Medical Readiness Reporting System - Personal - Microsoft​ Edge' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                              <uix:TargetAnchorable.Anchors>
-                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                                  <uix:Target DesignTimeRectangle="635, 117, 672, 242" FullSelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Resubmit the form?' role='dialog' automationid='' check:fulltext='Resubmit the form?&amp;#xD;&amp;#xA;The page you&amp;apos;re looking for used information that you entered. Returning to that page might trigger a repetition of any action you took there. Do you want to continue?&amp;#xD;&amp;#xA;Continue&amp;#xD;&amp;#xA;Cancel' /&gt;" Guid="629ecdad-dcf3-4051-bd8d-d2e55c650d97" SearchSteps="Selector, FuzzySelector" />
-                                                </scg:List>
-                                              </uix:TargetAnchorable.Anchors>
-                                            </uix:TargetAnchorable>
-                                          </uix:NClick.Target>
-                                          <uix:NClick.VerifyOptions>
-                                            <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                              <uix:VerifyExecutionOptions.Retry>
-                                                <InArgument x:TypeArguments="x:Boolean" />
-                                              </uix:VerifyExecutionOptions.Retry>
-                                              <uix:VerifyExecutionOptions.Timeout>
-                                                <InArgument x:TypeArguments="x:Double" />
-                                              </uix:VerifyExecutionOptions.Timeout>
-                                            </uix:VerifyExecutionOptions>
-                                          </uix:NClick.VerifyOptions>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </uix:NClick>
-                                        <Assign sap2010:Annotation.AnnotationText="Set boolRetryActions to True so the surrounding Retry Scope loops over these actions again." DisplayName="Assign - boolRetryActions" sap:VirtualizedContainerService.HintSize="434,153.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_13">
-                                          <Assign.To>
-                                            <OutArgument x:TypeArguments="x:Boolean">[boolRetryActions]</OutArgument>
-                                          </Assign.To>
-                                          <Assign.Value>
-                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
-                                          </Assign.Value>
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </Assign>
-                                      </Sequence>
-                                    </If.Then>
-                                    <If.Else>
-                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_94">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                      </Sequence>
-                                    </If.Else>
-                                  </If>
-                                </Sequence>
-                              </ActivityAction>
-                            </ui:RetryScope.ActivityBody>
-                            <ui:RetryScope.Condition>
-                              <ActivityFunc x:TypeArguments="x:Boolean">
-                                <ui:CheckTrue ErrorMessage="{x:Null}" sap2010:Annotation.AnnotationText="In this Retry Scope, boolRetryActions will be set to True if clicking the Sailor's name after the search doesn't load that Sailor's information." DisplayName="Check True - boolRetryActions" Expression="[boolRetryActions]" sap:VirtualizedContainerService.HintSize="334,194" sap2010:WorkflowViewState.IdRef="CheckTrue_2">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:CheckTrue>
-                              </ActivityFunc>
-                            </ui:RetryScope.Condition>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Last Four'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="456,292.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="DebuggerApi" IsPassword="True" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" SecureText="[strLastFour]" Version="V4">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvElementArea="26, 553, 216, 29" CvType="InputBox" DesignTimeRectangle="28, 554, 213, 28" DesignTimeScaleFactor="1.5" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='SUBSTR(SSN,6,4)' tableRow='6' tag='INPUT' /&gt;" Guid="bab4627c-8d02-46d3-b341-65ad0081eb49" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvTextArea="27, 533, 82, 16" CvTextArgument="Last Four:" CvType="Text" DesignTimeRectangle="28, 531, 413, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='selectdiv' tag='TABLE' /&gt;&lt;webctrl id='promptLast Four' type='' tag='TD' class='prompt' aaname='Last Four:                                    ' check:innerText='Last Four:' /&gt;" Guid="f38ddfc0-a076-4883-a984-a5db7ff66f80" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Type strLastName into &quot;Name:&quot; field" ClickBeforeMode="Single" DisplayName="Type Into - &quot;Name:&quot;" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="456,323.3333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="DebuggerApi" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Text="[strLastName]" Version="V4">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvElementArea="26, 606, 216, 30" CvType="InputBox" DesignTimeRectangle="28, 607, 213, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl parentid='selectdiv' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='NAME' tableRow='8' tag='INPUT' /&gt;" Guid="2240088e-88ed-4035-8602-080221cf8676" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target CVScreenId="a4411331-ae3d-4508-800e-e4d97ce399ad" CvTextArea="27, 587, 52, 15" CvTextArgument="Name:" CvType="Text" DesignTimeRectangle="28, 584, 413, 22" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='selectdiv' tag='TABLE' /&gt;&lt;webctrl id='promptName' type='' tag='TD' class='prompt' aaname='Name:                                    ' check:innerText='Name:' /&gt;" Guid="31dcdec0-702b-4113-beb4-dc4730526171" SearchSteps="FuzzySelector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </ui:RetryScope>
+                          </uix:NTypeInto>
+                          <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click &quot;Apply&quot; button to search for member. Has a one second Delay After to see if the web address changes." ClickType="Single" DelayAfter="1" DisplayName="Click - &quot;Apply&quot; button" sap:VirtualizedContainerService.HintSize="456,274.6666666666667" sap2010:WorkflowViewState.IdRef="NClick_26" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Version="V4">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="45d29d25-7a2e-4f0e-b638-cee4c12820db" CvElementArea="84, 953, 101, 40" CvTextArea="102, 962, 64, 24" CvTextArgument="Apply" CvType="Button" DesignTimeRectangle="86, 847, 98, 37" DesignTimeScaleFactor="1.5" ElementType="Icon" FullSelectorArgument="&lt;webctrl tableRow='39' tag='TABLE' /&gt;&lt;webctrl id='filterapply' tableRow='1' tag='IMG' /&gt;" Guid="4c7846e3-1c09-4380-82a2-32f8909444b0" InformativeScreenshot="82a93bde9d85e4e66e0b34c9da3de3b4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NClick>
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="456,694.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                            <TryCatch.Try>
+                              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click on Sailor name, based on same criteria used to determine if the search succeeded." ClickType="Single" DelayAfter="2" DisplayName="Click - Sailor Name" sap:VirtualizedContainerService.HintSize="334,242.66666666666666" sap2010:WorkflowViewState.IdRef="NClick_27" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8d700678-8a23-4f16-bb92-096bca82daab" Timeout="3" Version="V4">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/applyfilter.m" CVScreenId="23de0485-3181-48de-a93c-2c1febf219ee" CvTextArea="522, 416, 323, 18" CvTextArgument="BORREROBATIZ HECTOR LUIS AOAN" CvType="Text" DesignTimeRectangle="517, 411, 453, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' style='width:45%; padding-left:4px' /&gt;" Guid="68d7aec1-9cab-4f59-8996-6a1f1cb37c4c" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                                    <uix:TargetAnchorable.Anchors>
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                        <uix:Target CVScreenId="23de0485-3181-48de-a93c-2c1febf219ee" CvElementArea="588, 380, 26, 24" CvTextArea="522, 383, 894, 18" CvTextArgument="Name SSN Activity Unit" CvType="ArrowButton" DesignTimeRectangle="513, 371, 986, 38" FuzzySelectorArgument="&lt;webctrl class='tablebordered' parentname='filter' tag='TABLE' /&gt;&lt;webctrl type='' parentname='filter' class='' aaname='  ' tag='TD' check:innerText='Name  &amp;#x9;SSN  &amp;#x9;Activity  &amp;#x9;Unit' /&gt;" Guid="a05d235e-44ac-4c1e-89df-9daa69b8f3a6" SearchSteps="FuzzySelector, CV" />
+                                      </scg:List>
+                                    </uix:TargetAnchorable.Anchors>
+                                  </uix:TargetAnchorable>
+                                </uix:NClick.Target>
+                                <uix:NClick.VerifyOptions>
+                                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                    <uix:VerifyExecutionOptions.Retry>
+                                      <InArgument x:TypeArguments="x:Boolean" />
+                                    </uix:VerifyExecutionOptions.Retry>
+                                    <uix:VerifyExecutionOptions.Timeout>
+                                      <InArgument x:TypeArguments="x:Double" />
+                                    </uix:VerifyExecutionOptions.Timeout>
+                                  </uix:VerifyExecutionOptions>
+                                </uix:NClick.VerifyOptions>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NClick>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="uue:NodeNotFoundException" sap:VirtualizedContainerService.HintSize="422,106.66666666666667" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="uue:NodeNotFoundException">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="uue:NodeNotFoundException" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="416,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_96">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,124" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: Sailor not found locally in MRRS&quot;]" />
+                                    <ui:Continue sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Continue_4" />
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
                         </Sequence>
                       </ActivityAction>
                     </uix:NApplicationCard.Body>
