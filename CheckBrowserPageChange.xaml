@@ -135,54 +135,71 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,1724.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_103">
+  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,1470.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_103">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="564.6666666666666,1702" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="9305a7de-e534-4ca2-8df4-34a0137677bc" Version="V2">
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently open Edge browser" AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge Browser" sap:VirtualizedContainerService.HintSize="576,1448" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="9305a7de-e534-4ca2-8df4-34a0137677bc" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="530.6666666666666,1540" sap2010:WorkflowViewState.IdRef="Sequence_106">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="542,1255.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_106">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch - Retry Scope Exception" sap:VirtualizedContainerService.HintSize="496.6666666666667,841.3333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+            <TryCatch sap2010:Annotation.AnnotationText="Checks for Retry Scope exception. If the browser URL doesn't change as expected, the Retry Scope will throw an exception." DisplayName="Try Catch - Retry Scope Exception" sap:VirtualizedContainerService.HintSize="508,556.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_9">
               <TryCatch.Variables>
                 <Variable x:TypeArguments="x:String" Name="strBrowserURL" />
               </TryCatch.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <ui:RetryScope ContinueOnError="False" DisplayName="Retry Scope - URL Change" sap:VirtualizedContainerService.HintSize="458,570" sap2010:WorkflowViewState.IdRef="RetryScope_5" RetryInterval="00:00:02">
+                <ui:RetryScope ContinueOnError="False" DisplayName="Retry Scope - URL Change" sap:VirtualizedContainerService.HintSize="458,696" sap2010:WorkflowViewState.IdRef="RetryScope_5" RetryInterval="00:00:02">
                   <ui:RetryScope.ActivityBody>
                     <ActivityAction>
-                      <Sequence DisplayName="Action - Check for URL Change" sap:VirtualizedContainerService.HintSize="416,276" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                      <Sequence DisplayName="Action - Check for URL Change" sap:VirtualizedContainerService.HintSize="416,306.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_101">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="url" DisplayName="Get Attribute - Browser URL" sap:VirtualizedContainerService.HintSize="382,216" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_26" InUiElement="[in_uieMainBrowser]" Result="[strBrowserURL]" Version="V4" />
+                        <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the current browser URL." Attribute="url" DisplayName="Get Attribute - Browser URL" sap:VirtualizedContainerService.HintSize="382,246.66666666666666" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_26" InUiElement="[in_uieMainBrowser]" Result="[strBrowserURL]" ScopeIdentifier="9305a7de-e534-4ca2-8df4-34a0137677bc" Version="V4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NGetAttributeGeneric>
                       </Sequence>
                     </ActivityAction>
                   </ui:RetryScope.ActivityBody>
                   <ui:RetryScope.Condition>
                     <ActivityFunc x:TypeArguments="x:Boolean">
-                      <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True - applyfilter.m" Expression="[strBrowserURL.Contains(in_strURLCheckString)]" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="CheckTrue_4" Result="[out_boolBrowserNavigationSuccessful]" />
+                      <ui:CheckTrue ErrorMessage="{x:Null}" sap2010:Annotation.AnnotationText="Checks to see if the browser URL contains the substring passed into this workflow (in_strURLCheckString).&#xD;&#xA;&#xD;&#xA;True: Browser URL changed, Retry Scope passes.&#xD;&#xA;False: Browser URL has not changed, Retry Scope fails." DisplayName="Check True - in_strURLCheckString" Expression="[strBrowserURL.Contains(in_strURLCheckString)]" sap:VirtualizedContainerService.HintSize="334,227.33333333333334" sap2010:WorkflowViewState.IdRef="CheckTrue_4" Result="[out_boolBrowserNavigationSuccessful]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CheckTrue>
                     </ActivityFunc>
                   </ui:RetryScope.Condition>
                 </ui:RetryScope>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="462.6666666666667,23.333333333333332" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="474,307.3333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -190,10 +207,11 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Sequence sap:VirtualizedContainerService.HintSize="468,170.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_102">
+                    <Sequence sap2010:Annotation.AnnotationText="If the previous Retry Scope throws an exception, the browser URL didn't change, so this workflow will return False. This False assignment also gets used below to indicate that the web page needs to be refreshed." DisplayName="Sequence - Retry Scope exception" sap:VirtualizedContainerService.HintSize="468,235.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_102">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <Assign sap:VirtualizedContainerService.HintSize="434,110.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_16">
@@ -209,7 +227,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <If sap2010:Annotation.AnnotationText="If the Element above couldn't be found, reload the browser and click Continue on the &quot;Resubmit the Form?&quot; error dialog." Condition="[Not out_boolBrowserNavigationSuccessful]" DisplayName="If - Not boolBrowserNavigationSuccessful" sap:VirtualizedContainerService.HintSize="496.6666666666667,638.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
+            <If sap2010:Annotation.AnnotationText="If the Element above couldn't be found, reload the browser and click Continue on the &quot;Resubmit the Form?&quot; error dialog." Condition="[Not out_boolBrowserNavigationSuccessful]" DisplayName="If - Not out_boolBrowserNavigationSuccessful" sap:VirtualizedContainerService.HintSize="508,638.6666666666666" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -262,6 +280,11 @@
       <uix:NApplicationCard.TargetApp>
         <uix:TargetApp Area="0, 0, 0, 0" />
       </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
   </Sequence>
 </Activity>
