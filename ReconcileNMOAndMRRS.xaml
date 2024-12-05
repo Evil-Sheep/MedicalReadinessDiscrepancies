@@ -53,6 +53,7 @@
       <x:String>UiPath.Word.Activities</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
       <x:String>UiPath.UIAutomationNext.Exceptions</x:String>
+      <x:String>HtmlAgilityPack</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -140,6 +141,8 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>HtmlAgilityPack</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -167,7 +170,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,944" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="668,921.3333333333334" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -179,7 +182,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="600,648" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="644,420.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -212,7 +215,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2532.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1034,12 +1037,157 @@
                                                         <av:PointCollection x:Key="ConnectorLocation">190,765 190,795 510,795 510,760</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Sequence DisplayName="Sequence - Get Hep A and Hep B shot data" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                    <Sequence sap2010:Annotation.AnnotationText="Retrieve the Hepatitis A and B data from the Chronological Record of Medical Data. The form is the most consistent way to get all the relevant shot data." DisplayName="Sequence - Get Hep A and Hep B shot data" sap:VirtualizedContainerService.HintSize="624.6666666666666,2484.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_44">
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
+                                                      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Connect to already-opened MRRS browser" AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge - Main Browser" sap:VirtualizedContainerService.HintSize="590.6666666666666,2424.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_14" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="b7485c97-a881-4f68-afa1-331df9b69969" Version="V2">
+                                                        <uix:NApplicationCard.Body>
+                                                          <ActivityAction x:TypeArguments="x:Object">
+                                                            <ActivityAction.Argument>
+                                                              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                                            </ActivityAction.Argument>
+                                                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="556.6666666666666,2232" sap2010:WorkflowViewState.IdRef="Sequence_105">
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                              <TryCatch sap2010:Annotation.AnnotationText="This surrounding Try-Catch is so that, if the status of Hep A immunity is confirmed, a custom exception is thrown to skip the remaining checks." DisplayName="Try Catch - Hep A Status Verified" sap:VirtualizedContainerService.HintSize="522.6666666666666,2172" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                  </scg:Dictionary>
+                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                <TryCatch.Try>
+                                                                  <Sequence sap:VirtualizedContainerService.HintSize="484,1617.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_114">
+                                                                    <Sequence.Variables>
+                                                                      <Variable x:TypeArguments="x:String" Name="strHepATiterResult" />
+                                                                    </Sequence.Variables>
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Vaccination titer results are listed under the Tests tab." ClickType="Single" DisplayName="Click - 'Tests' tab" sap:VirtualizedContainerService.HintSize="450,260" sap2010:WorkflowViewState.IdRef="NClick_33" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b7485c97-a881-4f68-afa1-331df9b69969" Version="V4">
+                                                                      <uix:NClick.Target>
+                                                                        <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="11c7029f-471a-4549-9fbf-26d8ac9e20a8" DesignTimeRectangle="781, 283, 109, 39" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='bodydiv' tableRow='6' tag='TABLE' /&gt;&lt;webctrl id='tab8' tableRow='1' tag='TD' /&gt;" Guid="5581d167-109a-486b-9480-fda977202062" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                                                                          <uix:TargetAnchorable.Anchors>
+                                                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                                          </uix:TargetAnchorable.Anchors>
+                                                                        </uix:TargetAnchorable>
+                                                                      </uix:NClick.Target>
+                                                                      <uix:NClick.VerifyOptions>
+                                                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                                          <uix:VerifyExecutionOptions.Retry>
+                                                                            <InArgument x:TypeArguments="x:Boolean" />
+                                                                          </uix:VerifyExecutionOptions.Retry>
+                                                                          <uix:VerifyExecutionOptions.Timeout>
+                                                                            <InArgument x:TypeArguments="x:Double" />
+                                                                          </uix:VerifyExecutionOptions.Timeout>
+                                                                        </uix:VerifyExecutionOptions>
+                                                                      </uix:NClick.VerifyOptions>
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                    </uix:NClick>
+                                                                    <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="" Attribute="selectedItem" DisplayName="Get Attribute - Hep A titer result" sap:VirtualizedContainerService.HintSize="450,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_28" Result="[strHepATiterResult]" ScopeIdentifier="b7485c97-a881-4f68-afa1-331df9b69969" Version="V4">
+                                                                      <uix:NGetAttributeGeneric.Target>
+                                                                        <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="11c7029f-471a-4549-9fbf-26d8ac9e20a8" DesignTimeRectangle="1376, 470, 98, 22" DesignTimeScaleFactor="1.5" ElementType="DropDown" FullSelectorArgument="&lt;webctrl id='hepatitis_a_titer_result' tableRow='1' tag='SELECT' /&gt;" Guid="395041f6-0c1f-4812-829e-d27c40ee409e" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                                                                          <uix:TargetAnchorable.Anchors>
+                                                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
+                                                                          </uix:TargetAnchorable.Anchors>
+                                                                        </uix:TargetAnchorable>
+                                                                      </uix:NGetAttributeGeneric.Target>
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                    </uix:NGetAttributeGeneric>
+                                                                    <If sap2010:Annotation.AnnotationText="If the Hepatitis A titer result is Positive, Sailor is immune to Hep A. Retrieve the date the titer was drawn, add results to out_dtImmediateChanges, and skip further Hep A checks." Condition="[strHepATiterResult.Equals(&quot;Positive&quot;)]" DisplayName="If - Positive Hep A titer" sap:VirtualizedContainerService.HintSize="450,1020.6666666666666" sap2010:WorkflowViewState.IdRef="If_17">
+                                                                      <sap:WorkflowViewStateService.ViewState>
+                                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                        </scg:Dictionary>
+                                                                      </sap:WorkflowViewStateService.ViewState>
+                                                                      <If.Then>
+                                                                        <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Then - Save Hep A titer results" sap:VirtualizedContainerService.HintSize="416,702.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_115">
+                                                                          <Sequence.Variables>
+                                                                            <Variable x:TypeArguments="x:String" Name="strHepATiterDate" />
+                                                                          </Sequence.Variables>
+                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                            </scg:Dictionary>
+                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                          <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Retrieve the date of Hep A titer results." Attribute="text" DisplayName="Get Attribute - 'Hepatitis A' titer date" sap:VirtualizedContainerService.HintSize="382,274" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_29" Result="[strHepATiterDate]" ScopeIdentifier="b7485c97-a881-4f68-afa1-331df9b69969" Version="V4">
+                                                                            <uix:NGetAttributeGeneric.Target>
+                                                                              <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/257.m" CVScreenId="11c7029f-471a-4549-9fbf-26d8ac9e20a8" DesignTimeRectangle="1174, 467, 147, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='hepatitis_a_titer_dt' tableRow='1' tag='INPUT' /&gt;" Guid="58859611-a19b-4971-8a77-10978bcad27c" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Comprehensive Medical Entry' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+                                                                                <uix:TargetAnchorable.Anchors>
+                                                                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                                                                    <uix:Target CVScreenId="11c7029f-471a-4549-9fbf-26d8ac9e20a8" CvTextArea="1047, 471, 87, 19" CvTextArgument="Hepatitis A" CvType="Text" DesignTimeRectangle="1044, 456, 111, 49" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='box8' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='prompt' aaname='Hepatitis A' check:innerText='Hepatitis A' /&gt;" Guid="6c2f6ae8-7aa5-4fab-aab0-efc8b61795cd" SearchSteps="FuzzySelector, CV" />
+                                                                                  </scg:List>
+                                                                                </uix:TargetAnchorable.Anchors>
+                                                                              </uix:TargetAnchorable>
+                                                                            </uix:NGetAttributeGeneric.Target>
+                                                                            <sap:WorkflowViewStateService.ViewState>
+                                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                                              </scg:Dictionary>
+                                                                            </sap:WorkflowViewStateService.ViewState>
+                                                                          </uix:NGetAttributeGeneric>
+                                                                          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;Hep A&quot;, strHepATiterDate+&quot;: Immune&quot;}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_17" />
+                                                                          <Throw Exception="[new BusinessRuleException(&quot;Sailor immune to Hep A&quot;)]" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                                                                        </Sequence>
+                                                                      </If.Then>
+                                                                      <If.Else>
+                                                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_116">
+                                                                          <sap:WorkflowViewStateService.ViewState>
+                                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                            </scg:Dictionary>
+                                                                          </sap:WorkflowViewStateService.ViewState>
+                                                                        </Sequence>
+                                                                      </If.Else>
+                                                                    </If>
+                                                                  </Sequence>
+                                                                </TryCatch.Try>
+                                                                <TryCatch.Catches>
+                                                                  <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="488.6666666666667,164" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                                                                      <ActivityAction.Argument>
+                                                                        <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                                                                      </ActivityAction.Argument>
+                                                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="WriteLine_22" Text="[CurrentRow(&quot;NAME&quot;).ToString+&quot;: &quot;+exception.Message]" />
+                                                                    </ActivityAction>
+                                                                  </Catch>
+                                                                </TryCatch.Catches>
+                                                              </TryCatch>
+                                                            </Sequence>
+                                                          </ActivityAction>
+                                                        </uix:NApplicationCard.Body>
+                                                        <uix:NApplicationCard.TargetApp>
+                                                          <uix:TargetApp Area="0, 0, 0, 0" />
+                                                        </uix:NApplicationCard.TargetApp>
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                      </uix:NApplicationCard>
                                                     </Sequence>
                                                     <FlowStep.Next>
                                                       <FlowDecision x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Checks if member is missing MMR vaccinations" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;MMR&quot;)]" DisplayName="Flow Decision - MMR" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
@@ -1115,7 +1263,7 @@
                                                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                                 <av:Point x:Key="ShapeLocation">315,455</av:Point>
                                                                                 <av:Size x:Key="ShapeSize">110,70</av:Size>
-                                                                                <av:PointCollection x:Key="ConnectorLocation">370,455 370,205 510,205 510,175</av:PointCollection>
+                                                                                <av:PointCollection x:Key="ConnectorLocation">370,455 370,425 510,425 510,175</av:PointCollection>
                                                                               </scg:Dictionary>
                                                                             </sap:WorkflowViewStateService.ViewState>
                                                                             <Sequence DisplayName="Sequence - Get Tetanus vaccination" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_47">
