@@ -128,13 +128,13 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="698.6666666666666,2139.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_24">
+  <Sequence sap:VirtualizedContainerService.HintSize="698.6666666666666,2179.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_24">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Navigate to Nave Medicine Online and download IMR Report" DisplayName="Sequence - Download NMO Report" sap:VirtualizedContainerService.HintSize="698.6666666666666,2116.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_23">
+    <Sequence sap2010:Annotation.AnnotationText="Navigate to Nave Medicine Online and download IMR Report" DisplayName="Sequence - Download NMO Report" sap:VirtualizedContainerService.HintSize="698.6666666666666,2156.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_23">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -142,19 +142,19 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Launch Edge browser if not open, wait for user to log in to website, and download IMR report." AttachMode="ByInstance" CloseMode="Never" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Browser Edge: NMO IMR Site" sap:VirtualizedContainerService.HintSize="664.6666666666666,2003.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InUiElement="{x:Null}" IsIncognito="{x:Null}" OpenMode="IfNotOpen" OutUiElement="[out_uieMainBrowser]" ScopeGuid="fa921d81-a705-424d-809d-b9752bd8c268" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Launch Edge browser if not open, wait for user to log in to website, and download IMR report." AttachMode="ByInstance" CloseMode="Never" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Use Browser Edge: NMO IMR Site" sap:VirtualizedContainerService.HintSize="664.6666666666666,2043.3333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InUiElement="{x:Null}" IsIncognito="{x:Null}" OpenMode="IfNotOpen" OutUiElement="[out_uieMainBrowser]" ScopeGuid="fa921d81-a705-424d-809d-b9752bd8c268" Timeout="{x:Null}" UserDataFolderMode="{x:Null}" UserDataFolderPath="{x:Null}" Version="V2" WebDriverMode="{x:Null}">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="630.6666666666666,1730.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="630.6666666666666,1770.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:OnUiElementAppear sap2010:Annotation.AnnotationText="Wait for &quot;Home&quot; text link to appear before proceeding. This indicates the user has completely logged in." ContinueOnError="{x:Null}" DisplayName="On Element Appear - &quot;Home&quot;  menu button" FoundElement="{x:Null}" sap:VirtualizedContainerService.HintSize="596.6666666666666,295.3333333333333" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False" WaitActive="True" WaitVisible="True">
+              <ui:OnUiElementAppear sap2010:Annotation.AnnotationText="Wait for &quot;Home&quot; text link to appear before proceeding. This indicates the user has completely logged in." ContinueOnError="{x:Null}" DisplayName="On Element Appear - &quot;Home&quot;  menu button" FoundElement="{x:Null}" sap:VirtualizedContainerService.HintSize="596.6666666666666,335.3333333333333" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False" WaitActive="True" WaitVisible="True">
                 <ui:OnUiElementAppear.Body>
                   <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
@@ -165,7 +165,7 @@
                   </Sequence>
                 </ui:OnUiElementAppear.Body>
                 <ui:OnUiElementAppear.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4f6ac537-4263-43d6-b244-f4ddf0251ba9" Selector="&lt;webctrl id='AjaxUicImrMainList.action' tag='A' /&gt;" TimeoutMS="60000">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4f6ac537-4263-43d6-b244-f4ddf0251ba9" Selector="&lt;webctrl id='AjaxUicImrMainList.action' tag='A' /&gt;" TimeoutMS="120000">
                     <ui:Target.WaitForReady>
                       <InArgument x:TypeArguments="ui:WaitForReady" />
                     </ui:Target.WaitForReady>
@@ -207,7 +207,7 @@
                                       <uix:NClick.Target>
                                         <uix:TargetAnchorable BrowserURL="https://nmo.med.navy.mil/nmkmsweb/imr/imrhome.action" CVScreenId="91b74114-89cd-4dba-8d69-7df0d0c2d7da" CvElementArea="1898, 980, 28, 31" CvType="ArrowButton" DesignTimeRectangle="1898, 981, 27, 29" DesignTimeScaleFactor="1.5" ElementType="ArrowButton" Guid="f9aeac4a-0499-4974-b887-20378c90d623" ScopeSelectorArgument="&lt;html app='msedge.exe' title='NMO IMR Site' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V4" Visibility="Interactive">
                                           <uix:TargetAnchorable.Anchors>
-                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                               <uix:Target CVScreenId="91b74114-89cd-4dba-8d69-7df0d0c2d7da" CvElementArea="1899, 194, 26, 27" CvType="ArrowButton" DesignTimeRectangle="1899, 194, 25, 26" ElementType="ArrowButton" Guid="465fc165-2afa-434a-be10-984cac27c300" SearchSteps="CV" TargetType="ComputerVisionBased" />
                                             </scg:List>
                                           </uix:TargetAnchorable.Anchors>
