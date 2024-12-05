@@ -179,7 +179,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="643.3333333333334,411.37333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart DisplayName="Flowchart - Check delinquent items" sap:VirtualizedContainerService.HintSize="600,648" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -212,7 +212,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">190,285 190,315 60,315 60,340</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <Sequence DisplayName="Sequence - Check PHA Date" sap:VirtualizedContainerService.HintSize="590.6666666666666,2532.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -336,7 +336,7 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, &quot;Update to &quot;+strPHADate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - PHA into dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;), CurrentRow(&quot;SSN&quot;), &quot;PHA&quot;, strPHADate}]" DataTable="[out_dtImmediateChanges]" DisplayName="Add Data Row - PHA into dtImmediateChanges" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                                         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow(&quot;NAME&quot;).ToString + &quot;: PHA updated to &quot; + strPHADate]" />
                                       </Sequence>
                                     </If.Then>
@@ -796,10 +796,7 @@
                                       </uix:NApplicationCard>
                                     </Sequence>
                                     <FlowStep.Next>
-                                      <FlowDecision x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Checks if member is delinquent for HIV" DisplayName="Flow Decision - HIV" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
-                                        <FlowDecision.Condition>
-                                          <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;HIV&quot;)" />
-                                        </FlowDecision.Condition>
+                                      <FlowDecision x:Name="__ReferenceID5" sap2010:Annotation.AnnotationText="Checks if member is delinquent for HIV" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;HIV&quot;)]" DisplayName="Flow Decision - HIV" sap:VirtualizedContainerService.HintSize="60,60" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1286,7 +1283,7 @@
                     <av:PointCollection x:Key="ConnectorLocation">60,175 60,220</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="634,4656" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence sap2010:Annotation.AnnotationText="Pull up Sailor's info in MRRS" DisplayName="Sequence - Member Search" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1426,7 +1423,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </uix:NClick>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Checks if the browser URL changes.&#xD;&#xA;&#xD;&#xA;Arguments:&#xD;&#xA;- in_strURLCheckString (String): Substring of browser URL to check for browser change. Value: &quot;applyfilter.m&quot;&#xD;&#xA;- in_uieMainBrowser (UIElement): Instance of Edge browser currently open. Value: in_uieMainBrowser&#xD;&#xA;- boolBrowserNavigationSuccessful (Boolean): Result of check of URL change. " DisplayName="CheckBrowserPageChange - Invoke Workflow File (CheckBrowserPageChange.xaml)" sap:VirtualizedContainerService.HintSize="382,330" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CheckBrowserPageChange.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Checks if the browser URL changes.&#xA;&#xA;Arguments:&#xA;- in_strURLCheckString (String): Substring of browser URL to check for browser change. Value: &quot;applyfilter.m&quot;&#xA;- in_uieMainBrowser (UIElement): Instance of Edge browser currently open. Value: in_uieMainBrowser&#xA;- boolBrowserNavigationSuccessful (Boolean): Result of check of URL change. " DisplayName="CheckBrowserPageChange - Invoke Workflow File (CheckBrowserPageChange.xaml)" sap:VirtualizedContainerService.HintSize="382,330" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CheckBrowserPageChange.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="x:String" x:Key="in_strURLCheckString">applyfilter.m</InArgument>
                                       <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[in_uieMainBrowser]</InArgument>
