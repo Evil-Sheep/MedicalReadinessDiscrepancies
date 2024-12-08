@@ -126,13 +126,13 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="594.6666666666666,1523.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,2818.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="484,1500.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="484,2796" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -140,13 +140,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="450,1418" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="450,2713.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1210.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,2466" sap2010:WorkflowViewState.IdRef="Sequence_21">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
               </Sequence.Variables>
@@ -209,7 +209,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
-              <uix:NHover DisplayName="Hover 'Medical Entry6'" sap:VirtualizedContainerService.HintSize="382,229.33333333333334" sap2010:WorkflowViewState.IdRef="NHover_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover over Reports pulldown to automatically open menu." DisplayName="Hover - Reports Menu" sap:VirtualizedContainerService.HintSize="382,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NHover.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="1134e76b-523b-4c6a-a066-df5892885c85" CvElementArea="288, 377, 24, 23" CvTextArea="173, 377, 113, 22" CvTextArgument="Medical Entry" CvType="ArrowButton" DesignTimeRectangle="143, 377, 166, 30" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar1' type='' tag='DIV' class='Bar' aaname='Medical Entry' check:innerText='Medical Entry&amp;#xA;6' /&gt;" Guid="e6510ef9-e0c7-4440-a032-4d12e614a2c3" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -220,6 +220,111 @@
                   </uix:TargetAnchorable>
                 </uix:NHover.Target>
                 <uix:NHover.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Element 'MenuMedical Entry6Injur…'" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="eed8e61a-92b4-4988-ac8e-3d63bb8c4c89" CvElementArea="635, 377, 23, 22" CvTextArea="566, 378, 67, 21" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="535, 377, 121, 30" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar9' type='' tag='DIV' class='Bar' aaname='Reports' check:innerText='Reports&amp;#xA;6' /&gt;" Guid="ae1bf0f7-f4fe-4dc0-b80e-fe68d06e93fb" InformativeScreenshot="c4962d08ec1885139428632fa4d9b23a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="17, 374, 1497, 36" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='TD' /&gt;" Guid="629d5836-fb7a-49a6-bbf8-65af840eff0b" SearchSteps="Selector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NHover.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NHover>
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover over IMR option of Reports pulldown to automatically open that menu." DisplayName="Hover - IMR Option" sap:VirtualizedContainerService.HintSize="382,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_2" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NHover.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="722e55ae-1c29-45ca-8c58-d1477f440d1d" CvElementArea="729, 690, 22, 24" CvTextArea="549, 693, 36, 18" CvTextArgument="IMR" CvType="ArrowButton" DesignTimeRectangle="536, 687, 263, 31" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='REPORTS_9' type='' tag='DIV' class='menuItem' aaname='IMR' check:innerText='IMR&amp;#xA;4' /&gt;" Guid="5087e5a8-c3c7-418f-a282-229dcd36533f" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="722e55ae-1c29-45ca-8c58-d1477f440d1d" CvTextArea="549, 755, 213, 21" CvTextArgument="Recently Run Reports List" CvType="Text" DesignTimeRectangle="536, 749, 263, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='REPORTS_12' tableRow='1' tag='DIV' /&gt;" Guid="d0b9c660-cd73-4c1f-ac31-7ffa952e9691" SearchSteps="Selector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NHover.Target>
+                <uix:NHover.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Element 'MenuMedical Entry6Injur…'" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="eed8e61a-92b4-4988-ac8e-3d63bb8c4c89" CvElementArea="635, 377, 23, 22" CvTextArea="566, 378, 67, 21" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="535, 377, 121, 30" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar9' type='' tag='DIV' class='Bar' aaname='Reports' check:innerText='Reports&amp;#xA;6' /&gt;" Guid="ae1bf0f7-f4fe-4dc0-b80e-fe68d06e93fb" InformativeScreenshot="c4962d08ec1885139428632fa4d9b23a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="17, 374, 1497, 36" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='TD' /&gt;" Guid="629d5836-fb7a-49a6-bbf8-65af840eff0b" SearchSteps="Selector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NHover.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NHover>
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover over Force sub-option of IMR option of Reports pulldown to automatically open that menu." DisplayName="Hover - IMR-Force Option" sap:VirtualizedContainerService.HintSize="382,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_3" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NHover.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="0a16562d-6a40-471a-a71a-ddf153fb3142" CvElementArea="907, 690, 24, 25" CvTextArea="813, 693, 48, 18" CvTextArgument="Force" CvType="ArrowButton" DesignTimeRectangle="800, 688, 187, 31" DesignTimeScaleFactor="1.5" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='READINESS_1' tableRow='1' tag='DIV' /&gt;" Guid="de297e97-0a59-4a36-ae52-b2d3a1e3eaf8" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="0a16562d-6a40-471a-a71a-ddf153fb3142" CvElementArea="729, 690, 23, 25" CvTextArea="549, 693, 36, 18" CvTextArgument="IMR" CvType="ArrowButton" DesignTimeRectangle="536, 687, 263, 31" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='REPORTS_9' type='' tag='DIV' class='menuItem' aaname='IMR' check:innerText='IMR&amp;#xA;4' /&gt;" Guid="75699246-24fa-45e4-9a1c-32a2c11cbfe7" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NHover.Target>
+                <uix:NHover.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="Element 'MenuMedical Entry6Injur…'" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Target>
+                      <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="eed8e61a-92b4-4988-ac8e-3d63bb8c4c89" CvElementArea="635, 377, 23, 22" CvTextArea="566, 378, 67, 21" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="535, 377, 121, 30" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar9' type='' tag='DIV' class='Bar' aaname='Reports' check:innerText='Reports&amp;#xA;6' /&gt;" Guid="ae1bf0f7-f4fe-4dc0-b80e-fe68d06e93fb" InformativeScreenshot="c4962d08ec1885139428632fa4d9b23a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="17, 374, 1497, 36" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='TD' /&gt;" Guid="629d5836-fb7a-49a6-bbf8-65af840eff0b" SearchSteps="Selector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:VerifyExecutionOptions.Target>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NHover.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NHover>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the IMR Option (this is not the same as the menu option previously hovered over. They have the same name, but this IMR option is in a submenu under the previous IMR option)" ClickType="Single" DisplayName="Click - IMR-Force-IMR Option" sap:VirtualizedContainerService.HintSize="382,308" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="b3c5387d-710e-4f5a-b77a-1db0c01d51f9" CvTextArea="1001, 695, 36, 18" CvTextArgument="IMR" CvType="Text" DesignTimeRectangle="1001, 694, 36, 18" DesignTimeScaleFactor="1.5" ElementType="Text" Guid="11473528-188c-4e80-b3bc-b279544937e3" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="b3c5387d-710e-4f5a-b77a-1db0c01d51f9" CvElementArea="907, 690, 24, 24" CvTextArea="813, 693, 48, 18" CvTextArgument="Force" CvType="ArrowButton" DesignTimeRectangle="799, 687, 189, 33" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='READINESS_1' type='' tag='DIV' class='menuItem' aaname='Force' check:innerText='Force&amp;#xA;4' /&gt;" Guid="b8d5d959-2899-4360-9eaf-cb2fce877b87" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
                   <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
                     <uix:VerifyExecutionOptions.Retry>
                       <InArgument x:TypeArguments="x:Boolean" />
@@ -228,14 +333,35 @@
                       <InArgument x:TypeArguments="x:Double" />
                     </uix:VerifyExecutionOptions.Timeout>
                   </uix:VerifyExecutionOptions>
-                </uix:NHover.VerifyOptions>
-              </uix:NHover>
-              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'Comprehensive Medical Entry' option to enter search page for looking up medical information of individual Sailors." ClickType="Single" DisplayName="Click 'Comprehensive Medical E…'" sap:VirtualizedContainerService.HintSize="382,282" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
-                <uix:NClick.Target>
-                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="6e7e3d89-7f0c-4324-9e8d-602800d34709" CvTextArea="156, 413, 243, 22" CvTextArgument="Comprehensive Medical Entry" CvType="Text" DesignTimeRectangle="144, 408, 338, 31" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='MEDICAL_ENTRY_1' tableRow='1' tag='DIV' aaname='Comprehensive Medical Entry' /&gt;" Guid="820062d7-df31-4c97-ae34-aae6453570a8" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                </uix:NClick.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="First click the pulldown menu (single click before typing), then type the letter &quot;E&quot; to select the &quot;Excel IMR Report (Details)&quot; option" ClickBeforeMode="Single" DisplayName="Type Into - 'Report Title' pulldown menu" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="382,316.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Text="E" Version="V4">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="175, 362, 451, 24" CvType="InputBox" DesignTimeRectangle="174, 363, 450, 22" DesignTimeScaleFactor="1.5" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='application_list' type='' tag='SELECT' class='inputtext' aaname='' /&gt;" Guid="11580cf9-8051-4394-917f-ea9e3e65eaab" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                        <uix:Target CVScreenId="6e7e3d89-7f0c-4324-9e8d-602800d34709" CvElementArea="287, 377, 25, 22" CvTextArea="173, 377, 112, 22" CvTextArgument="Medical Entry" CvType="ArrowButton" DesignTimeRectangle="143, 377, 165, 30" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar1' type='' tag='DIV' class='barOver' aaname='Medical Entry' check:innerText='Medical Entry&amp;#xA;6' /&gt;" Guid="2061f414-7930-440e-8087-98ae89d33f14" SearchSteps="FuzzySelector, CV" />
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvTextArea="36, 365, 107, 21" CvTextArgument="Report Title:" CvType="Text" DesignTimeRectangle="25, 352, 148, 45" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='filterprompt' aaname='                    Report Title:                  ' check:innerText='Report Title:' /&gt;" Guid="507c84ff-ac4f-40d6-a4c4-1b2e5e83474c" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the &quot;Run&quot; button.&#xD;&#xA;&#xD;&#xA;By default, running this report without specifying anything in the other options runs an Excel report with readiness information for all Sailors in assigned UICs." ClickType="Single" DisplayName="Click - 'Run' button" sap:VirtualizedContainerService.HintSize="382,318" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1293, 353, 99, 40" CvTextArea="1320, 363, 43, 18" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1294, 353, 97, 38" DesignTimeScaleFactor="1.5" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='reportrunbutton' type='' tag='IMG' class='' aaname='Generate Report' /&gt;" Guid="194f0f07-845d-45fd-8fb7-92f6901784ee" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1131, 351, 149, 43" CvTextArea="1142, 362, 127, 21" CvTextArgument="Submit Report" CvType="Button" DesignTimeRectangle="1134, 353, 144, 38" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='filter' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='submitreportbutton' tableRow='2' tag='INPUT' /&gt;" Guid="48eb1040-8bb5-456d-bf48-fa76fb6ebf26" SearchSteps="Selector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
                   </uix:TargetAnchorable>
