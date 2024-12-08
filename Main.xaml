@@ -133,7 +133,7 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="593.9999999999999,2260.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="625.9999999999999,2586" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strBeginReconciliationMessageChoice" />
     </Sequence.Variables>
@@ -142,21 +142,21 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox sap2010:Annotation.AnnotationText="Open message box to decide to begin reconciliation. This gives the user time to prepare for process start, i.e. insert CAC into computer." AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Begin Reconciliation" ChosenButton="[strBeginReconciliationMessageChoice]" DisplayName="Message Box - Begin Reconciliation" sap:VirtualizedContainerService.HintSize="450,180.66666666666666" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Begin reconciliation between NMO and MRRS?&quot;]">
+    <ui:MessageBox sap2010:Annotation.AnnotationText="Open message box to decide to begin reconciliation. This gives the user time to prepare for process start, i.e. insert CAC into computer." AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Begin Reconciliation" ChosenButton="[strBeginReconciliationMessageChoice]" DisplayName="Message Box - Begin Reconciliation" sap:VirtualizedContainerService.HintSize="520.6666666666666,180.66666666666666" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Begin reconciliation between NMO and MRRS?&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="450,2057.3333333333335" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="520.6666666666666,2382.6666666666665" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,1649.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486.6666666666667,1974.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileHitList" />
             <Variable x:TypeArguments="ui:UiElement" Name="uieMainBrowser" />
@@ -169,7 +169,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to NMO IMR website and download IMR Report.&#xA;&#xA;Arguments:&#xA;- out_uieMainBrowser: Edge browser opened to download report. Used later for MRRS comparison.&#xA;- out_fileNMOIMRReport: Excel file downloaded from IMR website containing hit list. Will be cleaned and imported as DataTable in PrepareExcelData workflow." DisplayName="Invoke Workflow File - DownloadNMOReport.xaml" sap:VirtualizedContainerService.HintSize="382,339.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DownloadNMOReport.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to NMO IMR website and download IMR Report.&#xA;&#xA;Arguments:&#xA;- out_uieMainBrowser: Edge browser opened to download report. Used later for MRRS comparison.&#xA;- out_fileNMOIMRReport: Excel file downloaded from IMR website containing hit list. Will be cleaned and imported as DataTable in PrepareExcelData workflow." DisplayName="Invoke Workflow File - DownloadNMOReport.xaml" sap:VirtualizedContainerService.HintSize="452.6666666666667,339.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DownloadNMOReport.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_uieMainBrowser">[uieMainBrowser]</OutArgument>
               <OutArgument x:TypeArguments="si:FileInfo" x:Key="out_fileNMOIMRReport">[fileNMOIMRReport]</OutArgument>
@@ -180,7 +180,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Edit and import IMR Report.&#xA;&#xA;Arguments:&#xA;- in_fileNMOIMRReport: Excel IMR Report downloaded from DownloadNMOReport workflow.&#xA;- out_dtIMRProfileHitList: DataTable of Sailors with delinquent readiness items, based on IMR Report." DisplayName="Invoke Workflow File - PrepareExcelData.xaml" sap:VirtualizedContainerService.HintSize="382,306" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="PrepareExcelData.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Edit and import IMR Report.&#xA;&#xA;Arguments:&#xA;- in_fileNMOIMRReport: Excel IMR Report downloaded from DownloadNMOReport workflow.&#xA;- out_dtIMRProfileHitList: DataTable of Sailors with delinquent readiness items, based on IMR Report." DisplayName="Invoke Workflow File - PrepareExcelData.xaml" sap:VirtualizedContainerService.HintSize="452.6666666666667,306" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="PrepareExcelData.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="si:FileInfo" x:Key="in_fileNMOIMRReport">[fileNMOIMRReport]</InArgument>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtIMRProfileHitList">[dtIMRProfileHitList]</OutArgument>
@@ -191,14 +191,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:MessageBox ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Lets the user know the NMO data was imported successfully. This also pauses the robot so, should the user be unavailable, the robot doesn't immediately load MRRS just for the connection to time out when the user returns." AutoCloseAfter="00:00:00" Caption="NMO data loaded successfully" DisplayName="Message Box - IMR Profile Imported" sap:VirtualizedContainerService.HintSize="382,214" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;NMO IMR data imported. Preparing to load MRRS website&quot;]">
+          <ui:MessageBox ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Lets the user know the NMO data was imported successfully. This also pauses the robot so, should the user be unavailable, the robot doesn't immediately load MRRS just for the connection to time out when the user returns." AutoCloseAfter="00:00:00" Caption="NMO data loaded successfully" DisplayName="Message Box - IMR Profile Imported" sap:VirtualizedContainerService.HintSize="452.6666666666667,214" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;NMO IMR data imported. Preparing to load MRRS website&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MessageBox>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Open the MRRS website, wait for user to log in, then navigate to Member Search to prepare for verifying hit list information.&#xA;&#xA;Arguments:&#xA;- in_uieMainBrowser: Edge browser currently open from downloading NMO data. Used to navigate to MRRS and verify NMO data against MRRS data." DisplayName="Invoke Workflow File - OpenMRRS.xaml" sap:VirtualizedContainerService.HintSize="382,322.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="OpenMRRS.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Open the MRRS website, wait for user to log in, then navigate to Member Search to prepare for verifying hit list information.&#xA;&#xA;Arguments:&#xA;- in_uieMainBrowser: Edge browser currently open from downloading NMO data. Used to navigate to MRRS and verify NMO data against MRRS data." DisplayName="Invoke Workflow File - OpenMRRS.xaml" sap:VirtualizedContainerService.HintSize="452.6666666666667,322.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="OpenMRRS.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
@@ -208,25 +208,47 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="382,239.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtIMRProfileHitList]</InArgument>
-              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtImmediateChanges">[dtImmediateChanges]</OutArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtPossibleChanges">[dtPossibleChanges]</OutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveChangesToWord - Invoke Workflow File (SaveChangesToWord.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SaveChangesToWord.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtImmediateChanges">[dtImmediateChanges]</InArgument>
-              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPossibleChanges">[dtPossibleChanges]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452.6666666666667,402" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,290" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="382,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtIMRProfileHitList]</InArgument>
+                    <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
+                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtImmediateChanges">[dtImmediateChanges]</OutArgument>
+                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtPossibleChanges">[dtPossibleChanges]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452.6666666666667,330.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,228" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveChangesToWord - Invoke Workflow File (SaveChangesToWord.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SaveChangesToWord.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtImmediateChanges">[dtImmediateChanges]</InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPossibleChanges">[dtPossibleChanges]</InArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
         </Sequence>
       </If.Then>
       <If.Else>
