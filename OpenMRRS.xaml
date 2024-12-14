@@ -126,13 +126,13 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,3140.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,3659.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="552,3118" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="552,3636.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -140,13 +140,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="518,3035.3333333333335" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="518,3554" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,2788" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,3306.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_21">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
               </Sequence.Variables>
@@ -340,7 +340,33 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
-              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="First click the pulldown menu (single click before typing), then type the letter &quot;E&quot; to select the &quot;Excel IMR Report (Details)&quot; option" ClickBeforeMode="Single" DisplayName="Type Into - 'Report Title' pulldown menu" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="450,316.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Text="E" Version="V4">
+              <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;Command&quot; textbox to appear.&#xD;&#xA;&#xD;&#xA;We don't need the textbox for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading.&#xD;&#xA;&#xD;&#xA;ContinueOnError is True because, again, we don't actually need the textbox. If this activity times out, the page is likely already loaded." ContinueOnError="True" DisplayName="On Element Appear - 'Command' textbox" sap:VirtualizedContainerService.HintSize="450,395.3333333333333" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="True">
+                <ui:OnUiElementAppear.Body>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ui:OnUiElementAppear.Body>
+                <ui:OnUiElementAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="148ec6a8-3681-4e4a-8dc0-663d43d3f81b" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl id='prompttable' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='SKIPCOMMAND_NUM' omit:tableRow='1' omit:tag='INPUT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:OnUiElementAppear.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:OnUiElementAppear>
+              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="First click the pulldown menu (single click before typing), then type the letter &quot;E&quot; to select the &quot;Excel IMR Report (Details)&quot; option" ClickBeforeMode="Single" DisplayName="Type Into - 'Report Title' pulldown menu" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="450,316.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Text="E[k(Enter)]" Version="V4">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="175, 362, 451, 24" CvType="InputBox" DesignTimeRectangle="174, 363, 450, 22" DesignTimeScaleFactor="1.5" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='application_list' type='' tag='SELECT' class='inputtext' aaname='' /&gt;" Guid="11580cf9-8051-4394-917f-ea9e3e65eaab" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -356,44 +382,18 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NTypeInto>
-              <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;Output Type&quot; pulldown to appear.&#xD;&#xA;&#xD;&#xA;We don't need the pulldown for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading." DisplayName="On Element Appear - 'Output Type' pulldown" sap:VirtualizedContainerService.HintSize="450,623.3333333333334" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="True">
+              <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;SSN&quot; textbox to appear. This is the first different element between the &quot;Excell IMR Report (Details)&quot; page and the default &quot;IMR Report (Unit Summary)&quot; page&#xD;&#xA;&#xD;&#xA;We don't need the textbox for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading.&#xD;&#xA;&#xD;&#xA;ContinueOnError is True because, again, we don't actually need the textbox. If this activity times out, the page is likely already loaded." ContinueOnError="True" DisplayName="On Element Appear - 'SSN' textbox" sap:VirtualizedContainerService.HintSize="450,428.6666666666667" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="True">
                 <ui:OnUiElementAppear.Body>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,375.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the &quot;Run&quot; button.&#xD;&#xA;&#xD;&#xA;By default, running this report without specifying anything in the other options runs an Excel report with readiness information for all Sailors in assigned UICs." ClickType="Single" DisplayName="Click - 'Run' button" sap:VirtualizedContainerService.HintSize="382,315.3333333333333" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1293, 353, 99, 40" CvTextArea="1320, 363, 43, 18" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1294, 353, 97, 38" DesignTimeScaleFactor="1.5" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='reportrunbutton' type='' tag='IMG' class='' aaname='Generate Report' /&gt;" Guid="194f0f07-845d-45fd-8fb7-92f6901784ee" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                              <uix:Target CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1131, 351, 149, 43" CvTextArea="1142, 362, 127, 21" CvTextArgument="Submit Report" CvType="Button" DesignTimeRectangle="1134, 353, 144, 38" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='filter' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='submitreportbutton' tableRow='2' tag='INPUT' /&gt;" Guid="48eb1040-8bb5-456d-bf48-fa76fb6ebf26" SearchSteps="Selector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NClick.Target>
-                      <uix:NClick.VerifyOptions>
-                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                          <uix:VerifyExecutionOptions.Retry>
-                            <InArgument x:TypeArguments="x:Boolean" />
-                          </uix:VerifyExecutionOptions.Retry>
-                          <uix:VerifyExecutionOptions.Timeout>
-                            <InArgument x:TypeArguments="x:Double" />
-                          </uix:VerifyExecutionOptions.Timeout>
-                        </uix:VerifyExecutionOptions>
-                      </uix:NClick.VerifyOptions>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </uix:NClick>
                   </Sequence>
                 </ui:OnUiElementAppear.Body>
                 <ui:OnUiElementAppear.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87cf60c5-4dad-43b1-9bcc-e98e7b0aa542" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl id='prompttable' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='output_type_2' tableRow='9' tag='SELECT' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87cf60c5-4dad-43b1-9bcc-e98e7b0aa542" Selector="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;&lt;webctrl id='prompttable' tableRow='4' tag='TABLE' /&gt;&lt;webctrl id='ssn' omit:tableRow='5' omit:tag='INPUT' /&gt;">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -408,6 +408,32 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:OnUiElementAppear>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the &quot;Run&quot; button.&#xD;&#xA;&#xD;&#xA;By default, running this report without specifying anything in the other options runs an Excel report with readiness information for all Sailors in assigned UICs." ClickType="Single" DisplayName="Click - 'Run' button" sap:VirtualizedContainerService.HintSize="450,318" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1293, 353, 99, 40" CvTextArea="1320, 363, 43, 18" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1294, 353, 97, 38" DesignTimeScaleFactor="1.5" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='reportrunbutton' type='' tag='IMG' class='' aaname='Generate Report' /&gt;" Guid="194f0f07-845d-45fd-8fb7-92f6901784ee" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1131, 351, 149, 43" CvTextArea="1142, 362, 127, 21" CvTextArgument="Submit Report" CvType="Button" DesignTimeRectangle="1134, 353, 144, 38" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='filter' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='submitreportbutton' tableRow='2' tag='INPUT' /&gt;" Guid="48eb1040-8bb5-456d-bf48-fa76fb6ebf26" SearchSteps="Selector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
