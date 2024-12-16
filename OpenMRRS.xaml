@@ -1,6 +1,7 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="OpenMRRS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="OpenMRRS" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:uue="clr-namespace:UiPath.UIAutomationNext.Exceptions;assembly=UiPath.UIAutomationNext" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_uieMainBrowser" Type="InArgument(ui:UiElement)" />
+    <x:Property Name="out_fileDownloadedMRRSReport" Type="OutArgument(si:FileInfo)" />
   </x:Members>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
@@ -42,6 +43,9 @@
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Exceptions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -126,13 +130,13 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,3659.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap:VirtualizedContainerService.HintSize="625.9999999999999,6949.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="552,3636.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="586,6926.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -140,29 +144,34 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="518,3554" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="552,6844" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,3306.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,6636.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
+                <Variable x:TypeArguments="x:String" Name="strRecentlyRunReportStatus">
+                  <Variable.Default>
+                    <Literal x:TypeArguments="x:String">Running</Literal>
+                  </Variable.Default>
+                </Variable>
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NGoToUrl sap2010:Annotation.AnnotationText="Navigate to MRRS website" DisplayName="Go To URL - MRRS" sap:VirtualizedContainerService.HintSize="450,147.33333333333334" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="https://mrrs.dc3n.navy.mil/mrrs/secure/welcome.m" Version="V4">
+              <uix:NGoToUrl sap2010:Annotation.AnnotationText="Navigate to MRRS website" DisplayName="Go To URL - MRRS" sap:VirtualizedContainerService.HintSize="484,147.33333333333334" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="https://mrrs.dc3n.navy.mil/mrrs/secure/welcome.m" Version="V4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NGoToUrl>
-              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Accept'" sap:VirtualizedContainerService.HintSize="450,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Accept'" sap:VirtualizedContainerService.HintSize="484,229.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/secure/welcome.m" CVScreenId="bf6c897b-b2c5-4c50-8652-e34519a8e13d" CvElementArea="718, 824, 103, 31" CvTextArea="737, 830, 63, 21" CvTextArgument="Accept" CvType="Button" DesignTimeRectangle="721, 676, 97, 26" DesignTimeScaleFactor="1.5" ElementType="Button" FullSelectorArgument="&lt;webctrl parentid='wblock' tag='TABLE' /&gt;&lt;webctrl tableRow='1' type='button' tag='INPUT' /&gt;" Guid="f3d53050-e822-4333-b6ed-28864707001b" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -183,7 +192,7 @@
                   </uix:VerifyExecutionOptions>
                 </uix:NClick.VerifyOptions>
               </uix:NClick>
-              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'CAC Login' button to enter MRRS website." ClickType="Single" DisplayName="Click 'CAC Login'" sap:VirtualizedContainerService.HintSize="450,260" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click 'CAC Login' button to enter MRRS website." ClickType="Single" DisplayName="Click 'CAC Login'" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/secure/welcome.m" CVScreenId="bdc12ca8-57eb-4a2c-934e-26f741d5fb24" CvElementArea="91, 458, 155, 31" CvTextArea="120, 462, 96, 21" CvTextArgument="CAC Login" CvType="Button" DesignTimeRectangle="91, 458, 155, 30" DesignTimeScaleFactor="1.5" ElementType="Button" Guid="1d256e77-f40e-4aaf-86eb-33549a3a78c5" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
@@ -209,11 +218,11 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
-              <uix:NHover sap2010:Annotation.AnnotationText="Hover mouse over the &quot;Reports&quot; interactive pulldown (it's not a pulldown proper, but an interactive menu that behaves like a pulldown menu)" DisplayName="Hover - 'Reports' Pulldown" sap:VirtualizedContainerService.HintSize="450,291.3333333333333" sap2010:WorkflowViewState.IdRef="NHover_4" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover mouse over the &quot;Reports&quot; interactive pulldown (it's not a pulldown proper, but an interactive menu that behaves like a pulldown menu)" DisplayName="Hover - 'Reports' Pulldown" sap:VirtualizedContainerService.HintSize="484,291.3333333333333" sap2010:WorkflowViewState.IdRef="NHover_4" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NHover.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="3deebf5f-ae7a-4110-8d38-69c028074346" CvElementArea="635, 377, 23, 22" CvTextArea="566, 378, 67, 21" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="535, 377, 121, 30" DesignTimeScaleFactor="1.5" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='Bar9' tableRow='1' tag='DIV' /&gt;" Guid="4c7727c6-3019-4d0e-911d-b823b7b005f6" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="3deebf5f-ae7a-4110-8d38-69c028074346" CvElementArea="288, 377, 24, 23" CvTextArea="173, 377, 113, 22" CvTextArgument="Medical Entry" CvType="ArrowButton" DesignTimeRectangle="143, 377, 166, 30" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='Bar1' tableRow='1' tag='DIV' /&gt;" Guid="c9483524-68e7-46f8-92ad-8b06ab8da43f" SearchSteps="Selector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -227,7 +236,7 @@
                     <uix:VerifyExecutionOptions.Target>
                       <uix:TargetAnchorable CVScreenId="331d5041-8ee6-4427-b414-4e18e5d8e3b7" CvElementArea="730, 690, 21, 24" CvTextArea="549, 693, 36, 18" CvTextArgument="IMR" CvType="ArrowButton" DesignTimeRectangle="536, 687, 263, 31" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;ctrl name='Medical Readiness Reporting System' role='document' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl name='      Menu Medical Entry 6 Injury Management 6 Reports 6 Utiliti*' role='cell' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl name='Medical Entry 6 Injury Management 6 Reports 6 Utilities 6 Dental*' role='cell' /&gt;&lt;ctrl automationid='' role='grouping' check:text='IMR' /&gt;" Guid="68b99d31-9506-4817-9a7b-6dbde9d20cf4" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Medical Readiness Reporting System - Personal - Microsoft​ Edge' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                         <uix:TargetAnchorable.Anchors>
-                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                             <uix:Target CVScreenId="331d5041-8ee6-4427-b414-4e18e5d8e3b7" CvElementArea="634, 377, 23, 21" CvTextArea="566, 378, 64, 21" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="535, 377, 120, 30" FullSelectorArgument="&lt;ctrl name='Medical Readiness Reporting System' role='document' /&gt;&lt;ctrl idx='2' role='row' /&gt;&lt;ctrl name='      Menu Medical Entry 6 Injury Management 6 Reports 6 Utiliti*' role='cell' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl name='Medical Entry 6 Injury Management 6 Reports 6 Utilities 6 Dental*' role='cell' /&gt;&lt;ctrl idx='6' role='grouping' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Medical Readiness Reporting System' role='document' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl name='      Menu Medical Entry 6 Injury Management 6 Reports 6 Utiliti*' role='cell' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl name='Medical Entry 6 Injury Management 6 Reports 6 Utilities 6 Dental*' role='cell' /&gt;&lt;ctrl automationid='' role='grouping' check:text='Reports' /&gt;" Guid="a6fce225-35ef-485c-9334-0d08c2350994" SearchSteps="Selector, FuzzySelector, CV" />
                           </scg:List>
                         </uix:TargetAnchorable.Anchors>
@@ -244,11 +253,11 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NHover>
-              <uix:NHover sap2010:Annotation.AnnotationText="Hover over IMR option of Reports pulldown to automatically open that menu." DisplayName="Hover - IMR Option" sap:VirtualizedContainerService.HintSize="450,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_2" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover over IMR option of Reports pulldown to automatically open that menu." DisplayName="Hover - IMR Option" sap:VirtualizedContainerService.HintSize="484,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_2" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NHover.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="722e55ae-1c29-45ca-8c58-d1477f440d1d" CvElementArea="729, 690, 22, 24" CvTextArea="549, 693, 36, 18" CvTextArgument="IMR" CvType="ArrowButton" DesignTimeRectangle="536, 687, 263, 31" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='REPORTS_9' type='' tag='DIV' class='menuItem' aaname='IMR' check:innerText='IMR&amp;#xA;4' /&gt;" Guid="5087e5a8-c3c7-418f-a282-229dcd36533f" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="722e55ae-1c29-45ca-8c58-d1477f440d1d" CvTextArea="549, 755, 213, 21" CvTextArgument="Recently Run Reports List" CvType="Text" DesignTimeRectangle="536, 749, 263, 31" ElementType="Text" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='REPORTS_12' tableRow='1' tag='DIV' /&gt;" Guid="d0b9c660-cd73-4c1f-ac31-7ffa952e9691" SearchSteps="Selector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -279,11 +288,11 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NHover>
-              <uix:NHover sap2010:Annotation.AnnotationText="Hover over Force sub-option of IMR option of Reports pulldown to automatically open that menu." DisplayName="Hover - IMR-Force Option" sap:VirtualizedContainerService.HintSize="450,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_3" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover over Force sub-option of IMR option of Reports pulldown to automatically open that menu." DisplayName="Hover - IMR-Force Option" sap:VirtualizedContainerService.HintSize="484,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_3" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NHover.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="0a16562d-6a40-471a-a71a-ddf153fb3142" CvElementArea="907, 690, 24, 25" CvTextArea="813, 693, 48, 18" CvTextArgument="Force" CvType="ArrowButton" DesignTimeRectangle="800, 688, 187, 31" DesignTimeScaleFactor="1.5" FullSelectorArgument="&lt;webctrl tableRow='8' tag='TABLE' /&gt;&lt;webctrl id='READINESS_1' tableRow='1' tag='DIV' /&gt;" Guid="de297e97-0a59-4a36-ae52-b2d3a1e3eaf8" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="0a16562d-6a40-471a-a71a-ddf153fb3142" CvElementArea="729, 690, 23, 25" CvTextArea="549, 693, 36, 18" CvTextArgument="IMR" CvType="ArrowButton" DesignTimeRectangle="536, 687, 263, 31" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='REPORTS_9' type='' tag='DIV' class='menuItem' aaname='IMR' check:innerText='IMR&amp;#xA;4' /&gt;" Guid="75699246-24fa-45e4-9a1c-32a2c11cbfe7" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -314,11 +323,11 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NHover>
-              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the IMR Option (this is not the same as the menu option previously hovered over. They have the same name, but this IMR option is in a submenu under the previous IMR option)" ClickType="Single" DisplayName="Click - IMR-Force-IMR Option" sap:VirtualizedContainerService.HintSize="450,308" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the IMR Option (this is not the same as the menu option previously hovered over. They have the same name, but this IMR option is in a submenu under the previous IMR option)" ClickType="Single" DisplayName="Click - IMR-Force-IMR Option" sap:VirtualizedContainerService.HintSize="484,308" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="b3c5387d-710e-4f5a-b77a-1db0c01d51f9" CvTextArea="1001, 695, 36, 18" CvTextArgument="IMR" CvType="Text" DesignTimeRectangle="1001, 694, 36, 18" DesignTimeScaleFactor="1.5" ElementType="Text" Guid="11473528-188c-4e80-b3bc-b279544937e3" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="b3c5387d-710e-4f5a-b77a-1db0c01d51f9" CvElementArea="907, 690, 24, 24" CvTextArea="813, 693, 48, 18" CvTextArgument="Force" CvType="ArrowButton" DesignTimeRectangle="799, 687, 189, 33" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='READINESS_1' type='' tag='DIV' class='menuItem' aaname='Force' check:innerText='Force&amp;#xA;4' /&gt;" Guid="b8d5d959-2899-4360-9eaf-cb2fce877b87" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -340,9 +349,9 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
-              <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;Command&quot; textbox to appear.&#xD;&#xA;&#xD;&#xA;We don't need the textbox for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading.&#xD;&#xA;&#xD;&#xA;ContinueOnError is True because, again, we don't actually need the textbox. If this activity times out, the page is likely already loaded." ContinueOnError="True" DisplayName="On Element Appear - 'Command' textbox" sap:VirtualizedContainerService.HintSize="450,395.3333333333333" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="True">
+              <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;Command&quot; textbox to appear.&#xA;&#xA;We don't need the textbox for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading.&#xA;&#xA;ContinueOnError is True because, again, we don't actually need the textbox. If this activity times out, the page is likely already loaded." ContinueOnError="True" DisplayName="On Element Appear - 'Command' textbox" sap:VirtualizedContainerService.HintSize="484,395.3333333333333" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="True">
                 <ui:OnUiElementAppear.Body>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_24">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -366,11 +375,11 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:OnUiElementAppear>
-              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="First click the pulldown menu (single click before typing), then type the letter &quot;E&quot; to select the &quot;Excel IMR Report (Details)&quot; option" ClickBeforeMode="Single" DisplayName="Type Into - 'Report Title' pulldown menu" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="450,316.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Text="E[k(Enter)]" Version="V4">
+              <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="First click the pulldown menu (single click before typing), then type the letter &quot;E&quot; to select the &quot;Excel IMR Report (Details)&quot; option" ClickBeforeMode="Single" DisplayName="Type Into - 'Report Title' pulldown menu" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="484,316.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Text="E[k(Enter)]" Version="V4">
                 <uix:NTypeInto.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="175, 362, 451, 24" CvType="InputBox" DesignTimeRectangle="174, 363, 450, 22" DesignTimeScaleFactor="1.5" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='application_list' type='' tag='SELECT' class='inputtext' aaname='' /&gt;" Guid="11580cf9-8051-4394-917f-ea9e3e65eaab" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvTextArea="36, 365, 107, 21" CvTextArgument="Report Title:" CvType="Text" DesignTimeRectangle="25, 352, 148, 45" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='filterprompt' aaname='                    Report Title:                  ' check:innerText='Report Title:' /&gt;" Guid="507c84ff-ac4f-40d6-a4c4-1b2e5e83474c" SearchSteps="FuzzySelector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -382,9 +391,9 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NTypeInto>
-              <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;SSN&quot; textbox to appear. This is the first different element between the &quot;Excell IMR Report (Details)&quot; page and the default &quot;IMR Report (Unit Summary)&quot; page&#xD;&#xA;&#xD;&#xA;We don't need the textbox for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading.&#xD;&#xA;&#xD;&#xA;ContinueOnError is True because, again, we don't actually need the textbox. If this activity times out, the page is likely already loaded." ContinueOnError="True" DisplayName="On Element Appear - 'SSN' textbox" sap:VirtualizedContainerService.HintSize="450,428.6666666666667" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="True">
+              <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" sap2010:Annotation.AnnotationText="Wait for the &quot;SSN&quot; textbox to appear. This is the first different element between the &quot;Excell IMR Report (Details)&quot; page and the default &quot;IMR Report (Unit Summary)&quot; page&#xA;&#xA;We don't need the textbox for anything, but if the Run button is clicked before the page finishes loading, the report request errors. Waiting for this to appear indicates the page finished loading.&#xA;&#xA;ContinueOnError is True because, again, we don't actually need the textbox. If this activity times out, the page is likely already loaded." ContinueOnError="True" DisplayName="On Element Appear - 'SSN' textbox" sap:VirtualizedContainerService.HintSize="484,428.6666666666667" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="True">
                 <ui:OnUiElementAppear.Body>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_23">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -408,11 +417,11 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:OnUiElementAppear>
-              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the &quot;Run&quot; button.&#xD;&#xA;&#xD;&#xA;By default, running this report without specifying anything in the other options runs an Excel report with readiness information for all Sailors in assigned UICs." ClickType="Single" DisplayName="Click - 'Run' button" sap:VirtualizedContainerService.HintSize="450,318" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the &quot;Run&quot; button.&#xA;&#xA;By default, running this report without specifying anything in the other options runs an Excel report with readiness information for all Sailors in assigned UICs.&#xD;&#xA;&#xD;&#xA;Includes 5 second Delay After to ensure report request is submitted before moving on. If the robot navigates away from the page too fast, the request doesn't get submitted properly." ClickType="Single" DelayAfter="5" DisplayName="Click - 'Run' button" sap:VirtualizedContainerService.HintSize="484,408" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1293, 353, 99, 40" CvTextArea="1320, 363, 43, 18" CvTextArgument="Run" CvType="Button" DesignTimeRectangle="1294, 353, 97, 38" DesignTimeScaleFactor="1.5" ElementType="Icon" FuzzySelectorArgument="&lt;webctrl parentname='filter' tag='TABLE' /&gt;&lt;webctrl id='reportrunbutton' type='' tag='IMG' class='' aaname='Generate Report' /&gt;" Guid="194f0f07-845d-45fd-8fb7-92f6901784ee" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
                     <uix:TargetAnchorable.Anchors>
-                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                         <uix:Target CVScreenId="b172b365-05b4-4f6e-9d44-acaad34cb4d5" CvElementArea="1131, 351, 149, 43" CvTextArea="1142, 362, 127, 21" CvTextArgument="Submit Report" CvType="Button" DesignTimeRectangle="1134, 353, 144, 38" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='filter' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='submitreportbutton' tableRow='2' tag='INPUT' /&gt;" Guid="48eb1040-8bb5-456d-bf48-fa76fb6ebf26" SearchSteps="Selector, CV" />
                       </scg:List>
                     </uix:TargetAnchorable.Anchors>
@@ -434,6 +443,238 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </uix:NClick>
+              <uix:NHover sap2010:Annotation.AnnotationText="Hover over the reports menu to open pulldown menu." DisplayName="Hover - 'Reports' Menu" sap:VirtualizedContainerService.HintSize="484,274.6666666666667" sap2010:WorkflowViewState.IdRef="NHover_6" InteractionMode="DebuggerApi" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NHover.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="ba2c945c-4761-4628-8e3e-0564c72498e8" CvElementArea="1251, 331, 24, 22" CvTextArea="1182, 333, 66, 21" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="1152, 332, 121, 30" DesignTimeScaleFactor="1.5" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar9' type='' tag='DIV' class='Bar' aaname='Reports' check:innerText='Reports&amp;#xA;6' /&gt;" Guid="0f084d49-f700-4f89-9d21-e7ea54053787" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="ba2c945c-4761-4628-8e3e-0564c72498e8" CvTextArea="57, 333, 48, 16" CvTextArgument="Menu" CvType="Text" DesignTimeRectangle="21, 332, 122, 30" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Home' type='' tag='DIV' class='NonBar' aaname='         Menu       ' check:innerText='Menu' /&gt;" Guid="c86fe235-eb88-4c9c-86ac-3b3d4f42f9ac" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NHover.Target>
+                <uix:NHover.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NHover.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NHover>
+              <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click on the &quot;Recently Run Reports List&quot; option.&#xD;&#xA;&#xD;&#xA;This will return to the main page, but open a sub-window showing the status of recently requested reports, including the request we just submitted." ClickType="Single" DisplayName="Click - 'Recently Run Reports List' Option" sap:VirtualizedContainerService.HintSize="484,324.6666666666667" sap2010:WorkflowViewState.IdRef="NClick_16" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/filter.m" CVScreenId="7ae6cfda-aa24-472a-8148-29d96e2b3e7b" CvTextArea="1167, 710, 211, 21" CvTextArgument="Recently Run Reports List" CvType="Text" DesignTimeRectangle="1154, 704, 262, 31" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='REPORTS_12' type='' tag='DIV' class='menuItem' aaname='Recently Run Reports List' check:innerText='Recently Run Reports List' /&gt;" Guid="537c61c3-f6b4-44c5-b4a4-0bfb5e086cff" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target CVScreenId="7ae6cfda-aa24-472a-8148-29d96e2b3e7b" CvElementArea="1251, 332, 24, 23" CvTextArea="1184, 333, 64, 19" CvTextArgument="Reports" CvType="ArrowButton" DesignTimeRectangle="1153, 332, 120, 30" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='Bar9' type='' tag='DIV' class='barOver' aaname='Reports' check:innerText='Reports&amp;#xA;6' /&gt;" Guid="3fa94a5d-2460-4c3a-80ba-8b04535c8d1b" SearchSteps="FuzzySelector, CV" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+                <uix:NClick.VerifyOptions>
+                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                    <uix:VerifyExecutionOptions.Retry>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </uix:VerifyExecutionOptions.Retry>
+                    <uix:VerifyExecutionOptions.Timeout>
+                      <InArgument x:TypeArguments="x:Double" />
+                    </uix:VerifyExecutionOptions.Timeout>
+                  </uix:VerifyExecutionOptions>
+                </uix:NClick.VerifyOptions>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NClick>
+              <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Repeat hitting the 'Refresh List' button until the report is complete, as indicated by the 'Completed' status changing from &quot;Running&quot; to the date and time it was completed.&#xD;&#xA;&#xD;&#xA;strRecentlyRunReportStatus is set to &quot;Running&quot; by default, so this loop will run at least once. The size of the report means it's unlikely it'll be done in the time between asking for the report and the robot getting to this window." DisplayName="While - MRRS Report is being compiled" sap:VirtualizedContainerService.HintSize="484,1899.3333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                <ui:InterruptibleWhile.Body>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="452,1638.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch sap2010:Annotation.AnnotationText="Catches NodeNotFoundException when trying to refresh &quot;Recentl Run Reports&quot; list.&#xD;&#xA;&#xD;&#xA;Sometimes refreshing the page causes an HTML error. Refreshing the page will return to the previous page; in this case, the page with the list open ready to be refreshed." DisplayName="Try Catch - Refresh Report List" sap:VirtualizedContainerService.HintSize="418,1578.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <TryCatch.Try>
+                        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="416,697.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the 'Refresh List' button to see if the report has finished running.&#xD;&#xA;&#xD;&#xA;Includes 10-second Delay Before to keep this While loop from incessantly hammering the button." ClickType="Single" DelayBefore="10" DisplayName="Click - 'Refresh List' Button" sap:VirtualizedContainerService.HintSize="382,324.6666666666667" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="001c2741-aad8-4be1-9233-444c5448f2a2" CvElementArea="784, 915, 154, 33" CvTextArea="812, 921, 100, 16" CvTextArgument="Refresh List" CvType="Button" DesignTimeRectangle="787, 917, 150, 30" DesignTimeScaleFactor="1.5" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Click to refresh reports list' type='button' tag='INPUT' class='' check:text='Refresh List' /&gt;" Guid="e4f5e66d-a9dd-49ce-9903-4ab4e9fd969c" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target DesignTimeRectangle="318, 915, 903, 33" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='                                       ' check:text='Close' /&gt;" Guid="b13ef36a-49c4-4f2a-944b-19316c8f70e5" SearchSteps="FuzzySelector" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <uix:NClick.VerifyOptions>
+                              <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionOptions.Retry>
+                                <uix:VerifyExecutionOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionOptions.Timeout>
+                              </uix:VerifyExecutionOptions>
+                            </uix:NClick.VerifyOptions>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NClick>
+                          <uix:NGetAttributeGeneric x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Get the text of the top row, 'Completed' column cell.&#xD;&#xA;&#xD;&#xA;This will determine if the report has finished running. As long as it says &quot;Running,&quot; the report isn't finished." Attribute="text" DisplayName="Get Attribute - Updated 'Recently Run Report' Status" sap:VirtualizedContainerService.HintSize="382,312.6666666666667" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[strRecentlyRunReportStatus]" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                            <uix:NGetAttributeGeneric.Target>
+                              <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="f931a8e6-5e91-4c3c-96bb-2025f999cf50" CvTextArea="1070, 554, 67, 22" CvTextArgument="Running" CvType="Text" DesignTimeRectangle="990, 545, 229, 42" DesignTimeScaleFactor="1.5" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='reportlist' tag='TABLE' /&gt;&lt;webctrl type='' class='' tag='TD' aaname='Running' /&gt;" Guid="ea22e90e-159b-40b9-8d8d-11f52436fa46" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                    <uix:Target CVScreenId="f931a8e6-5e91-4c3c-96bb-2025f999cf50" CvTextArea="321, 554, 204, 22" CvTextArgument="Excel IMR Report (Excel)" CvType="Text" DesignTimeRectangle="320, 545, 454, 42" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='reportlist' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' /&gt;" Guid="63024787-425d-4a13-9117-bc42ff589ec0" SearchSteps="Selector, CV" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NGetAttributeGeneric.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NGetAttributeGeneric>
+                        </Sequence>
+                      </TryCatch.Try>
+                      <TryCatch.Catches>
+                        <Catch x:TypeArguments="uue:NodeNotFoundException" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <ActivityAction x:TypeArguments="uue:NodeNotFoundException">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="uue:NodeNotFoundException" Name="exception" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,514" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Send the hotkey to refresh the page." DisplayName="Send Hotkey - F5" sap:VirtualizedContainerService.HintSize="382,199.33333333333334" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f5" KeyModifiers="None" SpecialKey="True">
+                                <ui:SendHotkey.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="f4a71d16-ea6f-4d1c-abb7-f75165e53333">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:SendHotkey.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:SendHotkey>
+                              <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Hit the Enter key.&#xD;&#xA;&#xD;&#xA;When refreshing the page, an error message pops up asking to resend request data. Hitting enter selects the default &quot;yes&quot; option." DisplayName="Send Hotkey - Enter" sap:VirtualizedContainerService.HintSize="382,254.66666666666666" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+                                <ui:SendHotkey.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="0aa2f741-5c47-40eb-a825-8d3cbc1ad627">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:SendHotkey.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:SendHotkey>
+                            </Sequence>
+                          </ActivityAction>
+                        </Catch>
+                      </TryCatch.Catches>
+                      <TryCatch.Finally>
+                        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </TryCatch.Finally>
+                    </TryCatch>
+                  </Sequence>
+                </ui:InterruptibleWhile.Body>
+                <ui:InterruptibleWhile.Condition>
+                  <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="strRecentlyRunReportStatus.Equals(&quot;Running&quot;)" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                </ui:InterruptibleWhile.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InterruptibleWhile>
+              <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" sap2010:Annotation.AnnotationText="Watch for the download of the MRRS report.&#xD;&#xA;&#xD;&#xA;Once the report is finished running, clicking the report name will open a pop-up window that automatically downloads the report." DisplayName="Wait for Download -  MRRS Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[out_fileDownloadedMRRSReport]" sap:VirtualizedContainerService.HintSize="484,741.3333333333334" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdownload">
+                <ui:GetLastDownloadedFile.Body>
+                  <ActivityAction>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,375.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the top 'Excel IMR Report (Excel)' option.&#xD;&#xA;&#xD;&#xA;The top option is the report we just asked to run. Once the status changes away from &quot;Running,&quot; the test becomes clickable and downloads the report." ClickType="Single" DisplayName="Click - 'Excel IMR Report (Excel)' Top Option" sap:VirtualizedContainerService.HintSize="416,315.3333333333333" sap2010:WorkflowViewState.IdRef="NClick_14" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="c54bf2fb-caa4-441e-9a37-5e9fd8e23f35" CvTextArea="321, 554, 202, 21" CvTextArgument="Excel IMR Report(Excel)" CvType="Text" DesignTimeRectangle="322, 553, 202, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='reportlist' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='A' /&gt;" Guid="cf538eb5-538f-48b2-b2e5-995dea02438b" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="Selector, CV" Version="V4" Visibility="Interactive">
+                            <uix:TargetAnchorable.Anchors>
+                              <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                <uix:Target CVScreenId="c54bf2fb-caa4-441e-9a37-5e9fd8e23f35" CvTextArea="518, 509, 635, 22" CvTextArgument="Name Output Type Completed" CvType="Text" DesignTimeRectangle="313, 499, 913, 41" FullSelectorArgument="&lt;webctrl parentid='completedreportlist' tag='TABLE' /&gt;&lt;webctrl parentid='completedreportlist' tableRow='3' tag='TD' /&gt;" Guid="a0df4af6-bb1e-4782-ae37-7f3cbd80a2e6" SearchSteps="Selector, CV" />
+                              </scg:List>
+                            </uix:TargetAnchorable.Anchors>
+                          </uix:TargetAnchorable>
+                        </uix:NClick.Target>
+                        <uix:NClick.VerifyOptions>
+                          <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                            <uix:VerifyExecutionOptions.Retry>
+                              <InArgument x:TypeArguments="x:Boolean" />
+                            </uix:VerifyExecutionOptions.Retry>
+                            <uix:VerifyExecutionOptions.Timeout>
+                              <InArgument x:TypeArguments="x:Double" />
+                            </uix:VerifyExecutionOptions.Timeout>
+                          </uix:VerifyExecutionOptions>
+                        </uix:NClick.VerifyOptions>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NClick>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:GetLastDownloadedFile.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:GetLastDownloadedFile>
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
