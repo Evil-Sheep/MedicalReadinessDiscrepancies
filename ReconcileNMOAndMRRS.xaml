@@ -154,7 +154,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="636,2388.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_36">
+  <Sequence sap:VirtualizedContainerService.HintSize="636,2730" sap2010:WorkflowViewState.IdRef="Sequence_36">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -174,27 +174,28 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="Prepares MRRS Excel data by removing unnecessary rows and importing information into DataTable" DisplayName="Excel Process Scope - MRRS Report" sap:VirtualizedContainerService.HintSize="636,1113.3333333333333" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="Prepares MRRS Excel data by removing unnecessary rows and importing information into DataTable" DisplayName="Excel Process Scope - MRRS Report" sap:VirtualizedContainerService.HintSize="636,1454.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do - Excel Process: MRRS Report" sap:VirtualizedContainerService.HintSize="546,963.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_117">
+          <Sequence DisplayName="Do - Excel Process: MRRS Report" sap:VirtualizedContainerService.HintSize="546,1304.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_117">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Uses the downloaded MRRS report, based on the file downloaded in DownloadMRRSReport.xaml" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File - MRRS Report" sap:VirtualizedContainerService.HintSize="512,903.3333333333334" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_fileDownloadedMRRSReport.ToString]">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Uses the downloaded MRRS report, based on the file downloaded in DownloadMRRSReport.xaml" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File - MRRS Report" sap:VirtualizedContainerService.HintSize="512,1244.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_fileDownloadedMRRSReport.ToString]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,554.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_118">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,896" sap2010:WorkflowViewState.IdRef="Sequence_118">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelInput" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelFilteredData" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -208,13 +209,33 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteRowsX>
-                    <ueab:ReadRangeX sap2010:Annotation.AnnotationText="Reads all data in columns I to JE. Much information will be pulled, but Column I has the Sailor's name, and Column JE has last 4 of SSN. Nothing outside of that range is needed." DisplayName="Read Range - I:JE" sap:VirtualizedContainerService.HintSize="444,259.3333333333333" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;).Range(&quot;I:JE&quot;)]" SaveTo="[dtMRRSExcelInput]" VisibleOnly="False">
+                    <ueab:ReadRangeX sap2010:Annotation.AnnotationText="Reads all data in columns I to JE. Much information will be pulled, but Column I has the Sailor's name, and Column JE has last 4 of SSN. Nothing outside of that range is needed." DisplayName="Read Range - I:JE" sap:VirtualizedContainerService.HintSize="444,268.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;).Range(&quot;I:JE&quot;)]" SaveTo="[dtMRRSExcelInput]" VisibleOnly="False">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:ReadRangeX>
+                    <ui:FilterDataTable sap2010:Annotation.AnnotationText="Filters dtMRRSExcelInput to delete unnecessary columns.&#xD;&#xA;&#xD;&#xA;Columns saved:&#xD;&#xA;- Name: For Debugging (if needed)&#xD;&#xA;- Last 4, Date of Birth: Identifiers for linking NMO and MRRS DataRows.&#xD;&#xA;- PHA Dt: Date of PHA" DataTable="[dtMRRSExcelInput]" DisplayName="Filter Data Table - dtMRRSExcelFilteredData" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="444,332" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dtMRRSExcelFilteredData]" SelectColumnsMode="Keep">
+                      <ui:FilterDataTable.Filters>
+                        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY" />
+                        </scg:List>
+                      </ui:FilterDataTable.Filters>
+                      <ui:FilterDataTable.SelectColumns>
+                        <scg:List x:TypeArguments="InArgument" Capacity="4">
+                          <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
+                          <InArgument x:TypeArguments="x:String">["Date of Birth"]</InArgument>
+                          <InArgument x:TypeArguments="x:String">["Last 4"]</InArgument>
+                          <InArgument x:TypeArguments="x:String">["PHA Dt"]</InArgument>
+                        </scg:List>
+                      </ui:FilterDataTable.SelectColumns>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:FilterDataTable>
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
