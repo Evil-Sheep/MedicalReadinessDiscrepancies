@@ -193,6 +193,9 @@
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
                   <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,554.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_118">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelInput" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -205,7 +208,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteRowsX>
-                    <ueab:ReadRangeX sap2010:Annotation.AnnotationText="Reads all data in columns I to JE. Much information will be pulled, but Column I has the Sailor's name, and Column JE has last 4 of SSN. Nothing outside of that range is needed." DisplayName="Read Range - I:JE" sap:VirtualizedContainerService.HintSize="444,259.3333333333333" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;).Range(&quot;I:JE&quot;)]" SaveTo="[dtIMRProfileInput]" VisibleOnly="False">
+                    <ueab:ReadRangeX sap2010:Annotation.AnnotationText="Reads all data in columns I to JE. Much information will be pulled, but Column I has the Sailor's name, and Column JE has last 4 of SSN. Nothing outside of that range is needed." DisplayName="Read Range - I:JE" sap:VirtualizedContainerService.HintSize="444,259.3333333333333" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;).Range(&quot;I:JE&quot;)]" SaveTo="[dtMRRSExcelInput]" VisibleOnly="False">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
