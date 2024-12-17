@@ -162,7 +162,7 @@
             <Variable x:TypeArguments="ui:UiElement" Name="uieMainBrowser" />
             <Variable x:TypeArguments="si:FileInfo" Name="fileNMOIMRReport" />
             <Variable x:TypeArguments="sd:DataTable" Name="dtImmediateChanges" />
-            <Variable x:TypeArguments="sd:DataTable" Name="dtPossibleChanges" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dtReadinessChanges" />
             <Variable x:TypeArguments="si:FileInfo" Name="fileDownloadedMRRSReport" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
@@ -213,10 +213,8 @@
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="486.6666666666667,239.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtIMRProfileHitList]</InArgument>
-              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtPossibleChanges">[dtPossibleChanges]</OutArgument>
-              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtImmediateChanges">[dtImmediateChanges]</OutArgument>
               <InArgument x:TypeArguments="si:FileInfo" x:Key="in_fileDownloadedMRRSReport">[fileDownloadedMRRSReport]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges">[dtReadinessChanges]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -235,7 +233,7 @@
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveChangesToWord - Invoke Workflow File (SaveChangesToWord.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="SaveChangesToWord.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtImmediateChanges">[dtImmediateChanges]</InArgument>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPossibleChanges">[dtPossibleChanges]</InArgument>
+                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtPossibleChanges">[dtReadinessChanges]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
