@@ -130,13 +130,13 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,7229.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,7654.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="586,7206.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="586,7632" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,13 +144,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="552,7124" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="552,7549.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,6916.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,7342" sap2010:WorkflowViewState.IdRef="Sequence_21">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
                 <Variable x:TypeArguments="x:String" Default="Running" Name="strRecentlyRunReportStatus" />
@@ -671,6 +671,39 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GetLastDownloadedFile>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Clicking the text to download the report opens a pop-up window to download the report. Once the report is downloaded, we don't need the pop-up window, so we close it immediately." DisplayName="Attach Window - 'Untitled' pop-up" sap:VirtualizedContainerService.HintSize="484,425.3333333333333" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;wnd app='msedge.exe' cls='Chrome_WidgetWin_1' title='Untitled - Personal - Microsoft​ Edge' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,222" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="416,162" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="w" KeyModifiers="Ctrl, Shift">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="8cb08ef6-4fab-4e84-b75a-57688a8719ba">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WindowScope>
               <uix:NClick ActivateBefore="True" sap2010:Annotation.AnnotationText="Click the &quot;Close&quot; botton on the sub-window to prepare site for individual searching later." ClickType="Single" DisplayName="Click - 'Close' Button" sap:VirtualizedContainerService.HintSize="484,268" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V4">
                 <uix:NClick.Target>
                   <uix:TargetAnchorable BrowserURL="https://mrrs.dc3n.navy.mil/mrrs/main.m" CVScreenId="392abccc-5fc0-4ef6-be2e-04c73163118d" CvElementArea="599, 914, 154, 33" CvTextArea="651, 920, 49, 18" CvTextArgument="Close" CvType="Button" DesignTimeRectangle="602, 915, 150, 30" DesignTimeScaleFactor="1.5" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='button' tag='INPUT' class='' aaname='Close' check:text='Close' /&gt;" Guid="1aa3da98-64f4-46e5-936f-e5f7913f1f02" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Medical Readiness Reporting System' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
