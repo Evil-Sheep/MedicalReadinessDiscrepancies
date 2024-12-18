@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Click - 'Menu' button",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "ftTjZXGDvUGygexSCpSgEw",
+  "Reference": "g_j_fYTbaEKkplU0mkdm6Q/ftTjZXGDvUGygexSCpSgEw",
+  "ParentRef": "g_j_fYTbaEKkplU0mkdm6Q/FW4UChOxdkqimx3O-WzQBQ",
+  "Created": "2024-12-18T13:06:27.147605Z",
+  "Updated": "2024-12-18T13:06:27.147605Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.11.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
