@@ -156,42 +156,107 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,6962.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_36">
+  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,8882.666666666666" sap2010:WorkflowViewState.IdRef="Sequence_36">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelFilteredData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelInput" />
+      <Variable x:TypeArguments="x:String" Name="HEADER_NMO_NAME">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">NAME</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_NMO_SSN">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">SSN</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="COLUMNVALUE_ISFIXABLE_YES">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Yes</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="COLUMNVALUE_ISFIXABLE_NO">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">No</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_NMO_OVERDUE">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">OVERDUE</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_READINESS_SAILORNAME">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">SailorName</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_READINESS_LAST4SSN">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Last4SSN</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_READINESS_DELINQUENCY">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">Delinquency</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_PHADATE">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">PHA Dt</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_READINESS_ISFIXABLE">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">IsFixable</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_READINESS_NEWVALUE">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">NewValue</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_HIVTESTDATE">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">HIV Test Dt</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_HIVRESULTDATE">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">HIV Result Dt</Literal>
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks any changes that can be changed immediately, such as PHA being out of date in NMO but current in MRRS.&#xA;&#xA;Columns:&#xA;- SailorName (String): Name of Sailor&#xA;- Last4SSN (String): Last 4 digits of Sailor's SSN&#xA;- Delinquency (String): Delinquent readiness item&#xA;- ChangeStatus (String): Status deliniating if delinquncy can be changed now or not&#xA;- NewValue (String): If a change can be made now, this is what the new value needs to be. If not, it'll contain comments on what needs to be done." DataTable="[out_dtReadinessChanges]" DisplayName="Build Data Table - out_dtReadinessChanges" sap:VirtualizedContainerService.HintSize="612,320.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ChangeStatus&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;NewValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks any changes that can be changed immediately, such as PHA being out of date in NMO but current in MRRS.&#xA;&#xA;Columns:&#xA;- SailorName (String): Name of Sailor&#xA;- Last4SSN (String): Last 4 digits of Sailor's SSN&#xA;- Delinquency (String): Delinquent readiness item&#xA;- IsFixable (String): Status deliniating if delinquncy can be fixed by information collected by this robot.&#xA;- NewValue (String): If a change can be made now, this is what the new value needs to be. If not, it'll contain comments on what needs to be done." DataTable="[out_dtReadinessChanges]" DisplayName="Build Data Table - out_dtReadinessChanges" sap:VirtualizedContainerService.HintSize="612,320.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;IsFixable&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NewValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="Prepares MRRS Excel data by removing unnecessary rows and importing information into DataTable" DisplayName="Excel Process Scope - MRRS Report" sap:VirtualizedContainerService.HintSize="612,1974" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="Prepares MRRS Excel data by removing unnecessary rows and importing information into DataTable" DisplayName="Excel Process Scope - MRRS Report" sap:VirtualizedContainerService.HintSize="612,1526" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do - Excel Process: MRRS Report" sap:VirtualizedContainerService.HintSize="546,1824" sap2010:WorkflowViewState.IdRef="Sequence_117">
+          <Sequence DisplayName="Do - Excel Process: MRRS Report" sap:VirtualizedContainerService.HintSize="518,1361.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_117">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Uses the downloaded MRRS report, based on the file downloaded in DownloadMRRSReport.xaml" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File - MRRS Report" sap:VirtualizedContainerService.HintSize="512,1764" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_fileDownloadedMRRSReport.ToString]">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" sap2010:Annotation.AnnotationText="Uses the downloaded MRRS report, based on the file downloaded in DownloadMRRSReport.xaml" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File - MRRS Report" sap:VirtualizedContainerService.HintSize="484,1301.3333333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[in_fileDownloadedMRRSReport.ToString]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="478,1415.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_118">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,952.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_118">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="strTemp" />
                     </Sequence.Variables>
@@ -200,7 +265,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:DeleteRowsX sap2010:Annotation.AnnotationText="Deletes first two row. These rows contain FOUO confidentiality statement, so they are deleted to move Row 3 (which contains the headers) to the top." DeleteRowsOption="Specific" DisplayName="Delete Rows - Rows 1-2" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,169.33333333333334" sap2010:WorkflowViewState.IdRef="DeleteRowsX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;)]" RowPositions="1-2">
+                    <ueab:DeleteRowsX sap2010:Annotation.AnnotationText="Deletes first two row. These rows contain FOUO confidentiality statement, so they are deleted to move Row 3 (which contains the headers) to the top." DeleteRowsOption="Specific" DisplayName="Delete Rows - Rows 1-2" HasHeaders="False" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="DeleteRowsX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;)]" RowPositions="1-2">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -209,7 +274,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteRowsX>
-                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column AZ has HIV Result Date, column JE has last 4 of SSN. This deletes everything in between." ColumnName="BA:JD" DisplayName="Delete Column - Columns BA-JD" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_2" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
+                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column AZ has HIV Result Date, column JE has last 4 of SSN. This deletes everything in between." ColumnName="BA:JD" DisplayName="Delete Column - Columns BA-JD" HasHeaders="False" sap:VirtualizedContainerService.HintSize="416,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_2" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -218,7 +283,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteColumnX>
-                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column AO has PHA date, column AY has HIV test date. This deletes everything in between." ColumnName="AP:AX" DisplayName="Delete Column - Columns AP-AX" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_6" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
+                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column AO has PHA date, column AY has HIV test date. This deletes everything in between." ColumnName="AP:AX" DisplayName="Delete Column - Columns AP-AX" HasHeaders="False" sap:VirtualizedContainerService.HintSize="416,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_6" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -227,7 +292,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteColumnX>
-                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column P has date of birth, column AO has PHA date. This deletes everything in between." ColumnName="Q:AN" DisplayName="Delete Column - Columns Q-AN" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_3" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
+                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column P has date of birth, column AO has PHA date. This deletes everything in between." ColumnName="Q:AN" DisplayName="Delete Column - Columns Q-AN" HasHeaders="False" sap:VirtualizedContainerService.HintSize="416,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_3" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -236,7 +301,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteColumnX>
-                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column I has Sailor name, column P has date of birth. This deletes everything in between." ColumnName="J:O" DisplayName="Delete Column - Columns J-O" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_4" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
+                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column I has Sailor name, column P has date of birth. This deletes everything in between." ColumnName="J:O" DisplayName="Delete Column - Columns J-O" HasHeaders="False" sap:VirtualizedContainerService.HintSize="416,119.33333333333333" sap2010:WorkflowViewState.IdRef="DeleteColumnX_4" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -245,26 +310,24 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteColumnX>
-                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column I has Sailor's name. This deletes everything before that." ColumnName="A:H" DisplayName="Delete Column - Columns A-H" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,228" sap2010:WorkflowViewState.IdRef="DeleteColumnX_5" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
+                    <ueab:DeleteColumnX sap2010:Annotation.AnnotationText="Column I has Sailor's name. This deletes everything before that." ColumnName="A:H" DisplayName="Delete Column - Columns A-H" HasHeaders="False" sap:VirtualizedContainerService.HintSize="416,102.66666666666667" sap2010:WorkflowViewState.IdRef="DeleteColumnX_5" Range="[Excel.sheet(&quot;IMR Detail&quot;)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:DeleteColumnX>
-                    <ueab:ReadRangeX sap2010:Annotation.AnnotationText="Reads all data in columns A:F. After deleting unnecessary columns, these should be all the columns that remain." DisplayName="Read Range - A:F" sap:VirtualizedContainerService.HintSize="444,252" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;).Range(&quot;A:F&quot;)]" SaveTo="[dtMRRSExcelInput]" VisibleOnly="False">
+                    <ueab:ReadRangeX sap2010:Annotation.AnnotationText="Reads all data in columns A:F. After deleting unnecessary columns, these should be all the columns that remain." DisplayName="Read Range - A:F" sap:VirtualizedContainerService.HintSize="416,143.33333333333334" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;IMR Detail&quot;).Range(&quot;A:F&quot;)]" SaveTo="[dtMRRSExcelInput]" VisibleOnly="False">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:ReadRangeX>
-                    <ui:OutputDataTable DataTable="[dtMRRSExcelInput]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="444,114" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strTemp]" />
-                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="444,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_27" Text="[strTemp]" />
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
@@ -283,13 +346,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="612,4645.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="612,7013.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="610,4425.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="610,6793.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtMatchingSailors" />
             </Sequence.Variables>
@@ -321,10 +384,7 @@
               </ui:FilterDataTable.Filters>
               <ui:FilterDataTable.SelectColumns>
                 <scg:List x:TypeArguments="InArgument" Capacity="4">
-                  <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
-                  <InArgument x:TypeArguments="x:String">["PHA Dt"]</InArgument>
-                  <InArgument x:TypeArguments="x:String">["HIV Test Dt"]</InArgument>
-                  <InArgument x:TypeArguments="x:String">["HIV Result Dt"]</InArgument>
+                  <x:Null />
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
               <sap:WorkflowViewStateService.ViewState>
@@ -350,7 +410,7 @@
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;).ToString, CurrentRow(&quot;SSN&quot;).ToString, &quot;All&quot;, &quot;More Info Needed&quot;, &quot;No match found in MRRS Report. Sailor may not be locally gained in MRRS.&quot;}]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row - No matching records in MRRS" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_19" />
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(HEADER_NMO_NAME).ToString, CurrentRow(HEADER_NMO_SSN).ToString, &quot;All&quot;, COLUMNVALUE_ISFIXABLE_NO, &quot;No match found in MRRS Report. Sailor may not be locally gained in MRRS.&quot;}]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row - No matching records in MRRS" sap:VirtualizedContainerService.HintSize="382,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_19" />
                   <ui:Continue DisplayName="Continue - No matching rows" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Continue_5" />
                 </Sequence>
               </If.Then>
@@ -374,15 +434,15 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Add the Sailor's information to dtReadinessChanges, annotating that there were multiple hits and their information will have to be checked manually." DisplayName="Then - Add Sailor to out_dtReadinessChanges (multiple hits)" sap:VirtualizedContainerService.HintSize="418.6666666666667,87.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_126">
+                <Sequence sap2010:Annotation.AnnotationText="Add the Sailor's information to dtReadinessChanges, annotating that there were multiple hits and their information will have to be checked manually." DisplayName="Then - Add Sailor to out_dtReadinessChanges (multiple hits)" sap:VirtualizedContainerService.HintSize="418.6666666666667,393.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_126">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;NAME&quot;).ToString, CurrentRow(&quot;SSN&quot;).ToString, &quot;All&quot;, &quot;More Info Needed&quot;, &quot;Multiple matches found in MRRS Report. Sailor's info will have to be checked manually.&quot;}]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row - Multiple records in MRRS" sap:VirtualizedContainerService.HintSize="384.6666666666667,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_20" />
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(HEADER_NMO_NAME).ToString, CurrentRow(HEADER_NMO_SSN).ToString, &quot;All&quot;, COLUMNVALUE_ISFIXABLE_NO, &quot;Multiple matches found in MRRS Report. Sailor's info will have to be checked manually.&quot;}]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row - Multiple records in MRRS" sap:VirtualizedContainerService.HintSize="384.6666666666667,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_20" />
                   <ui:Continue DisplayName="Continue - Multiple rows" sap:VirtualizedContainerService.HintSize="384.6666666666667,48" sap2010:WorkflowViewState.IdRef="Continue_6" />
                 </Sequence>
               </If.Then>
@@ -397,16 +457,16 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Preventive Health Assessment&quot;, indicating the Sailor is due for PHA" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;Preventive Health Assessment&quot;)]" DisplayName="If - PHA Due" sap:VirtualizedContainerService.HintSize="576,136" sap2010:WorkflowViewState.IdRef="If_18">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Preventive Health Assessment&quot;, indicating the Sailor is due for PHA" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Preventive Health Assessment&quot;)]" DisplayName="If - PHA Due" sap:VirtualizedContainerService.HintSize="576,2504" sap2010:WorkflowViewState.IdRef="If_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Check if PHA date is within past year, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS PHA Date" sap:VirtualizedContainerService.HintSize="540,2417.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_120">
+                <Sequence sap2010:Annotation.AnnotationText="Check if PHA date is within past year, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS PHA Date" sap:VirtualizedContainerService.HintSize="540,2293.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_120">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
                   </Sequence.Variables>
@@ -426,29 +486,29 @@
                   </Assign>
                   <Assign DisplayName="Assign - Sailor's Name to drReadinessChanges" sap:VirtualizedContainerService.HintSize="506,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("SailorName")]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_SAILORNAME)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Object">[CurrentRow("NAME")]</InArgument>
+                      <InArgument x:TypeArguments="x:Object">[CurrentRow(HEADER_NMO_NAME)]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <Assign DisplayName="Assign - Sailor's Last 4 to drReadinessChanges" sap:VirtualizedContainerService.HintSize="506,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("Last4SSN")]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_LAST4SSN)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Object">[CurrentRow("SSN")]</InArgument>
+                      <InArgument x:TypeArguments="x:Object">[CurrentRow(HEADER_NMO_SSN)]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <Assign DisplayName="Assign - &quot;PHA&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="506,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_20">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("Delinquency")]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_DELINQUENCY)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
                       <InArgument x:TypeArguments="x:Object">["PHA"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no PHA date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need a PHA and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid PHA Date" sap:VirtualizedContainerService.HintSize="506,1842.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_12">
+                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no PHA date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need a PHA and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid PHA Date" sap:VirtualizedContainerService.HintSize="506,1718.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -462,7 +522,7 @@
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="Checks to see if PHA date in MRRS is within past year.&#xA;&#xA;Calculated by subtracting the PHA date in MRRS from today's date, and seeing if that number of days is less than 365." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(&quot;PHA Dt&quot;).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 365]" DisplayName="If - MRRS PHA within past year" sap:VirtualizedContainerService.HintSize="470,780" sap2010:WorkflowViewState.IdRef="If_22">
+                        <If sap2010:Annotation.AnnotationText="Checks to see if PHA date in MRRS is within past year.&#xA;&#xA;Calculated by subtracting the PHA date in MRRS from today's date, and seeing if that number of days is less than 365." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(HEADER_MRRS_PHADATE).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 365]" DisplayName="If - MRRS PHA within past year" sap:VirtualizedContainerService.HintSize="470,780" sap2010:WorkflowViewState.IdRef="If_22">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -477,18 +537,18 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <Assign DisplayName="Assign - &quot;Fix Now&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("ChangeStatus")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_ISFIXABLE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">["Fix Now"]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[COLUMNVALUE_ISFIXABLE_YES]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <Assign DisplayName="Assign - MRRS PHA date to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_22">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("NewValue")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_NEWVALUE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">[dtMatchingSailors(0)("PHA Dt").toString]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[dtMatchingSailors(0)(HEADER_MRRS_PHADATE).toString]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -502,15 +562,15 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <Assign DisplayName="Assign - &quot;More Info Needed&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_23">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("ChangeStatus")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_ISFIXABLE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">["More Info Needed"]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <Assign DisplayName="Assign - MRRS PHA out of date status to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_24">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("NewValue")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_NEWVALUE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
                                   <InArgument x:TypeArguments="x:Object">["PHA out of date in MRRS. Verify with physical record and MHS Genesis."]</InArgument>
@@ -536,15 +596,15 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <Assign DisplayName="Assign - &quot;More Info Needed&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="470,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_25">
                               <Assign.To>
-                                <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("ChangeStatus")]</OutArgument>
+                                <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_ISFIXABLE)]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
-                                <InArgument x:TypeArguments="x:Object">["More Info Needed"]</InArgument>
+                                <InArgument x:TypeArguments="x:Object">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
                               </Assign.Value>
                             </Assign>
                             <Assign DisplayName="Assign - No PHA Date in MRRS Report to drReadinessChanges" sap:VirtualizedContainerService.HintSize="470,108" sap2010:WorkflowViewState.IdRef="Assign_26">
                               <Assign.To>
-                                <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("NewValue")]</OutArgument>
+                                <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_NEWVALUE)]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
                                 <InArgument x:TypeArguments="x:Object">["Unable to parse PHA date in MRRS report, likely due to no documented PHA."]</InArgument>
@@ -555,14 +615,13 @@
                       </Catch>
                     </TryCatch.Catches>
                     <TryCatch.Finally>
-                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="504,398" sap2010:WorkflowViewState.IdRef="Sequence_136">
+                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="504,274" sap2010:WorkflowViewState.IdRef="Sequence_136">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[drReadinessChanges]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="470,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_24" />
-                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="470,114.66666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_25" Text="[String.Join(&quot;, &quot;, drReadinessChanges.ItemArray)]" />
+                        <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[drReadinessChanges]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="470,214" sap2010:WorkflowViewState.IdRef="AddDataRow_24" />
                       </Sequence>
                     </TryCatch.Finally>
                   </TryCatch>
@@ -579,7 +638,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;HIV&quot;, indicating the Sailor is due for HIV" Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;HIV&quot;)]" DisplayName="If - HIV Due" sap:VirtualizedContainerService.HintSize="576,3599.3333333333335" sap2010:WorkflowViewState.IdRef="If_23">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;HIV&quot;, indicating the Sailor is due for HIV" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;HIV&quot;)]" DisplayName="If - HIV Due" sap:VirtualizedContainerService.HintSize="576,3599.3333333333335" sap2010:WorkflowViewState.IdRef="If_23">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -609,23 +668,23 @@
                   </Assign>
                   <Assign DisplayName="Assign - Sailor's Name to drReadinessChanges" sap:VirtualizedContainerService.HintSize="540,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_34">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("SailorName")]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_SAILORNAME)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Object">[CurrentRow("NAME")]</InArgument>
+                      <InArgument x:TypeArguments="x:Object">[CurrentRow(HEADER_NMO_NAME)]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <Assign DisplayName="Assign - Sailor's Last 4 to drReadinessChanges" sap:VirtualizedContainerService.HintSize="540,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_35">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("Last4SSN")]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_LAST4SSN)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="x:Object">[CurrentRow("SSN")]</InArgument>
+                      <InArgument x:TypeArguments="x:Object">[CurrentRow(HEADER_NMO_SSN)]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <Assign DisplayName="Assign - &quot;HIV Draw Date&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="540,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_28">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("Delinquency")]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_DELINQUENCY)]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
                       <InArgument x:TypeArguments="x:Object">["HIV Draw Date"]</InArgument>
@@ -645,7 +704,7 @@
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="Checks to see if HIV draw date in MRRS is within past two years.&#xA;&#xA;Calculated by subtracting the HIV draw date in MRRS from today's date, and seeing if that number of days is less than 730." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(&quot;HIV Test Dt&quot;).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 730]" DisplayName="If - MRRS HIV within past two years" sap:VirtualizedContainerService.HintSize="504,1790" sap2010:WorkflowViewState.IdRef="If_24">
+                        <If sap2010:Annotation.AnnotationText="Checks to see if HIV draw date in MRRS is within past two years.&#xA;&#xA;Calculated by subtracting the HIV draw date in MRRS from today's date, and seeing if that number of days is less than 730." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(HEADER_MRRS_HIVTESTDATE).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 730]" DisplayName="If - MRRS HIV within past two years" sap:VirtualizedContainerService.HintSize="504,1790" sap2010:WorkflowViewState.IdRef="If_24">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -660,18 +719,18 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <Assign DisplayName="Assign - &quot;Fix Now&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_36">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("ChangeStatus")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_ISFIXABLE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">["Fix Now"]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[COLUMNVALUE_ISFIXABLE_YES]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <Assign DisplayName="Assign - MRRS HIV draw date to drReadinessChanges" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_29">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("NewValue")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_NEWVALUE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">[dtMatchingSailors(0)("HIV Test Dt").toString]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[dtMatchingSailors(0)(HEADER_MRRS_HIVTESTDATE).toString]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <Sequence DisplayName="Sequence - Save HIV Result Date" sap:VirtualizedContainerService.HintSize="468,1000.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_145">
@@ -691,31 +750,31 @@
                                 </Assign>
                                 <Assign DisplayName="Assign - Sailor's Name to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_43">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult("SailorName")]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult(HEADER_READINESS_SAILORNAME)]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Object">[CurrentRow("NAME")]</InArgument>
+                                    <InArgument x:TypeArguments="x:Object">[CurrentRow(HEADER_NMO_NAME)]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                                 <Assign DisplayName="Assign - Sailor's Last 4 to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_44">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult("Last4SSN")]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult(HEADER_READINESS_LAST4SSN)]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Object">[CurrentRow("SSN")]</InArgument>
+                                    <InArgument x:TypeArguments="x:Object">[CurrentRow(HEADER_NMO_SSN)]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                                 <Assign DisplayName="Assign - &quot;Fix Now&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_45">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult("ChangeStatus")]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult(HEADER_READINESS_ISFIXABLE)]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Object">["Fix Now"]</InArgument>
+                                    <InArgument x:TypeArguments="x:Object">[COLUMNVALUE_ISFIXABLE_YES]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                                 <Assign DisplayName="Assign - &quot;HIV Result Date&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_31">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult("Delinquency")]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult(HEADER_READINESS_DELINQUENCY)]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
                                     <InArgument x:TypeArguments="x:Object">["HIV Result Date"]</InArgument>
@@ -723,10 +782,10 @@
                                 </Assign>
                                 <Assign DisplayName="Assign - MRRS HIV result date to drReadinessChanges" sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_32">
                                   <Assign.To>
-                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult("NewValue")]</OutArgument>
+                                    <OutArgument x:TypeArguments="x:Object">[drReadinessChangesHIVResult(HEADER_READINESS_NEWVALUE)]</OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
-                                    <InArgument x:TypeArguments="x:Object">[dtMatchingSailors(0)("HIV Result Dt").toString]</InArgument>
+                                    <InArgument x:TypeArguments="x:Object">[dtMatchingSailors(0)(HEADER_MRRS_HIVRESULTDATE).toString]</InArgument>
                                   </Assign.Value>
                                 </Assign>
                                 <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[drReadinessChangesHIVResult]" DataTable="[out_dtReadinessChanges]" DisplayName="Add Data Row - HIV Result Date" sap:VirtualizedContainerService.HintSize="434,214" sap2010:WorkflowViewState.IdRef="AddDataRow_26" />
@@ -742,15 +801,15 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <Assign DisplayName="Assign - &quot;More Info Needed&quot; to drReadinessChanges" sap:VirtualizedContainerService.HintSize="468,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_37">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("ChangeStatus")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_ISFIXABLE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">["More Info Needed"]</InArgument>
+                                  <InArgument x:TypeArguments="x:Object">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
                                 </Assign.Value>
                               </Assign>
                               <Assign DisplayName="Assign - MRRS HIV out of date status to drReadinessChanges" sap:VirtualizedContainerService.HintSize="468,108" sap2010:WorkflowViewState.IdRef="Assign_30">
                                 <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("NewValue")]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:Object">[drReadinessChanges(HEADER_READINESS_NEWVALUE)]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
                                   <InArgument x:TypeArguments="x:Object">["HIV out of date in MRRS. Verify with physical record and MHS Genesis."]</InArgument>
