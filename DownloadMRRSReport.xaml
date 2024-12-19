@@ -130,13 +130,13 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,4744.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,4778" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="586,4722" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser, load the MRRS website, and navigate to individual member search in preparation for verifying hit list." DisplayName="Sequence - Open MRRS" sap:VirtualizedContainerService.HintSize="586,4755.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -144,13 +144,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="552,4639.333333333333" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Attach to the currently opened Edge browser (still open after downloading NMO IMR report) to scrape MRRS for discrepancies." AttachMode="ByInstance" DisplayName="Use Application/Browser - Edge" sap:VirtualizedContainerService.HintSize="552,4672.666666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InUiElement="[in_uieMainBrowser]" OpenMode="Never" ScopeGuid="d4d07f3c-3050-4d45-9458-951d3c4763a1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,4432" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="518,4465.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_21">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boolPageNeedsToBeReloaded" />
                 <Variable x:TypeArguments="x:String" Default="Running" Name="strRecentlyRunReportStatus" />
@@ -413,7 +413,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:OnUiElementAppear>
-              <ui:GetLastDownloadedFile FileResource="{x:Null}" Timeout="{x:Null}" sap2010:Annotation.AnnotationText="Watch for the download of the MRRS report.&#xA;&#xA;After clicking &quot;Run&quot;, the site will generate the report (takes 5-10 minutes), then once generated, a pop-up window will open and download the report to the &quot;Downloads&quot; folder." DisplayName="Wait for Download -  MRRS Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[out_fileDownloadedMRRSReport]" sap:VirtualizedContainerService.HintSize="484,764.6666666666666" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdownload">
+              <ui:GetLastDownloadedFile FileResource="{x:Null}" sap2010:Annotation.AnnotationText="Watch for the download of the MRRS report.&#xA;&#xA;After clicking &quot;Run&quot;, the site will generate the report (takes 5-10 minutes), then once generated, a pop-up window will open and download the report to the &quot;Downloads&quot; folder.&#xD;&#xA;&#xD;&#xA;Timeout is set to 600 seconds because yes, it can take that long to run." DisplayName="Wait for Download -  MRRS Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" File="[out_fileDownloadedMRRSReport]" sap:VirtualizedContainerService.HintSize="484,798" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1" IgnoreFiles="tmp,crdownload" Timeout="600">
                 <ui:GetLastDownloadedFile.Body>
                   <ActivityAction>
                     <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,375.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_26">
