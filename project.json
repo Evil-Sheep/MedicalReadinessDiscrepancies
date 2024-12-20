@@ -52,6 +52,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TC_PHAVerification.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "24d3276f-9bd1-4a3f-950a-58afa7979db1",
+        "dataVariationFilePath": ".variations\\Test Patient Data_HIV.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TC_HIVVerification.xaml"
       }
     ],
     "saveToCloud": false
