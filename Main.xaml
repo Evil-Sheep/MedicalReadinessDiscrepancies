@@ -134,7 +134,7 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="625.9999999999999,3323.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="626.6666666666666,3460.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strBeginReconciliationMessageChoice" />
     </Sequence.Variables>
@@ -143,21 +143,21 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox sap2010:Annotation.AnnotationText="Open message box to decide to begin reconciliation. This gives the user time to prepare for process start, i.e. insert CAC into computer." AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Begin Reconciliation" ChosenButton="[strBeginReconciliationMessageChoice]" DisplayName="Message Box - Begin Reconciliation" sap:VirtualizedContainerService.HintSize="606,180.66666666666666" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Begin reconciliation between NMO and MRRS?&quot;]">
+    <ui:MessageBox sap2010:Annotation.AnnotationText="Open message box to decide to begin reconciliation. This gives the user time to prepare for process start, i.e. insert CAC into computer." AutoCloseAfter="00:00:00" Buttons="YesNo" Caption="Begin Reconciliation" ChosenButton="[strBeginReconciliationMessageChoice]" DisplayName="Message Box - Begin Reconciliation" sap:VirtualizedContainerService.HintSize="606,178" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Begin reconciliation between NMO and MRRS?&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="606,3120" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap2010:Annotation.AnnotationText="Acts on choice from Begin Reconciliation message box. If Yes, process will begin. If No, displays message stating the process was terminated." Condition="[strBeginReconciliationMessageChoice = &quot;Yes&quot;]" DisplayName="If - Begin Reconciliation Message Box Choice" sap:VirtualizedContainerService.HintSize="606,3260" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,2744" sap2010:WorkflowViewState.IdRef="Sequence_16">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="604,2886" sap2010:WorkflowViewState.IdRef="Sequence_16">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="dtIMRProfileHitList" />
             <Variable x:TypeArguments="ui:UiElement" Name="uieMainBrowser" />
@@ -165,13 +165,14 @@
             <Variable x:TypeArguments="sd:DataTable" Name="dtImmediateChanges" />
             <Variable x:TypeArguments="sd:DataTable" Name="dtReadinessChanges" />
             <Variable x:TypeArguments="si:FileInfo" Name="fileDownloadedMRRSReport" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSFilteredData" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to NMO IMR website and download IMR Report.&#xA;&#xA;Arguments:&#xA;- out_uieMainBrowser: Edge browser opened to download report. Used later for MRRS comparison.&#xA;- out_fileNMOIMRReport: Excel file downloaded from IMR website containing hit list. Will be cleaned and imported as DataTable in PrepareExcelData workflow." DisplayName="Invoke Workflow File - DownloadNMOReport.xaml" sap:VirtualizedContainerService.HintSize="570,339.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DownloadNMOReport.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Navigate to NMO IMR website and download IMR Report.&#xA;&#xA;Arguments:&#xA;- out_uieMainBrowser: Edge browser opened to download report. Used later for MRRS comparison.&#xA;- out_fileNMOIMRReport: Excel file downloaded from IMR website containing hit list. Will be cleaned and imported as DataTable in PrepareExcelData workflow." DisplayName="Invoke Workflow File - DownloadNMOReport.xaml" sap:VirtualizedContainerService.HintSize="570,332.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DownloadNMOReport.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_uieMainBrowser">[uieMainBrowser]</OutArgument>
               <OutArgument x:TypeArguments="si:FileInfo" x:Key="out_fileNMOIMRReport">[fileNMOIMRReport]</OutArgument>
@@ -182,7 +183,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Edit and import IMR Report.&#xA;&#xA;Arguments:&#xA;- in_fileNMOIMRReport: Excel IMR Report downloaded from DownloadNMOReport workflow.&#xA;- out_dtIMRProfileHitList: DataTable of Sailors with delinquent readiness items, based on IMR Report." DisplayName="Invoke Workflow File - PrepareNMOExcelData.xaml" sap:VirtualizedContainerService.HintSize="570,306" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="PrepareNMOExcelData.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Edit and import IMR Report.&#xA;&#xA;Arguments:&#xA;- in_fileNMOIMRReport: Excel IMR Report downloaded from DownloadNMOReport workflow.&#xA;- out_dtIMRProfileHitList: DataTable of Sailors with delinquent readiness items, based on IMR Report." DisplayName="Invoke Workflow File - PrepareNMOExcelData.xaml" sap:VirtualizedContainerService.HintSize="570,301.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="PrepareNMOExcelData.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="si:FileInfo" x:Key="in_fileNMOIMRReport">[fileNMOIMRReport]</InArgument>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtIMRProfileHitList">[dtIMRProfileHitList]</OutArgument>
@@ -193,14 +194,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:MessageBox ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Lets the user know the NMO data was imported successfully. This also pauses the robot so, should the user be unavailable, the robot doesn't immediately load MRRS just for the connection to time out when the user returns." AutoCloseAfter="00:00:00" Caption="NMO data loaded successfully" DisplayName="Message Box - IMR Profile Imported" sap:VirtualizedContainerService.HintSize="570,214" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;NMO IMR data imported. Preparing to load MRRS website&quot;]">
+          <ui:MessageBox ChosenButton="{x:Null}" sap2010:Annotation.AnnotationText="Lets the user know the NMO data was imported successfully. This also pauses the robot so, should the user be unavailable, the robot doesn't immediately load MRRS just for the connection to time out when the user returns." AutoCloseAfter="00:00:00" Caption="NMO data loaded successfully" DisplayName="Message Box - IMR Profile Imported" sap:VirtualizedContainerService.HintSize="570,210" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;NMO IMR data imported. Preparing to load MRRS website&quot;]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MessageBox>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Open the MRRS website, wait for user to log in, then navigate to Member Search to prepare for verifying hit list information.&#xA;&#xA;Arguments:&#xA;- in_uieMainBrowser: Edge browser currently open from downloading NMO data. Used to navigate to MRRS and verify NMO data against MRRS data.&#xD;&#xA;- out_fileDownloadedMRRSReport: Excel file containing readiness data from MRRS" DisplayName="Invoke Workflow File - DownloadMRRSReport.xaml" sap:VirtualizedContainerService.HintSize="570,356" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="DownloadMRRSReport.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Open the MRRS website, wait for user to log in, then navigate to Member Search to prepare for verifying hit list information.&#xA;&#xA;Arguments:&#xA;- in_uieMainBrowser: Edge browser currently open from downloading NMO data. Used to navigate to MRRS and verify NMO data against MRRS data.&#xA;- out_fileDownloadedMRRSReport: Excel file containing readiness data from MRRS" DisplayName="Invoke Workflow File - DownloadMRRSReport.xaml" sap:VirtualizedContainerService.HintSize="570,348.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="DownloadMRRSReport.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="ui:UiElement" x:Key="in_uieMainBrowser">[uieMainBrowser]</InArgument>
               <OutArgument x:TypeArguments="si:FileInfo" x:Key="out_fileDownloadedMRRSReport">[fileDownloadedMRRSReport]</OutArgument>
@@ -211,11 +212,18 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="570,239.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - PrepareMRRSExcelData.xaml" sap:VirtualizedContainerService.HintSize="570,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="PrepareMRRSExcelData.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="si:FileInfo" x:Key="in_fileDownloadedMRRSReport">[fileDownloadedMRRSReport]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtMRRSFilteredData">[dtMRRSFilteredData]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row of dtIMRProfileHitList and verify information against MRRS to determine what discrepancies need to be addressed." DisplayName="Invoke Workflow File - ReconcileNMOAndMRRS.xaml" sap:VirtualizedContainerService.HintSize="570,237.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtIMRProfileHitList]</InArgument>
               <InArgument x:TypeArguments="si:FileInfo" x:Key="in_fileDownloadedMRRSReport">[fileDownloadedMRRSReport]</InArgument>
               <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges">[dtReadinessChanges]</OutArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData">[dtMRRSFilteredData]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -223,32 +231,32 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope - Save Changes to Excel File" sap:VirtualizedContainerService.HintSize="570,898.6666666666666" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope - Save Changes to Excel File" sap:VirtualizedContainerService.HintSize="570,888" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
             <ueab:ExcelProcessScopeX.Body>
               <ActivityAction x:TypeArguments="ui:IExcelProcess">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,779.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="536,768.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_20">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" AutoSave="False" DisplayName="Use Excel File - Readiness Changes - TEMPLATE.xlsx" sap:VirtualizedContainerService.HintSize="502,719.3333333333334" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="C:\Users\evils\Documents\Readiness Updates - TEMPLATE.xlsx">
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" AutoSave="False" DisplayName="Use Excel File - Readiness Changes - TEMPLATE.xlsx" sap:VirtualizedContainerService.HintSize="502,708.6666666666666" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="C:\Users\evils\Documents\Readiness Updates - TEMPLATE.xlsx">
                     <ueab:ExcelApplicationCard.Body>
                       <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,416" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,412" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:ExcelWriteRange AddHeaders="True" DataTable="[dtReadinessChanges]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="434,120" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="ReadinessUpdates" StartingCell="A1" />
-                          <ueab:SaveExcelFileAsX DisplayName="Save Excel File As" FilePath="[&quot;C:\Users\evils\Documents\Readiness Updates - &quot;+DateTime.Today.ToString(&quot;dd-MMM-yyyy&quot;)]" sap:VirtualizedContainerService.HintSize="434,236" sap2010:WorkflowViewState.IdRef="SaveExcelFileAsX_1" SaveAsFileType="BinaryWorkbook" Workbook="[Excel]" />
+                          <ueab:SaveExcelFileAsX DisplayName="Save Excel File As" FilePath="[&quot;C:\Users\evils\Documents\Readiness Updates - &quot;+DateTime.Today.ToString(&quot;dd-MMM-yyyy&quot;)]" sap:VirtualizedContainerService.HintSize="434,232" sap2010:WorkflowViewState.IdRef="SaveExcelFileAsX_1" SaveAsFileType="BinaryWorkbook" Workbook="[Excel]" />
                         </Sequence>
                       </ActivityAction>
                     </ueab:ExcelApplicationCard.Body>
