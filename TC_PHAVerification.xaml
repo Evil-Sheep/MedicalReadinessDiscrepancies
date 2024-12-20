@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TC_PHAVerification" this:TC_PHAVerification.NMO_NAME="PHA, CURRENT" this:TC_PHAVerification.NMO_DOB="01/01/2000 00:00:00" this:TC_PHAVerification.NMO_SSN="xxx-xx-0001" this:TC_PHAVerification.NMO_OVERDUE="-Annual Preventive Health Assessment is missing.:" this:TC_PHAVerification.MRRS_Name="PHA, CURRENT" this:TC_PHAVerification.MRRS_Date_of_Birth="01/01/2000 00:00:00" this:TC_PHAVerification.MRRS_Blood_Type="OPOS" this:TC_PHAVerification.MRRS_DNA_Sent_Dt="01/01/2024 00:00:00" this:TC_PHAVerification.MRRS_DNA_Reg_Dt="01/02/2024 00:00:00" this:TC_PHAVerification.MRRS_G6PD_Test_Dt="01/03/2024 00:00:00" this:TC_PHAVerification.MRRS_G6PD_Results="Normal" this:TC_PHAVerification.MRRS_Sickle_Cell_Test_Dt="01/04/2024 00:00:00" this:TC_PHAVerification.MRRS_Sickle_Cell_Results="Negative" this:TC_PHAVerification.MRRS_PHA_Dt="01/05/2024 00:00:00" this:TC_PHAVerification.MRRS_HIV_Test_Dt="01/06/2024 00:00:00" this:TC_PHAVerification.MRRS_HIV_Result_Dt="01/07/2024 00:00:00" this:TC_PHAVerification.MRRS_HepA_Deferred="01/08/2024 00:00:00" this:TC_PHAVerification.MRRS_HepA_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_HepB_Deferred="01/09/2024 00:00:00" this:TC_PHAVerification.MRRS_HepB_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_Influenza_Dt="01/10/2024 00:00:00" this:TC_PHAVerification.MRRS_MMR_Deferred="01/11/2024 00:00:00" this:TC_PHAVerification.MRRS_MMR_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_Polio_Dt="01/12/2024 00:00:00" this:TC_PHAVerification.MRRS_Tet_Dipth_Dt="01/13/2024 00:00:00" this:TC_PHAVerification.MRRS_Varicella_Deferred="01/14/2024 00:00:00" this:TC_PHAVerification.MRRS_Varicella_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_Last_4="0001" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TC_PHAVerification" this:TC_PHAVerification.NMO_NAME="PHA, CURRENT" this:TC_PHAVerification.NMO_DOB="01/01/2000 00:00:00" this:TC_PHAVerification.NMO_SSN="xxx-xx-0001" this:TC_PHAVerification.NMO_OVERDUE="-Annual Preventive Health Assessment is missing.:" this:TC_PHAVerification.MRRS_Name="PHA, CURRENT" this:TC_PHAVerification.MRRS_Date_of_Birth="01/01/2000 00:00:00" this:TC_PHAVerification.MRRS_Blood_Type="OPOS" this:TC_PHAVerification.MRRS_DNA_Sent_Dt="01/01/2024 00:00:00" this:TC_PHAVerification.MRRS_DNA_Reg_Dt="01/02/2024 00:00:00" this:TC_PHAVerification.MRRS_G6PD_Test_Dt="01/03/2024 00:00:00" this:TC_PHAVerification.MRRS_G6PD_Results="Normal" this:TC_PHAVerification.MRRS_Sickle_Cell_Test_Dt="01/04/2024 00:00:00" this:TC_PHAVerification.MRRS_Sickle_Cell_Results="Negative" this:TC_PHAVerification.MRRS_PHA_Dt="01/05/2024 00:00:00" this:TC_PHAVerification.MRRS_HIV_Test_Dt="01/06/2024 00:00:00" this:TC_PHAVerification.MRRS_HIV_Result_Dt="01/07/2024 00:00:00" this:TC_PHAVerification.MRRS_HepA_Deferred="01/08/2024 00:00:00" this:TC_PHAVerification.MRRS_HepA_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_HepB_Deferred="01/09/2024 00:00:00" this:TC_PHAVerification.MRRS_HepB_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_Influenza_Dt="01/10/2024 00:00:00" this:TC_PHAVerification.MRRS_MMR_Deferred="01/11/2024 00:00:00" this:TC_PHAVerification.MRRS_MMR_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_Polio_Dt="01/12/2024 00:00:00" this:TC_PHAVerification.MRRS_Tet_Dipth_Dt="01/13/2024 00:00:00" this:TC_PHAVerification.MRRS_Varicella_Deferred="01/14/2024 00:00:00" this:TC_PHAVerification.MRRS_Varicella_Deferral="Medical Immune" this:TC_PHAVerification.MRRS_Last_4="0001" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="NMO_NAME" Type="InArgument(x:String)" />
     <x:Property Name="NMO_DOB" Type="InArgument(x:String)" />
@@ -61,6 +61,9 @@
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -94,30 +97,62 @@
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_PHAVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,612" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_PHAVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,922.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtNMOTestPatientData" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="450,122.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="450,526.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:BuildDataTable sap2010:Annotation.AnnotationText="Builds NMO Datatable to be filled with test data.&#xD;&#xA;&#xD;&#xA;Columns:&#xD;&#xA;- NAME&#xD;&#xA;- SSN&#xD;&#xA;- DOB&#xD;&#xA;- OVERDUE" DataTable="[dtNMOTestPatientData]" DisplayName="Build Data Table - NMO DataTable" sap:VirtualizedContainerService.HintSize="416,220.66666666666666" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NAME&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;DOB&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;OVERDUE&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:BuildDataTable>
+      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{NMO_NAME, NMO_SSN, NMO_DOB, NMO_OVERDUE}]" DataTable="[dtNMOTestPatientData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,214" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
     </Sequence>
-    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,353.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,260" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReconcileNMOAndMRRS - Invoke Workflow File (ReconcileNMOAndMRRS.xaml)" sap:VirtualizedContainerService.HintSize="416,261.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReconcileNMOAndMRRS - Invoke Workflow File (ReconcileNMOAndMRRS.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtNMOTestPatientData]</InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges" />
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
