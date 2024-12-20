@@ -105,7 +105,6 @@
     <Sequence sap2010:Annotation.AnnotationText="Creates a blank datarow based on Readiness Changes datatable, populates it with passed values, and adds the datarow to Readiness Changes." DisplayName="Sequence - Add New Datarow to Readiness Datatable" sap:VirtualizedContainerService.HintSize="468,1348.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
-        <Variable x:TypeArguments="sd:DataTable" Name="inout_dtReadinessChanges" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
