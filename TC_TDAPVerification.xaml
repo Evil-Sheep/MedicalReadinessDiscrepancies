@@ -98,7 +98,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_TDAPVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,1584" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_TDAPVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,1490.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtNMOTestPatientData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSTestPatientData" />
@@ -143,15 +143,20 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:AddDataRow>
     </Sequence>
-    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,353.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,260" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dtTCReadinessChanges" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReconcileNMOAndMRRS - Invoke Workflow File (ReconcileNMOAndMRRS.xaml)" sap:VirtualizedContainerService.HintSize="416,261.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReconcileNMOAndMRRS - Invoke Workflow File (ReconcileNMOAndMRRS.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtNMOTestPatientData]</InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges">[dtTCReadinessChanges]</OutArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData">[dtMRRSTestPatientData]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
