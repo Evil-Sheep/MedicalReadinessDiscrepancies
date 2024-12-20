@@ -47,11 +47,11 @@
     "fileInfoCollection": [
       {
         "editingStatus": "InProgress",
-        "testCaseId": "e483d2f7-57aa-4014-9e5d-7cb36a0de120",
-        "dataVariationFilePath": ".variations\\Test Patient Data_Sheet1_1.json",
+        "testCaseId": "b549689d-36b7-4606-8387-09714607bf19",
+        "dataVariationFilePath": ".variations\\Test Patient Data_PHA.json",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "TC_PHAUpdated.xaml"
+        "fileName": "TC_PHAVerification.xaml"
       }
     ],
     "saveToCloud": false
