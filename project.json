@@ -60,6 +60,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TC_HIVVerification.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "86233513-1a81-4289-9673-77f3b5dd9979",
+        "dataVariationFilePath": ".variations\\Test Patient Data_TDAP.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TC_TDAPVerification.xaml"
       }
     ],
     "saveToCloud": false

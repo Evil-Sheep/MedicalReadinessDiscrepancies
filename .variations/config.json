@@ -7,6 +7,10 @@
     {
       "filePath": ".variations\\Test Patient Data_HIV_1.json",
       "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\Test Patient Data_TDAP.json",
+      "dataVariationType": "File"
     }
   ]
 }
