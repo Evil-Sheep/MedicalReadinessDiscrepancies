@@ -6,6 +6,7 @@
     <x:Property Name="in_strIsFixable" Type="InArgument(x:String)" />
     <x:Property Name="in_strNewValue" Type="InArgument(x:String)" />
     <x:Property Name="in_strSailorName" Type="InArgument(x:String)" />
+    <x:Property Name="in_strComments" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -96,13 +97,13 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateDatarowForReadinessChanges" sap:VirtualizedContainerService.HintSize="626.6666666666666,1371.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateDatarowForReadinessChanges" sap:VirtualizedContainerService.HintSize="626.6666666666666,1534" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Creates a blank datarow based on Readiness Changes datatable, populates it with passed values, and adds the datarow to Readiness Changes." DisplayName="Sequence - Add New Datarow to Readiness Datatable" sap:VirtualizedContainerService.HintSize="468,1348.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="Creates a blank datarow based on Readiness Changes datatable, populates it with passed values, and adds the datarow to Readiness Changes." DisplayName="Sequence - Add New Datarow to Readiness Datatable" sap:VirtualizedContainerService.HintSize="468,1511.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
       </Sequence.Variables>
@@ -177,12 +178,25 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </Assign>
-      <Assign sap2010:Annotation.AnnotationText="Assigns in_strNewValuee to 'NewValue' column of Readiness Changes DataRow" DisplayName="Assign - 'NewValue' Value" sap:VirtualizedContainerService.HintSize="434,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign sap2010:Annotation.AnnotationText="Assigns in_strNewValue to 'NewValue' column of Readiness Changes DataRow" DisplayName="Assign - 'NewValue' Value" sap:VirtualizedContainerService.HintSize="434,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("NewValue")]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:Object">[in_strNewValue]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <Assign sap2010:Annotation.AnnotationText="Assigns in_strComments to 'Comments' column of Readiness Changes DataRow" DisplayName="Assign - 'Comments' Value" sap:VirtualizedContainerService.HintSize="434,162.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[drReadinessChanges("Comments")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[in_strComments]</InArgument>
         </Assign.Value>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
