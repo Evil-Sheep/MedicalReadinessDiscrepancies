@@ -152,6 +152,9 @@
       <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{MRRS_Name, MRRS_Date_of_Birth, MRRS_Blood_Type, MRRS_DNA_Sent_Dt, MRRS_DNA_Reg_Dt, MRRS_G6PD_Test_Dt, MRRS_G6PD_Results, MRRS_Sickle_Cell_Test_Dt, MRRS_Sickle_Cell_Results, MRRS_PHA_Dt, MRRS_HIV_Test_Dt, MRRS_HIV_Result_Dt, MRRS_HepA_Deferred, MRRS_HepA_Deferral, MRRS_HepB_Deferred, MRRS_HepB_Deferral, MRRS_Influenza_Dt, MRRS_MMR_Deferred, MRRS_MMR_Deferral, MRRS_Polio_Dt, MRRS_Tet_Dipth_Dt, MRRS_Varicella_Deferred, MRRS_Varicella_Deferral, MRRS_Last_4}]" DataTable="[dtMRRSTestPatientData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="416,214" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
     </Sequence>
     <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="450,260" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dtTCReadinessChanges" />
+      </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -160,7 +163,7 @@
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReconcileNMOAndMRRS - Invoke Workflow File (ReconcileNMOAndMRRS.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtNMOTestPatientData]</InArgument>
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges" />
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges">[dtTCReadinessChanges]</OutArgument>
           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData">[dtMRRSTestPatientData]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
