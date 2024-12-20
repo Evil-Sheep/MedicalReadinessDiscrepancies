@@ -156,7 +156,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,3810.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_36">
+  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,3590.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_36">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelFilteredData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelInput" />
@@ -186,13 +186,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="526,3467.3333333333335" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="526,3247.3333333333335" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,3247.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,3027.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtMatchingSailors" />
               <Variable x:TypeArguments="x:String" Name="strTemp" />
@@ -205,7 +205,7 @@
             <ui:OutputDataTable DataTable="[in_dtMRRSFilteredData]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="490,114" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strTemp]" />
             <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="490,124" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strTemp]" />
             <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="490,124" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[CurrentRow.ToString]" />
-            <ui:FilterDataTable sap2010:Annotation.AnnotationText="Finds the DataRow containing the Sailor's information based on matching last 4 of SSN and date of birth." DataTable="[in_dtMRRSFilteredData]" DisplayName="Filter Data Table - Get Sailor info from MRRS" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="490,241.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtMatchingSailors]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable sap2010:Annotation.AnnotationText="Finds the DataRow containing the Sailor's information based on matching last 4 of SSN and date of birth." DataTable="[in_dtMRRSFilteredData]" DisplayName="Filter Data Table - Get Sailor info from MRRS" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="490,241.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtMatchingSailors]" SelectColumnsMode="Remove">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -301,16 +301,16 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Preventive Health Assessment&quot;, indicating the Sailor is due for PHA" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Preventive Health Assessment&quot;)]" DisplayName="If - PHA Due" sap:VirtualizedContainerService.HintSize="490,136" sap2010:WorkflowViewState.IdRef="If_18">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Preventive Health Assessment&quot;, indicating the Sailor is due for PHA" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Preventive Health Assessment&quot;)]" DisplayName="If - PHA Due" sap:VirtualizedContainerService.HintSize="490,1865.3333333333333" sap2010:WorkflowViewState.IdRef="If_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Check if PHA date is within past year, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS PHA Date" sap:VirtualizedContainerService.HintSize="488,1568" sap2010:WorkflowViewState.IdRef="Sequence_120">
+                <Sequence sap2010:Annotation.AnnotationText="Check if PHA date is within past year, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS PHA Date" sap:VirtualizedContainerService.HintSize="488,1654.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_120">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
                   </Sequence.Variables>
@@ -320,7 +320,7 @@
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no PHA date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need a PHA and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid PHA Date" sap:VirtualizedContainerService.HintSize="454,1462.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_12">
+                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no PHA date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need a PHA and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid PHA Date" sap:VirtualizedContainerService.HintSize="454,1549.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_12">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -399,14 +399,14 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:FormatException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence sap2010:Annotation.AnnotationText="If a FormatException is thrown analyzing the MRRS PHA Date, it's most likely because there is no date (the cell is empty on the spreadsheet). This will annotate this exception in drReadinessChanges." DisplayName="Body - FormatException on PHA Date" sap:VirtualizedContainerService.HintSize="452,265.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_137">
+                          <Sequence sap2010:Annotation.AnnotationText="If a FormatException is thrown analyzing the MRRS PHA Date, it's most likely because there is no date (the cell is empty on the spreadsheet). This will annotate this exception in drReadinessChanges." DisplayName="Body - FormatException on PHA Date" sap:VirtualizedContainerService.HintSize="452,352" sap2010:WorkflowViewState.IdRef="Sequence_137">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes, indicating the PHA date couldn't be parsed (likely blank in MRRS) and cannot be immediately fixed." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges - No PHA Date" sap:VirtualizedContainerService.HintSize="418,143.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes, indicating the PHA date couldn't be parsed (likely blank in MRRS) and cannot be immediately fixed." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges - No PHA Date" sap:VirtualizedContainerService.HintSize="418,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
@@ -418,8 +418,8 @@
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:InvokeWorkflowFile>
@@ -450,12 +450,12 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;HIV&quot;, indicating the Sailor is due for HIV" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;HIV&quot;)]" DisplayName="If - HIV Due" sap:VirtualizedContainerService.HintSize="490,2059.3333333333335" sap2010:WorkflowViewState.IdRef="If_23">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;HIV&quot;, indicating the Sailor is due for HIV" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;HIV&quot;)]" DisplayName="If - HIV Due" sap:VirtualizedContainerService.HintSize="490,110" sap2010:WorkflowViewState.IdRef="If_23">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
