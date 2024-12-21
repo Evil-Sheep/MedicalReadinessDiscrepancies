@@ -104,7 +104,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_FluVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,1863.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_FluVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,2503.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtNMOTestPatientData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSTestPatientData" />
@@ -174,13 +174,13 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="468,386.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="468,1026.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Determines which result should happen based on the test patient's name." DisplayName="Switch - Test Case Scenario" Expression="[dtTCReadinessChanges(0)(&quot;SailorName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="418,304" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Determines which result should happen based on the test patient's name." DisplayName="Switch - Test Case Scenario" Expression="[dtTCReadinessChanges(0)(&quot;SailorName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="418,944" sap2010:WorkflowViewState.IdRef="Switch`1_1">
         <Switch.Default>
           <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
@@ -195,6 +195,41 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
+        <Sequence x:Key="FLU, CURRENT POSTSEP" DisplayName="Body - FLU, CURRENT POSTSEP" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+        <Sequence x:Key="FLU, CURRENT PRESEP" DisplayName="Body - FLU, CURRENT PRESEP" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+        <Sequence x:Key="FLU, OVERDUE POSTSEP" DisplayName="Body - FLU, OVERDUE POSTSEP" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+        <Sequence x:Key="FLU, OVERDUE PRESEP" DisplayName="Body - FLU, OVERDUE PRESEP" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+        <Sequence x:Key="FLU, NONE" DisplayName="Body - FLU, NONE" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
       </Switch>
     </Sequence>
   </Sequence>
