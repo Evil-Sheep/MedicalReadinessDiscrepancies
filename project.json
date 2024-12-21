@@ -68,6 +68,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TC_TDAPVerification.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "4c5616d5-6f0b-4418-a889-6bc4ec8ad84c",
+        "dataVariationFilePath": ".variations\\Test Patient Data_Polio.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TC_PolioVerification.xaml"
       }
     ],
     "saveToCloud": false
