@@ -909,7 +909,11 @@
                 <Sequence sap2010:Annotation.AnnotationText="Check if Influenza vaccination is after the most recent September 1st (the current flu season). If it's after that date, the Sailor is current on their flu shot. If not, they are delinquent in MRRS and user may need to check physical record or Genesis for shots." DisplayName="Then - Check MRRS Influenza Date" sap:VirtualizedContainerService.HintSize="540,2192.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_160">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strFluComparisonDate" />
-                    <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_FLUDATE" />
+                    <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_FLUDATE">
+                      <Variable.Default>
+                        <Literal x:TypeArguments="x:String">Influenza Dt</Literal>
+                      </Variable.Default>
+                    </Variable>
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -931,7 +935,7 @@
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="If the current date is before September of the year, comparison should be made again September of last year, otherwise use September of this year." Condition="[CInt(DateTime.Today.ToString(&quot;MM&quot;)) &lt; 9]" DisplayName="If - Today's date is before September" sap:VirtualizedContainerService.HintSize="470,521.3333333333334" sap2010:WorkflowViewState.IdRef="If_32">
+                        <If sap2010:Annotation.AnnotationText="If the current date is before September of the year, comparison should be made again September of last year, otherwise use September of this year." Condition="[CInt(in_currentDate.ToString(&quot;MM&quot;)) &lt; 9]" DisplayName="If - Today's date is before September" sap:VirtualizedContainerService.HintSize="470,521.3333333333334" sap2010:WorkflowViewState.IdRef="If_32">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
