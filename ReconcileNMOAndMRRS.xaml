@@ -158,19 +158,12 @@
   </sap:WorkflowViewStateService.ViewState>
   <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,4101.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_36">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelFilteredData" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSExcelInput" />
       <Variable x:TypeArguments="x:String" Default="NAME" Name="HEADER_NMO_NAME" />
       <Variable x:TypeArguments="x:String" Default="SSN" Name="HEADER_NMO_SSN" />
       <Variable x:TypeArguments="x:String" Default="Yes" Name="COLUMNVALUE_ISFIXABLE_YES" />
       <Variable x:TypeArguments="x:String" Default="No" Name="COLUMNVALUE_ISFIXABLE_NO" />
       <Variable x:TypeArguments="x:String" Default="OVERDUE" Name="HEADER_NMO_OVERDUE" />
-      <Variable x:TypeArguments="x:String" Default="SailorName" Name="HEADER_READINESS_SAILORNAME" />
-      <Variable x:TypeArguments="x:String" Default="Last4SSN" Name="HEADER_READINESS_LAST4SSN" />
-      <Variable x:TypeArguments="x:String" Default="Delinquency" Name="HEADER_READINESS_DELINQUENCY" />
       <Variable x:TypeArguments="x:String" Default="PHA Dt" Name="HEADER_MRRS_PHADATE" />
-      <Variable x:TypeArguments="x:String" Default="IsFixable" Name="HEADER_READINESS_ISFIXABLE" />
-      <Variable x:TypeArguments="x:String" Default="NewValue" Name="HEADER_READINESS_NEWVALUE" />
       <Variable x:TypeArguments="x:String" Default="HIV Test Dt" Name="HEADER_MRRS_HIVTESTDATE" />
       <Variable x:TypeArguments="x:String" Default="HIV Result Dt" Name="HEADER_MRRS_HIVRESULTDATE" />
       <Variable x:TypeArguments="x:String" Default="Tet/Dipth Dt" Name="HEADER_MRRS_TDAPDATE" />
@@ -196,7 +189,6 @@
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524,3454.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtMatchingSailors" />
-              <Variable x:TypeArguments="x:String" Name="strTemp" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -309,9 +301,6 @@
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <Sequence sap2010:Annotation.AnnotationText="Check if PHA date is within past year, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS PHA Date" sap:VirtualizedContainerService.HintSize="488,1654.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_120">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
-                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -463,10 +452,6 @@
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <Sequence sap2010:Annotation.AnnotationText="Check if HIV date is within two years, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS HIV Date" sap:VirtualizedContainerService.HintSize="524,2386.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_138">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
-                    <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChangesHIVResult" />
-                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -669,9 +654,6 @@
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
                 <Sequence sap2010:Annotation.AnnotationText="Check if TDAP date is within past ten years, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS TDAP Date" sap:VirtualizedContainerService.HintSize="488,1004" sap2010:WorkflowViewState.IdRef="Sequence_147">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
-                  </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -686,9 +668,6 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
                       <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Try - Analyze MRRS TDAP date" sap:VirtualizedContainerService.HintSize="416,300.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_149">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="variable1" />
-                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -827,7 +806,6 @@
               <If.Then>
                 <Sequence sap2010:Annotation.AnnotationText="Check if Polio date is not blank, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Check MRRS Polio Date" sap:VirtualizedContainerService.HintSize="452,878" sap2010:WorkflowViewState.IdRef="Sequence_154">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
                     <Variable x:TypeArguments="x:String" Default="Polio Dt" Name="HEADER_MRRS_POLIODATE" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
@@ -846,9 +824,6 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
                       <Sequence DisplayName="Then - MRRS Polio date contains a date" sap:VirtualizedContainerService.HintSize="416,290" sap2010:WorkflowViewState.IdRef="Sequence_158">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="variable1" />
-                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -924,7 +899,6 @@
               <If.Then>
                 <Sequence sap2010:Annotation.AnnotationText="Check if Influenza vaccination is after the most recent September 1st (the current flu season). If it's after that date, the Sailor is current on their flu shot. If not, they are delinquent in MRRS and user may need to check physical record or Genesis for shots." DisplayName="Then - Check MRRS Influenza Date" sap:VirtualizedContainerService.HintSize="488,1874" sap2010:WorkflowViewState.IdRef="Sequence_160">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataRow" Name="drReadinessChanges" />
                     <Variable x:TypeArguments="x:String" Name="strFluComparisonDate" />
                     <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_FLUDATE" />
                   </Sequence.Variables>
@@ -942,9 +916,6 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
                       <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Try - Analyze MRRS Influenza date" sap:VirtualizedContainerService.HintSize="452,1049.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_161">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Name="variable1" />
-                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
