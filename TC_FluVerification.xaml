@@ -97,6 +97,7 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="TC_FluVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,1608" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -104,6 +105,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="dtNMOTestPatientData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSTestPatientData" />
       <Variable x:TypeArguments="s:DateTime" Name="dateTCCurrentDate" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtTCReadinessChanges" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -161,10 +163,10 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ReconcileNMOAndMRRS - Invoke Workflow File (ReconcileNMOAndMRRS.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReconcileNMOAndMRRS.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList" />
-          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges" />
-          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData" />
-          <InArgument x:TypeArguments="s:DateTime" x:Key="in_currentDate" />
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtNMOTestPatientData]</InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges">[dtTCReadinessChanges]</OutArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData">[dtMRRSTestPatientData]</InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_currentDate">[dateTCCurrentDate]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
