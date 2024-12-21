@@ -320,6 +320,7 @@
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If sap2010:Annotation.AnnotationText="Checks to see if PHA date in MRRS is within past year.&#xA;&#xA;Calculated by subtracting the PHA date in MRRS from today's date, and seeing if that number of days is less than 365." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(HEADER_MRRS_PHADATE).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 365]" DisplayName="If - MRRS PHA within past year" sap:VirtualizedContainerService.HintSize="418,772.6666666666666" sap2010:WorkflowViewState.IdRef="If_22">
@@ -658,7 +659,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Check if TDAP date is within past ten years, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS TDAP Date" sap:VirtualizedContainerService.HintSize="488,1004" sap2010:WorkflowViewState.IdRef="Sequence_147">
+                <Sequence sap2010:Annotation.AnnotationText="Check if TDAP date is within past ten years, and add information to out_dtReadinessChanges accordingly." DisplayName="Then - Compare MRRS TDAP Date" sap:VirtualizedContainerService.HintSize="488,1566.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_147">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Default="Tet/Dipth Dt" Name="HEADER_MRRS_TDAPDATE" />
                   </Sequence.Variables>
@@ -668,36 +669,36 @@
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Very rarely there is no TDAP date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need a TDAP vaccination and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid TDAP Date" sap:VirtualizedContainerService.HintSize="454,898.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_14">
+                  <TryCatch sap2010:Annotation.AnnotationText="Very rarely there is no TDAP date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need a TDAP vaccination and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid TDAP Date" sap:VirtualizedContainerService.HintSize="454,1461.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_14">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Try - Analyze MRRS TDAP date" sap:VirtualizedContainerService.HintSize="416,300.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_149">
+                      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Try - Analyze MRRS TDAP date" sap:VirtualizedContainerService.HintSize="452,863.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_149">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="Checks to see if TDAP date in MRRS is within past ten years.&#xA;&#xA;Calculated by subtracting the TDAP date in MRRS from today's date, and seeing if that number of days is less than 3650." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(HEADER_MRRS_TDAPDATE).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 3650]" DisplayName="If - MRRS TDAP within past ten years" sap:VirtualizedContainerService.HintSize="382,210" sap2010:WorkflowViewState.IdRef="If_27">
+                        <If sap2010:Annotation.AnnotationText="Checks to see if TDAP date in MRRS is within past ten years.&#xA;&#xA;Calculated by subtracting the TDAP date in MRRS from today's date, and seeing if that number of days is less than 3650." Condition="[(DateTime.Today - DateTime.ParseExact(dtMatchingSailors(0)(HEADER_MRRS_TDAPDATE).ToString, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture)).TotalDays &lt; 3650]" DisplayName="If - MRRS TDAP within past ten years" sap:VirtualizedContainerService.HintSize="418,772.6666666666666" sap2010:WorkflowViewState.IdRef="If_27">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then - MRRS TDAP date is within past ten years" sap:VirtualizedContainerService.HintSize="416,185.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_151">
+                            <Sequence DisplayName="Then - MRRS TDAP date is within past ten years" sap:VirtualizedContainerService.HintSize="416,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_151">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes, indicating the TDAP is current and include the updated date." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges - TDAP Current" sap:VirtualizedContainerService.HintSize="382,125.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes, indicating the TDAP is current and include the updated date." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges - TDAP Current" sap:VirtualizedContainerService.HintSize="382,213.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
                                   <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
@@ -896,7 +897,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;-FLU&quot; (because sometimes Sailor's hit for &quot;-FLU Vaccination&quot; and sometimes &quot;-FLU Shot&quot;), indicating the Sailor is due for Influenza vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;-FLU&quot;)]" DisplayName="If - Influenza Due" sap:VirtualizedContainerService.HintSize="382,176.66666666666666" sap2010:WorkflowViewState.IdRef="If_30">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;-FLU&quot; (because sometimes Sailor's hit for &quot;-FLU Vaccination&quot; and sometimes &quot;-FLU Shot&quot;), indicating the Sailor is due for Influenza vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;-FLU&quot;)]" DisplayName="If - Influenza Due" sap:VirtualizedContainerService.HintSize="542,2371.3333333333335" sap2010:WorkflowViewState.IdRef="If_30">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -905,7 +906,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Check if Influenza vaccination is after the most recent September 1st (the current flu season). If it's after that date, the Sailor is current on their flu shot. If not, they are delinquent in MRRS and user may need to check physical record or Genesis for shots." DisplayName="Then - Check MRRS Influenza Date" sap:VirtualizedContainerService.HintSize="488,1874" sap2010:WorkflowViewState.IdRef="Sequence_160">
+                <Sequence sap2010:Annotation.AnnotationText="Check if Influenza vaccination is after the most recent September 1st (the current flu season). If it's after that date, the Sailor is current on their flu shot. If not, they are delinquent in MRRS and user may need to check physical record or Genesis for shots." DisplayName="Then - Check MRRS Influenza Date" sap:VirtualizedContainerService.HintSize="540,2192.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_160">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strFluComparisonDate" />
                     <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_FLUDATE" />
@@ -916,26 +917,26 @@
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no Influenza date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need an influenza vaccination and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid Influenza Date" sap:VirtualizedContainerService.HintSize="454,1735.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no Influenza date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need an influenza vaccination and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid Influenza Date" sap:VirtualizedContainerService.HintSize="506,2070.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_15">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Try - Analyze MRRS Influenza date" sap:VirtualizedContainerService.HintSize="452,1049.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_161">
+                      <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Try - Analyze MRRS Influenza date" sap:VirtualizedContainerService.HintSize="504,1401.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_161">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="If the current date is before September of the year, comparison should be made again September of last year, otherwise use September of this year." Condition="[CInt(DateTime.Today.ToString(&quot;MM&quot;)) &lt; 9]" DisplayName="If - Today's date is before September" sap:VirtualizedContainerService.HintSize="418,169.33333333333334" sap2010:WorkflowViewState.IdRef="If_32">
+                        <If sap2010:Annotation.AnnotationText="If the current date is before September of the year, comparison should be made again September of last year, otherwise use September of this year." Condition="[CInt(DateTime.Today.ToString(&quot;MM&quot;)) &lt; 9]" DisplayName="If - Today's date is before September" sap:VirtualizedContainerService.HintSize="470,521.3333333333334" sap2010:WorkflowViewState.IdRef="If_32">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
@@ -950,7 +951,7 @@
                                   <OutArgument x:TypeArguments="x:String">[strFluComparisonDate]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">["01-Sep-"&amp;(CInt(DateTime.Today.ToString("yyyy"))-1).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["01-Sep-"&amp;(CInt(in_currentDate.ToString("yyyy"))-1).ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
@@ -967,13 +968,13 @@
                                   <OutArgument x:TypeArguments="x:String">[strFluComparisonDate]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">["01-Sep-"&amp;DateTime.Today.ToString("yyyy")]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">["01-Sep-"&amp;in_currentDate.ToString("yyyy")]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </Sequence>
                           </If.Else>
                         </If>
-                        <If sap2010:Annotation.AnnotationText="Checks to see if Flu date in MRRS is after comparison date.&#xA;&#xA;A DateTime.Compare(comparison date, MRRS date) result less than or equal to zero means their most recent flu shot occurred during this flu season, and thus they are not delinquent on the shot." Condition="[Datetime.Compare(&#xA;&#x9;DateTime.ParseExact(strFluComparisonDate, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture),&#xA;&#x9;DateTime.Today) &lt;= 0]" DisplayName="If - MRRS Flu date is after comparison date" sap:VirtualizedContainerService.HintSize="418,789.3333333333334" sap2010:WorkflowViewState.IdRef="If_31">
+                        <If sap2010:Annotation.AnnotationText="Checks to see if Flu date in MRRS is after comparison date.&#xA;&#xA;A DateTime.Compare(comparison date, MRRS date) result less than or equal to zero means their most recent flu shot occurred during this flu season, and thus they are not delinquent on the shot." Condition="[Datetime.Compare(&#xA;&#x9;DateTime.ParseExact(strFluComparisonDate, &quot;dd-MMM-yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture),&#xA;&#x9;DateTime.Today) &lt;= 0]" DisplayName="If - MRRS Flu date is after comparison date" sap:VirtualizedContainerService.HintSize="470,789.3333333333334" sap2010:WorkflowViewState.IdRef="If_31">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -1042,7 +1043,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:FormatException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence sap2010:Annotation.AnnotationText="If a FormatException is thrown analyzing the MRRS Influenza Date, it's most likely because there is no date (the cell is empty on the spreadsheet). This will annotate this exception in drReadinessChanges." DisplayName="Body - FormatException on Influenza Date" sap:VirtualizedContainerService.HintSize="452,352" sap2010:WorkflowViewState.IdRef="Sequence_164">
+                          <Sequence sap2010:Annotation.AnnotationText="If a FormatException is thrown analyzing the MRRS Influenza Date, it's most likely because there is no date (the cell is empty on the spreadsheet). This will annotate this exception in drReadinessChanges." DisplayName="Body - FormatException on Influenza Date" sap:VirtualizedContainerService.HintSize="504,352" sap2010:WorkflowViewState.IdRef="Sequence_164">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
