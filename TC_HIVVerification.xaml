@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TC_HIVVerification" this:TC_HIVVerification.NMO_NAME="HIV, CURRENT" this:TC_HIVVerification.NMO_DOB="1/1/2000" this:TC_HIVVerification.NMO_SSN="xxx-xx-0001" this:TC_HIVVerification.NMO_OVERDUE="-HIV Drawn Date is more than 2 yrs.:" this:TC_HIVVerification.MRRS_Name="HIV, OVERDUE, CURRENT" this:TC_HIVVerification.MRRS_Date_of_Birth="01-Jan-2000" this:TC_HIVVerification.MRRS_HIV_Test_Dt="01-Jan-2024" this:TC_HIVVerification.MRRS_HIV_Result_Dt="04-Jan-2024" this:TC_HIVVerification.MRRS_Last_4="0001" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TC_HIVVerification" this:TC_HIVVerification.NMO_NAME="HIV, CURRENT" this:TC_HIVVerification.NMO_DOB="1/1/2000" this:TC_HIVVerification.NMO_SSN="xxx-xx-0001" this:TC_HIVVerification.NMO_OVERDUE="-HIV Drawn Date is more than 2 yrs.:" this:TC_HIVVerification.MRRS_Name="HIV, OVERDUE, CURRENT" this:TC_HIVVerification.MRRS_Date_of_Birth="01-Jan-2000" this:TC_HIVVerification.MRRS_HIV_Test_Dt="01-Jan-2024" this:TC_HIVVerification.MRRS_HIV_Result_Dt="04-Jan-2024" this:TC_HIVVerification.MRRS_Last_4="0001" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="NMO_NAME" Type="InArgument(x:String)" />
     <x:Property Name="NMO_DOB" Type="InArgument(x:String)" />
@@ -113,7 +113,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_HIVVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,2081.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_HIVVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,3894" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtNMOTestPatientData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSTestPatientData" />
@@ -170,16 +170,17 @@
           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtIMRProfileHitList">[dtNMOTestPatientData]</InArgument>
           <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dtReadinessChanges">[dtTCReadinessChanges]</OutArgument>
           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtMRRSFilteredData">[dtMRRSTestPatientData]</InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="in_currentDate" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="452,687.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="452,2500" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Determines which result should happen based on the test patient's name." DisplayName="Switch - Test Case Scenario" Expression="[dtTCReadinessChanges(0)(&quot;SailorName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="418,604.6666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Determines which result should happen based on the test patient's name." DisplayName="Switch - Test Case Scenario" Expression="[dtTCReadinessChanges(0)(&quot;SailorName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="418,2417.3333333333335" sap2010:WorkflowViewState.IdRef="Switch`1_1">
         <Switch.Default>
           <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,236.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
