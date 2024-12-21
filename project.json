@@ -76,6 +76,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TC_PolioVerification.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "cc31fadd-4335-4b02-ab43-fadefb95acae",
+        "dataVariationFilePath": ".variations\\Test Patient Data_Influenza.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TC_FluVerification.xaml"
       }
     ],
     "saveToCloud": false
