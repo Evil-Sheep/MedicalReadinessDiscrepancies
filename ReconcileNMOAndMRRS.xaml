@@ -666,7 +666,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Throws a BusinessRuleException if there's a problem getting the blood type or date." DisplayName="Try Catch - Blood Type Processing" sap:VirtualizedContainerService.HintSize="506,1696" sap2010:WorkflowViewState.IdRef="TryCatch_16">
+                  <TryCatch sap2010:Annotation.AnnotationText="Throws a BusinessRuleException if there's a problem getting the blood type or date." DisplayName="Try Catch - Blood Type Processing" sap:VirtualizedContainerService.HintSize="506,2007.3333333333333" sap2010:WorkflowViewState.IdRef="TryCatch_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -736,7 +736,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </Assign>
-                              <Throw sap2010:Annotation.AnnotationText="MRRS has no documented blood type, so throws an exception to skip the remainder of blood type processing and add DataRow regarding lack of results." DisplayName="Throw - BusinessRuleException - Invalid blood type result" Exception="[new BusinessRuleException(&quot;No blood type result&quot;)]" sap:VirtualizedContainerService.HintSize="434,193.33333333333334" sap2010:WorkflowViewState.IdRef="Throw_1">
+                              <Throw sap2010:Annotation.AnnotationText="MRRS has no documented blood type, so throws an exception to skip the remainder of blood type processing and add DataRow regarding lack of results." DisplayName="Throw - BusinessRuleException - Invalid blood type result" Exception="[new BusinessRuleException(BRE_NOBLOODTYPERESULT)]" sap:VirtualizedContainerService.HintSize="434,193.33333333333334" sap2010:WorkflowViewState.IdRef="Throw_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -754,13 +754,13 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body - Blood Type BusinessRuleException" sap:VirtualizedContainerService.HintSize="504,366.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_172">
+                          <Sequence DisplayName="Body - Blood Type BusinessRuleException" sap:VirtualizedContainerService.HintSize="504,678" sap2010:WorkflowViewState.IdRef="Sequence_172">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handle BusinessRuleExceptions based on the message attached to the exception" DisplayName="Switch - Blood Type BusinessRuleExceptions" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="470,306.6666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handle BusinessRuleExceptions based on the message attached to the exception" DisplayName="Switch - Blood Type BusinessRuleExceptions" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="470,618" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                               <Switch.Default>
                                 <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_176">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -775,6 +775,36 @@
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
+                              <Sequence x:Key="BRE_NOBLOODTYPERESULT" DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_177">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="COLUMNVALUE_ALL_NA">
+                                    <Variable.Default>
+                                      <Literal x:TypeArguments="x:String">N/A</Literal>
+                                    </Variable.Default>
+                                  </Variable>
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow indicating no documented blood type in MRRS." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - No blood type result" sap:VirtualizedContainerService.HintSize="382,213.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Blood Type</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[COLUMNVALUE_ALL_NA]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strComments">No documented blood type result. Verify in patient's physical record and Genesis</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
                             </Switch>
                           </Sequence>
                         </ActivityAction>
