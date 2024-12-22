@@ -671,16 +671,23 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Throws a BusinessRuleException if there's a problem getting the blood type or date." DisplayName="Try Catch - Blood Type Processing" sap:VirtualizedContainerService.HintSize="460.00000000000006,1593.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_16">
+                  <TryCatch sap2010:Annotation.AnnotationText="Throws a BusinessRuleException if there's a problem getting the blood type or date." DisplayName="Try Catch - Blood Type Processing" sap:VirtualizedContainerService.HintSize="506,2504.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_16">
+                    <TryCatch.Variables>
+                      <Variable x:TypeArguments="x:String" Name="BRE_NOBLOODTYPEDATE">
+                        <Variable.Default>
+                          <Literal x:TypeArguments="x:String">No blood type date</Literal>
+                        </Variable.Default>
+                      </Variable>
+                      <Variable x:TypeArguments="x:String" Default="No blood type result" Name="BRE_NOBLOODTYPERESULT" />
+                    </TryCatch.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence DisplayName="Try - Get blood type and date" sap:VirtualizedContainerService.HintSize="458,643.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_171">
+                      <Sequence DisplayName="Try - Get blood type and date" sap:VirtualizedContainerService.HintSize="504,1568" sap2010:WorkflowViewState.IdRef="Sequence_171">
                         <Sequence.Variables>
-                          <Variable x:TypeArguments="x:String" Default="No blood type result" Name="BRE_NOBLOODTYPERESULT" />
                           <Variable x:TypeArguments="ui:BusinessRuleException" Name="exceptionBusinessRule" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
@@ -688,16 +695,16 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If sap2010:Annotation.AnnotationText="The only invalid value for blood type is null value (blood type is annotated via pulldown menu), so as long as the blood type value isn't null or empty, it is correct and can be updated." Condition="[Not String.IsNullOrEmpty(dtMatchingSailors(0)(HEADER_MRRS_BLOODTYPE).ToString)]" DisplayName="If - Blood Type is not Null or Empty" sap:VirtualizedContainerService.HintSize="424,181.33333333333334" sap2010:WorkflowViewState.IdRef="If_34">
+                        <If sap2010:Annotation.AnnotationText="The only invalid value for blood type is null value (blood type is annotated via pulldown menu), so as long as the blood type value isn't null or empty, it is correct and can be updated." Condition="[Not String.IsNullOrEmpty(dtMatchingSailors(0)(HEADER_MRRS_BLOODTYPE).ToString)]" DisplayName="If - Blood Type is not Null or Empty" sap:VirtualizedContainerService.HintSize="470,739.3333333333334" sap2010:WorkflowViewState.IdRef="If_34">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence sap2010:Annotation.AnnotationText="Blood Type value is not empty, so save it to the Readiness Changes DataTable as fixable." DisplayName="Then -Blood Type is valid, can be fixed" sap:VirtualizedContainerService.HintSize="416,70.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_174">
+                            <Sequence sap2010:Annotation.AnnotationText="Blood Type value is not empty, so save it to the Readiness Changes DataTable as fixable." DisplayName="Then -Blood Type is valid, can be fixed" sap:VirtualizedContainerService.HintSize="468,69.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_174">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -724,15 +731,15 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence sap2010:Annotation.AnnotationText="Blood Type value is empty, indicating it likely hasn't been updated from Sailor's medical record and thus cannot be fixed with currently available information." DisplayName="Else - Blood Type is null, cannot be fixed" sap:VirtualizedContainerService.HintSize="416,87.33333333333333" sap2010:WorkflowViewState.IdRef="Sequence_175">
+                            <Sequence sap2010:Annotation.AnnotationText="Blood Type value is empty, indicating it likely hasn't been updated from Sailor's medical record and thus cannot be fixed with currently available information." DisplayName="Else - Blood Type is null, cannot be fixed" sap:VirtualizedContainerService.HintSize="468,470.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_175">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap2010:Annotation.AnnotationText="For the life of me, I can't find the exception variable that's supposed to be created by this Try-Catch block, and I can't find information online about why, so I'm going to create the variable manually and handle it this way." DisplayName="Assign - BusinessRuleException for invalid blood type" sap:VirtualizedContainerService.HintSize="434,196" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign sap2010:Annotation.AnnotationText="For the life of me, I can't find the exception variable that's supposed to be created by this Try-Catch block, and I can't find information online about why, so I'm going to create the variable manually and handle it this way." DisplayName="Assign - BusinessRuleException for invalid blood type" sap:VirtualizedContainerService.HintSize="434,192.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_3">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="ui:BusinessRuleException">[exceptionBusinessRule]</OutArgument>
                                 </Assign.To>
@@ -745,7 +752,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </Assign>
-                              <Throw sap2010:Annotation.AnnotationText="MRRS has no documented blood type, so throws an exception to skip the remainder of blood type processing and add DataRow regarding lack of results." DisplayName="Throw - BusinessRuleException - Invalid blood type result" Exception="[new BusinessRuleException(BRE_NOBLOODTYPERESULT)]" sap:VirtualizedContainerService.HintSize="434,193.33333333333334" sap2010:WorkflowViewState.IdRef="Throw_1">
+                              <Throw sap2010:Annotation.AnnotationText="MRRS has no documented blood type, so throws an exception to skip the remainder of blood type processing and add DataRow regarding lack of results." DisplayName="Throw - BusinessRuleException - Invalid blood type result" Exception="[new BusinessRuleException(BRE_NOBLOODTYPERESULT)]" sap:VirtualizedContainerService.HintSize="434,174" sap2010:WorkflowViewState.IdRef="Throw_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -755,28 +762,56 @@
                             </Sequence>
                           </If.Else>
                         </If>
-                        <If sap2010:Annotation.AnnotationText="MRRS doesn't track the date blood type was tested, so we use G6PD date for that. If that date is null or empty, throw a BusinessRuleException to add a datarow to Readiness Changes indicating that, otherwise add the appropriate data to Readiness Changes" Condition="[Not String.IsNullOrEmpty(dtMatchingSailors(0)(HEADER_MRRS_G6PDDATE).ToString)]" DisplayName="If - [Blood type date] is not null or empty" sap:VirtualizedContainerService.HintSize="424,402" sap2010:WorkflowViewState.IdRef="If_35">
+                        <If sap2010:Annotation.AnnotationText="MRRS doesn't track the date blood type was tested, so we use G6PD date for that. If that date is null or empty, throw a BusinessRuleException to add a datarow to Readiness Changes indicating that, otherwise add the appropriate data to Readiness Changes" Condition="[Not String.IsNullOrEmpty(dtMatchingSailors(0)(HEADER_MRRS_G6PDDATE).ToString)]" DisplayName="If - [Blood type date] is not null or empty" sap:VirtualizedContainerService.HintSize="470,768.6666666666666" sap2010:WorkflowViewState.IdRef="If_35">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then - [Blood type date] is not empty, add info to Readiness Changes" sap:VirtualizedContainerService.HintSize="422,90" sap2010:WorkflowViewState.IdRef="Sequence_179">
+                            <Sequence DisplayName="Then - [Blood type date] is not empty, add info to Readiness Changes" sap:VirtualizedContainerService.HintSize="468,228" sap2010:WorkflowViewState.IdRef="Sequence_179">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - Blood Type date" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName" />
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strComments" />
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else - [Blood type date] is null or empty, throw BusinessRuleException" sap:VirtualizedContainerService.HintSize="422,90" sap2010:WorkflowViewState.IdRef="Sequence_180">
+                            <Sequence DisplayName="Else - [Blood type date] is null or empty, throw BusinessRuleException" sap:VirtualizedContainerService.HintSize="468,334.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_180">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap2010:Annotation.AnnotationText="Like above, I can't find the exception variable for this Try-Catch block, so I'm manually creating that variable." DisplayName="Assign - BusinessRuleException for no blood type date" sap:VirtualizedContainerService.HintSize="434,160.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="ui:BusinessRuleException">[exceptionBusinessRule]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="ui:BusinessRuleException">[new BusinessRuleException(BRE_NOBLOODTYPEDATE)]</InArgument>
+                                </Assign.Value>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Assign>
+                              <Throw DisplayName="Throw - BusinessRuleException - Blood Type date" Exception="[exceptionBusinessRule]" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Throw_2" />
                             </Sequence>
                           </If.Else>
                         </If>
@@ -788,14 +823,14 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body - Blood Type BusinessRuleException" sap:VirtualizedContainerService.HintSize="458,674" sap2010:WorkflowViewState.IdRef="Sequence_172">
+                          <Sequence DisplayName="Body - Blood Type BusinessRuleException" sap:VirtualizedContainerService.HintSize="504,674" sap2010:WorkflowViewState.IdRef="Sequence_172">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handle BusinessRuleExceptions based on the message attached to the exception" DisplayName="Switch - Blood Type BusinessRuleExceptions" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="424,614" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handle BusinessRuleExceptions based on the message attached to the exception" DisplayName="Switch - Blood Type BusinessRuleExceptions" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="470,614" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                               <Switch.Default>
                                 <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_176">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -848,7 +883,7 @@
                       </Catch>
                     </TryCatch.Catches>
                     <TryCatch.Finally>
-                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="458,90" sap2010:WorkflowViewState.IdRef="Sequence_173">
+                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="504,90" sap2010:WorkflowViewState.IdRef="Sequence_173">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
