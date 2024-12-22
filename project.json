@@ -84,6 +84,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TC_FluVerification.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "373126c9-f488-4faa-ac0f-e022b5f06cdd",
+        "dataVariationFilePath": ".variations\\Test Patient Data_Blood Type.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TC_BloodTypeVerification.xaml"
       }
     ],
     "saveToCloud": false

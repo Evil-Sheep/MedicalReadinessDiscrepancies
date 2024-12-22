@@ -19,6 +19,10 @@
     {
       "filePath": ".variations\\Test Patient Data_Influenza_1.json",
       "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\Test Patient Data_Blood Type.json",
+      "dataVariationType": "File"
     }
   ]
 }
