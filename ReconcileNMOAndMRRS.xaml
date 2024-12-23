@@ -928,21 +928,21 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Gather the G6PD Date and result, and whiel we're at it, sickle cell date and result." DisplayName="Then - Delinquent for G6PD" sap:VirtualizedContainerService.HintSize="531.3333333333334,2800.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_182">
+                <Sequence sap2010:Annotation.AnnotationText="Gather the G6PD Date and result, and whiel we're at it, sickle cell date and result." DisplayName="Then - Delinquent for G6PD" sap:VirtualizedContainerService.HintSize="549.3333333333334,5884" sap2010:WorkflowViewState.IdRef="Sequence_182">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="BRE_NOG6PDDATE">
-                      <Variable.Default>
-                        <Literal x:TypeArguments="x:String">No G6PD Date</Literal>
-                      </Variable.Default>
-                    </Variable>
                     <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_G6PDRESULTS">
                       <Variable.Default>
                         <Literal x:TypeArguments="x:String">G6PD Results</Literal>
                       </Variable.Default>
                     </Variable>
-                    <Variable x:TypeArguments="x:String" Name="BRE_NOG6PDRESULTS">
+                    <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_SICKLECELLDATE">
                       <Variable.Default>
-                        <Literal x:TypeArguments="x:String">No G6PD Results</Literal>
+                        <Literal x:TypeArguments="x:String">Sickle Cell Test Dt</Literal>
+                      </Variable.Default>
+                    </Variable>
+                    <Variable x:TypeArguments="x:String" Name="HEADER_MRRS_SICKLECELLRESULTS">
+                      <Variable.Default>
+                        <Literal x:TypeArguments="x:String">Sickle Cell Results</Literal>
                       </Variable.Default>
                     </Variable>
                   </Sequence.Variables>
@@ -952,7 +952,19 @@
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Read the MRRS DataTable for G6PD date and result, and throw a BusinessRuleException if either of those are missing." DisplayName="Try Catch - G6PD Information" sap:VirtualizedContainerService.HintSize="497.3333333333333,2710" sap2010:WorkflowViewState.IdRef="TryCatch_17">
+                  <TryCatch sap2010:Annotation.AnnotationText="Read the MRRS DataTable for G6PD date and result, and throw a BusinessRuleException if either of those are missing." DisplayName="Try Catch - G6PD Information" sap:VirtualizedContainerService.HintSize="515.3333333333334,2901.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_17">
+                    <TryCatch.Variables>
+                      <Variable x:TypeArguments="x:String" Name="BRE_NOG6PDDATE">
+                        <Variable.Default>
+                          <Literal x:TypeArguments="x:String">No G6PD Date</Literal>
+                        </Variable.Default>
+                      </Variable>
+                      <Variable x:TypeArguments="x:String" Name="BRE_NOG6PDRESULTS">
+                        <Variable.Default>
+                          <Literal x:TypeArguments="x:String">No G6PD Results</Literal>
+                        </Variable.Default>
+                      </Variable>
+                    </TryCatch.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -1051,13 +1063,13 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="495.3333333333333,982" sap2010:WorkflowViewState.IdRef="Sequence_185">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="495.3333333333333,1164" sap2010:WorkflowViewState.IdRef="Sequence_185">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handles the various BusinessRuleExceptions that can be thrown, with a default in case the message in the exception isn't properly covered." DisplayName="Switch - BusinessRuleExceptions - G6PD Data" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="418,1081.3333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handles the various BusinessRuleExceptions that can be thrown, with a default in case the message in the exception isn't properly covered." DisplayName="Switch - BusinessRuleExceptions - G6PD Data" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="461.3333333333333,1104" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                               <Switch.Default>
                                 <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,270" sap2010:WorkflowViewState.IdRef="Sequence_190">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -1124,6 +1136,198 @@
                     </TryCatch.Catches>
                     <TryCatch.Finally>
                       <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="495.3333333333333,90" sap2010:WorkflowViewState.IdRef="Sequence_186">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </TryCatch.Finally>
+                  </TryCatch>
+                  <TryCatch sap2010:Annotation.AnnotationText="Read the MRRS DataTable for Sickle Cell date and result, and throw a BusinessRuleException if either of those are missing." DisplayName="Try Catch - Sickle Cell Information" sap:VirtualizedContainerService.HintSize="515.3333333333334,2892" sap2010:WorkflowViewState.IdRef="TryCatch_18">
+                    <TryCatch.Variables>
+                      <Variable x:TypeArguments="x:String" Name="BRE_NOSICKLECELLDATE">
+                        <Variable.Default>
+                          <Literal x:TypeArguments="x:String">No Sickle Cell Date</Literal>
+                        </Variable.Default>
+                      </Variable>
+                      <Variable x:TypeArguments="x:String" Name="BRE_NOSICKLECELLRESULT">
+                        <Variable.Default>
+                          <Literal x:TypeArguments="x:String">No Sickle Cell Results</Literal>
+                        </Variable.Default>
+                      </Variable>
+                    </TryCatch.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <TryCatch.Try>
+                      <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="513.3333333333334,1429.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_200">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If sap2010:Annotation.AnnotationText="If the Sickle Cell date in MRRS is not empty or null, add the date to the Readines Changes datatable. If it is empty or null, annotate in Readiness Changes datatable." Condition="[Not String.IsNullOrEmpty(dtMatchingSailors(0)(HEADER_MRRS_SICKLECELLDATE).ToString)]" DisplayName="If - Sickle Cell Date is not empty or null" sap:VirtualizedContainerService.HintSize="479.3333333333333,689.3333333333334" sap2010:WorkflowViewState.IdRef="If_39">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap2010:Annotation.AnnotationText="Add a datarow to Readiness Changes datatable, to include the date previously checked." DisplayName="Then - Sickle Cell Date is not empty or null, save information in Readiness Changes" sap:VirtualizedContainerService.HintSize="477.3333333333333,272" sap2010:WorkflowViewState.IdRef="Sequence_194">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - G6PD Date" sap:VirtualizedContainerService.HintSize="443.3333333333333,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Sickle Cell Date</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_YES]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[dtMatchingSailors(0)(HEADER_MRRS_SICKLECELLDATE).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strComments">[COLUMNVALUE_ALL_NA]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap2010:Annotation.AnnotationText="Throw BusinessRuleException with message annotating the problem of no Sickle Cell Date." DisplayName="Else - Sickle Cell Date is null or empty, throw BusinessRuleException" sap:VirtualizedContainerService.HintSize="477.3333333333333,218" sap2010:WorkflowViewState.IdRef="Sequence_195">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw - BusinessRuleException - No Sickle Cell Date" Exception="[new BusinessRuleException(BRE_NOSICKLECELLDATE)]" sap:VirtualizedContainerService.HintSize="443.3333333333333,114" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <If sap2010:Annotation.AnnotationText="If the Sickle Cell result in MRRS is not empty or null, add the result to the Readiness Changes datatable. If it is empty or null, annotate in Readiness Changes datatable." Condition="[Not String.IsNullOrEmpty(dtMatchingSailors(0)(HEADER_MRRS_SICKLECELLRESULTS).ToString)]" DisplayName="If - Sickle Cell Result is not empty or null" sap:VirtualizedContainerService.HintSize="479.3333333333333,680" sap2010:WorkflowViewState.IdRef="If_40">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap2010:Annotation.AnnotationText="Add a datarow to Readiness Changes datatable, to include the date previously checked." DisplayName="Then - Sickle Cell Results is not empty or null, save information in Readiness Changes" sap:VirtualizedContainerService.HintSize="460.6666666666667,272" sap2010:WorkflowViewState.IdRef="Sequence_197">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - G6PD Date" sap:VirtualizedContainerService.HintSize="426.6666666666667,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Sickle Cell Results</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_YES]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[dtMatchingSailors(0)(HEADER_MRRS_SICKLECELLRESULTS).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_strComments">[COLUMNVALUE_ALL_NA]</InArgument>
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence sap2010:Annotation.AnnotationText="Throw BusinessRuleException with message annotating the problem of no Sickle Cell Result." DisplayName="Else - Sickle Cell Result is null or empty, throw BusinessRuleException" sap:VirtualizedContainerService.HintSize="460.6666666666667,218" sap2010:WorkflowViewState.IdRef="Sequence_196">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw - BusinessRuleException - No Sickle Cell Results" Exception="[new BusinessRuleException(BRE_NOSICKLECELLDATE)]" sap:VirtualizedContainerService.HintSize="426.6666666666667,114" sap2010:WorkflowViewState.IdRef="Throw_6" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="ui:BusinessRuleException" sap2010:WorkflowViewState.IdRef="Catch`1_17">
+                        <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="513.3333333333334,1164" sap2010:WorkflowViewState.IdRef="Sequence_202">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handles the various BusinessRuleExceptions that can be thrown, with a default in case the message in the exception isn't properly covered." DisplayName="Switch - BusinessRuleExceptions - Sickle Cell Data" Expression="[exception.Message]" sap:VirtualizedContainerService.HintSize="479.3333333333333,1104" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+                              <Switch.Default>
+                                <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,270" sap2010:WorkflowViewState.IdRef="Sequence_201">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage sap2010:Annotation.AnnotationText="Add a log message to cover other BusinessRuleExceptions" DisplayName="Log Message - Unaccounted BusinessRuleException for G6PD checks" sap:VirtualizedContainerService.HintSize="382,210" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;Encountered exception while processing G6PD data. Message: &quot;&amp;exception.Message.ToString]">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:LogMessage>
+                                </Sequence>
+                              </Switch.Default>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence x:Key="No Sickle Cell Date" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes datatable regarding lack of Sickle Cell date." DisplayName="Body - BusinessRuleException for No G6PD Date" sap:VirtualizedContainerService.HintSize="416,272" sap2010:WorkflowViewState.IdRef="Sequence_198">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - No Sickle Cell Date" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Sickle Cell</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[COLUMNVALUE_ALL_NA]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strComments">No Sickle Cell date documented. Verify with patient's physical record and Genesis.</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                              <Sequence x:Key="No Sickle Cell Results" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes datatable regarding lack of Sickle Cell results." DisplayName="Body - BusinessRuleException for No Sickle Cell Date" sap:VirtualizedContainerService.HintSize="416,272" sap2010:WorkflowViewState.IdRef="Sequence_199">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - No Sickle Cell Results" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Sickle Cell Results</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[COLUMNVALUE_ALL_NA]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_strComments">No Sickle Cell result documented. Verify with patient's physical record and Genesis.</InArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                            </Switch>
+                          </Sequence>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                    <TryCatch.Finally>
+                      <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="513.3333333333334,90" sap2010:WorkflowViewState.IdRef="Sequence_203">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
