@@ -92,6 +92,14 @@
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TC_BloodTypeVerification.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "37bb7065-87f5-4f98-baa0-133332702856",
+        "dataVariationFilePath": ".variations\\Test Patient Data_G6PD SCT.json",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "TC_G6PDVerification.xaml"
       }
     ],
     "saveToCloud": false

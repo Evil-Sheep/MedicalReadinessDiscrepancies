@@ -23,6 +23,10 @@
     {
       "filePath": ".variations\\Test Patient Data_Blood Type_1.json",
       "dataVariationType": "File"
+    },
+    {
+      "filePath": ".variations\\Test Patient Data_G6PD SCT.json",
+      "dataVariationType": "File"
     }
   ]
 }
