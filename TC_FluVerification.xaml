@@ -114,7 +114,7 @@
       <AssemblyReference>UiPath.Testing</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TC_FluVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,3502" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TC_FluVerification" sap:VirtualizedContainerService.HintSize="626.6666666666666,4061.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtNMOTestPatientData" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtMRRSTestPatientData" />
@@ -191,21 +191,21 @@
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="468,1531.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="468,2090.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Determines which result should happen based on the test patient's name." DisplayName="Switch - Test Case Scenario" Expression="[dtTCReadinessChanges(0)(&quot;SailorName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="418,1448.6666666666667" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Determines which result should happen based on the test patient's name." DisplayName="Switch - Test Case Scenario" Expression="[dtTCReadinessChanges(0)(&quot;SailorName&quot;).ToString]" sap:VirtualizedContainerService.HintSize="418,2008" sap2010:WorkflowViewState.IdRef="Switch`1_1">
         <Switch.Default>
-          <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,174" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Default" sap:VirtualizedContainerService.HintSize="416,174.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression - Default" Expression="False" sap:VirtualizedContainerService.HintSize="382,114" sap2010:WorkflowViewState.IdRef="VerifyExpression_1" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
+            <uta:VerifyExpression AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" OutputMessageFormat="{x:Null}" Result="{x:Null}" ScreenshotsPath="{x:Null}" ContinueOnFailure="True" DisplayName="Verify Expression - Default" Expression="False" sap:VirtualizedContainerService.HintSize="382,114.66666666666667" sap2010:WorkflowViewState.IdRef="VerifyExpression_1" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False" />
           </Sequence>
         </Switch.Default>
         <sap:WorkflowViewStateService.ViewState>
@@ -284,7 +284,7 @@
               <InArgument x:TypeArguments="x:Object">[dtTCReadinessChanges(0)("Comments")]</InArgument>
             </uta:VerifyExpressionWithOperator.FirstExpression>
             <uta:VerifyExpressionWithOperator.SecondExpression>
-              <InArgument x:TypeArguments="x:String">["NO_INFLUENZA_DATE"]</InArgument>
+              <InArgument x:TypeArguments="x:String">["NO_DOCUMENTED_INFLUENZA"]</InArgument>
             </uta:VerifyExpressionWithOperator.SecondExpression>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
