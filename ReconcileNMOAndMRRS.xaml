@@ -157,7 +157,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,6256" sap2010:WorkflowViewState.IdRef="Sequence_36">
+  <Sequence sap:VirtualizedContainerService.HintSize="626.6666666666666,7169.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_36">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="NAME" Name="HEADER_NMO_NAME" />
       <Variable x:TypeArguments="x:String" Default="SSN" Name="HEADER_NMO_SSN" />
@@ -172,7 +172,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks any changes that can be changed immediately, such as PHA being out of date in NMO but current in MRRS.&#xA;&#xA;Columns:&#xA;- SailorName (String): Name of Sailor&#xA;- Last4SSN (String): Last 4 digits of Sailor's SSN&#xA;- Delinquency (String): Delinquent readiness item&#xA;- IsFixable (String): Status deliniating if delinquncy can be fixed by information collected by this robot.&#xA;- NewValue (String): If a change can be made now, this is what the new value needs to be. &quot;N/A&quot; if the value can't be changed.&#xA;- Comments (String): Amplifying information about the deliquency's change status. If it can be changed, comments are not required, but if 'NewValue' is &quot;N/A&quot;, include comments explaining why value can't be changed." DataTable="[out_dtReadinessChanges]" DisplayName="Build Data Table - out_dtReadinessChanges" sap:VirtualizedContainerService.HintSize="582.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;IsFixable&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;NewValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+    <ui:BuildDataTable sap2010:Annotation.AnnotationText="Tracks any changes that can be changed immediately, such as PHA being out of date in NMO but current in MRRS.&#xA;&#xA;Columns:&#xA;- SailorName (String): Name of Sailor&#xA;- Last4SSN (String): Last 4 digits of Sailor's SSN&#xA;- Delinquency (String): Delinquent readiness item&#xA;- IsFixable (String): Status deliniating if delinquncy can be fixed by information collected by this robot.&#xA;- NewValue (String): If a change can be made now, this is what the new value needs to be. &quot;N/A&quot; if the value can't be changed.&#xA;- Comments (String): Amplifying information about the deliquency's change status. If it can be changed, comments are not required, but if 'NewValue' is &quot;N/A&quot;, include comments explaining why value can't be changed." DataTable="[out_dtReadinessChanges]" DisplayName="Build Data Table - out_dtReadinessChanges" sap:VirtualizedContainerService.HintSize="614,57.333333333333336" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;SailorName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Last4SSN&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Delinquency&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;IsFixable&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;NewValue&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
@@ -181,7 +181,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="Imports error codes and other information from excel sheet." DisplayName="Excel Process Scope - Import Error Codes" sap:VirtualizedContainerService.HintSize="582.6666666666666,102.66666666666667" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" sap2010:Annotation.AnnotationText="Imports error codes and other information from excel sheet." DisplayName="Excel Process Scope - Import Error Codes" sap:VirtualizedContainerService.HintSize="614,119.33333333333333" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -222,13 +222,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="582.6666666666666,6073.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Cycle through each row in dtIMRProfileHitList, seeing what the member is delinquent on and checking MRRS to see if that hit is accurate." DataTable="[in_dtIMRProfileHitList]" DisplayName="For Each Row in Data Table - dtIMRProfileHitList" sap:VirtualizedContainerService.HintSize="614,6970" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="580.6666666666666,5853.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="612,6750" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dtMatchingSailors" />
               <Variable x:TypeArguments="x:String" Default="G6PD Test Dt" Name="HEADER_MRRS_G6PDDATE" />
@@ -239,7 +239,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:FilterDataTable sap2010:Annotation.AnnotationText="Finds the DataRow containing the Sailor's information based on matching last 4 of SSN and date of birth." DataTable="[in_dtMRRSFilteredData]" DisplayName="Filter Data Table - Get Sailor info from MRRS" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="546.6666666666666,241.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtMatchingSailors]" SelectColumnsMode="Remove">
+            <ui:FilterDataTable sap2010:Annotation.AnnotationText="Finds the DataRow containing the Sailor's information based on matching last 4 of SSN and date of birth." DataTable="[in_dtMRRSFilteredData]" DisplayName="Filter Data Table - Get Sailor info from MRRS" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="578,241.33333333333334" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dtMatchingSailors]" SelectColumnsMode="Remove">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -271,7 +271,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:FilterDataTable>
-            <TryCatch sap2010:Annotation.AnnotationText="If searching the MRRS report finds either no matching records or multiple records, reconciliation cannot continue. Annotate in Readiness Changes list and move to next Sailor." DisplayName="Try Catch - Search Failure" sap:VirtualizedContainerService.HintSize="546.6666666666666,1590.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_19">
+            <TryCatch sap2010:Annotation.AnnotationText="If searching the MRRS report finds either no matching records or multiple records, reconciliation cannot continue. Annotate in Readiness Changes list and move to next Sailor." DisplayName="Try Catch - Search Failure" sap:VirtualizedContainerService.HintSize="578,186" sap2010:WorkflowViewState.IdRef="TryCatch_19">
               <TryCatch.Variables>
                 <Variable x:TypeArguments="x:String" Default="MULTIPLE_RECORDS_FOUND" Name="BRE_MULTIPLERECORDS" />
                 <Variable x:TypeArguments="x:String" Default="NO_MATCHING_RECORD" Name="BRE_NORECORD" />
@@ -279,8 +279,8 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
@@ -392,7 +392,7 @@
                 </Sequence>
               </TryCatch.Finally>
             </TryCatch>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Preventive Health Assessment&quot;, indicating the Sailor is due for PHA" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Preventive Health Assessment&quot;)]" DisplayName="If - PHA Due" sap:VirtualizedContainerService.HintSize="546.6666666666666,136" sap2010:WorkflowViewState.IdRef="If_18">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Preventive Health Assessment&quot;, indicating the Sailor is due for PHA" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Preventive Health Assessment&quot;)]" DisplayName="If - PHA Due" sap:VirtualizedContainerService.HintSize="578,136" sap2010:WorkflowViewState.IdRef="If_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -547,7 +547,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;HIV&quot;, indicating the Sailor is due for HIV" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;HIV&quot;)]" DisplayName="If - HIV Due" sap:VirtualizedContainerService.HintSize="546.6666666666666,119.33333333333333" sap2010:WorkflowViewState.IdRef="If_23">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;HIV&quot;, indicating the Sailor is due for HIV" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;HIV&quot;)]" DisplayName="If - HIV Due" sap:VirtualizedContainerService.HintSize="578,119.33333333333333" sap2010:WorkflowViewState.IdRef="If_23">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -753,7 +753,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Blood Type&quot;, indicating the Sailor is missing blood type infomation." Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Blood Type&quot;)]" DisplayName="If - Blood Type missing" sap:VirtualizedContainerService.HintSize="546.6666666666666,2988" sap2010:WorkflowViewState.IdRef="If_33">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;Blood Type&quot;, indicating the Sailor is missing blood type infomation." Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;Blood Type&quot;)]" DisplayName="If - Blood Type missing" sap:VirtualizedContainerService.HintSize="578,2422.6666666666665" sap2010:WorkflowViewState.IdRef="If_33">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -762,7 +762,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then - Blood Type is missing, get info from MRRS report" sap:VirtualizedContainerService.HintSize="544.6666666666666,2777.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_169">
+                <Sequence DisplayName="Then - Blood Type is missing, get info from MRRS report" sap:VirtualizedContainerService.HintSize="544.6666666666666,2212" sap2010:WorkflowViewState.IdRef="Sequence_169">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Default="Blood Type" Name="HEADER_MRRS_BLOODTYPE" />
                   </Sequence.Variables>
@@ -772,7 +772,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Throws a BusinessRuleException if there's a problem getting the blood type or date." DisplayName="Try Catch - Blood Type Processing" sap:VirtualizedContainerService.HintSize="510.6666666666667,2717.3333333333335" sap2010:WorkflowViewState.IdRef="TryCatch_16">
+                  <TryCatch sap2010:Annotation.AnnotationText="Throws a BusinessRuleException if there's a problem getting the blood type or date." DisplayName="Try Catch - Blood Type Processing" sap:VirtualizedContainerService.HintSize="510.6666666666667,2152" sap2010:WorkflowViewState.IdRef="TryCatch_16">
                     <TryCatch.Variables>
                       <Variable x:TypeArguments="ui:BusinessRuleException" Default="[New BusinessRuleException(&quot;NO_BLOOD_TYPE_DATE&quot;)]" Name="BRE_NOBLOODTYPEDATE" />
                       <Variable x:TypeArguments="ui:BusinessRuleException" Default="[New BusinessRuleException(&quot;NO_BLOOD_TYPE_RESULT&quot;)]" Name="BRE_NOBLOODTYPERESULT" />
@@ -895,86 +895,37 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body - Blood Type BusinessRuleException" sap:VirtualizedContainerService.HintSize="508.6666666666667,1171.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_172">
+                          <Sequence DisplayName="Body - Blood Type BusinessRuleException" sap:VirtualizedContainerService.HintSize="508.6666666666667,606" sap2010:WorkflowViewState.IdRef="Sequence_172">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="strErrorAmplifyingInformationBloodType" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Handle BusinessRuleExceptions based on the message attached to the exception" DisplayName="Switch - Blood Type BusinessRuleExceptions" Expression="[exception.Message.ToString]" sap:VirtualizedContainerService.HintSize="474.6666666666667,1111.3333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-                              <Switch.Default>
-                                <Sequence DisplayName="Default - Unaccounted BusinessRuleException - Blood Type" sap:VirtualizedContainerService.HintSize="416,272.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_176">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage sap2010:Annotation.AnnotationText="Add a log message to cover other BusinessRuleExceptions" DisplayName="Log Message - Unaccounted BusinessRuleException for blood type checks" sap:VirtualizedContainerService.HintSize="382,212.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Encountered exception while processing blood type. Message: &quot;&amp;exception.Message.ToString]">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </ui:LogMessage>
-                                </Sequence>
-                              </Switch.Default>
+                            <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[DT_ERRORCODES]" DisplayName="Lookup Data Table - Blood Type Amplifying information" sap:VirtualizedContainerService.HintSize="474.6666666666667,332.6666666666667" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="Error Code" LookupValue="[exception.message.ToString]" TargetColumnName="Amplifying Information">
+                              <ui:LookupDataTable.CellValue>
+                                <OutArgument x:TypeArguments="x:String">[strErrorAmplifyingInformationBloodType]</OutArgument>
+                              </ui:LookupDataTable.CellValue>
+                            </ui:LookupDataTable>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow indicating an error in determining blood type information." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - Blood Type Error" sap:VirtualizedContainerService.HintSize="474.6666666666667,213.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Blood Type</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[COLUMNVALUE_ALL_NA]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_strComments">[exception.Message.ToString+": "+strErrorAmplifyingInformationBloodType]</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence x:Key="BLOOD_TYPE_RESULT_MISSING" DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_177">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow indicating no documented blood type in MRRS." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - No blood type result" sap:VirtualizedContainerService.HintSize="382,213.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
-                                  <ui:InvokeWorkflowFile.Arguments>
-                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Blood Type</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[COLUMNVALUE_ALL_NA]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strComments">[BRE_NOBLOODTYPERESULT+": No documented blood type result. Verify in patient's physical record and Genesis"]</InArgument>
-                                  </ui:InvokeWorkflowFile.Arguments>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:InvokeWorkflowFile>
-                              </Sequence>
-                              <Sequence x:Key="BLOOD_TYPE_DATE_MISSING" DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_181">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow indicating no documented &quot;blood type date&quot; (G6PD Date) in MRRS." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges.xaml - No blood type date" sap:VirtualizedContainerService.HintSize="382,213.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
-                                  <ui:InvokeWorkflowFile.Arguments>
-                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strLast4SSN">[CurrentRow(HEADER_NMO_SSN).ToString]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strDelinquency">Blood Type Date</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strIsFixable">[COLUMNVALUE_ISFIXABLE_NO]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strNewValue">[COLUMNVALUE_ALL_NA]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strSailorName">[CurrentRow(HEADER_NMO_NAME).ToString]</InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="in_strComments">[BRE_NOBLOODTYPEDATE+": No documented blood type date. Verify in patient's physical record and Genesis"]</InArgument>
-                                  </ui:InvokeWorkflowFile.Arguments>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:InvokeWorkflowFile>
-                              </Sequence>
-                            </Switch>
+                            </ui:InvokeWorkflowFile>
                           </Sequence>
                         </ActivityAction>
                       </Catch>
@@ -992,7 +943,7 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else - Blood Type is not missing, check next item" sap:VirtualizedContainerService.HintSize="536,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_170">
+                <Sequence DisplayName="Else - Blood Type is not missing, check next item" sap:VirtualizedContainerService.HintSize="544.6666666666666,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_170">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1002,7 +953,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;G6PD Data&quot;, indicating the Sailor is missing G6PD Data.&#xA;&#xA;Since G6PD and Sickle Cell are done at the same time, and no one hits for Sickle Cell, this If activity will also collect Sickle Cell data if they are delinquent for G6PD." Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;G6PD Data&quot;)]" DisplayName="If - Delinquent for G6PD" sap:VirtualizedContainerService.HintSize="546.6666666666666,252.66666666666666" sap2010:WorkflowViewState.IdRef="If_36">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;G6PD Data&quot;, indicating the Sailor is missing G6PD Data.&#xA;&#xA;Since G6PD and Sickle Cell are done at the same time, and no one hits for Sickle Cell, this If activity will also collect Sickle Cell data if they are delinquent for G6PD." Condition="[CurrentRow(&quot;OVERDUE&quot;).ToString.Contains(&quot;G6PD Data&quot;)]" DisplayName="If - Delinquent for G6PD" sap:VirtualizedContainerService.HintSize="578,252.66666666666666" sap2010:WorkflowViewState.IdRef="If_36">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -1404,7 +1355,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;TD Vaccination&quot;, indicating the Sailor is due for TDAP vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;TD Vaccination&quot;)]" DisplayName="If - TDAP Due" sap:VirtualizedContainerService.HintSize="546.6666666666666,136" sap2010:WorkflowViewState.IdRef="If_26">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;TD Vaccination&quot;, indicating the Sailor is due for TDAP vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;TD Vaccination&quot;)]" DisplayName="If - TDAP Due" sap:VirtualizedContainerService.HintSize="578,136" sap2010:WorkflowViewState.IdRef="If_26">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -1558,7 +1509,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;POLIO Vaccination&quot;, indicating the Sailor is due for Polio vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;POLIO Vaccination&quot;)]" DisplayName="If - Polio Due" sap:VirtualizedContainerService.HintSize="546.6666666666666,152.66666666666666" sap2010:WorkflowViewState.IdRef="If_28">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;POLIO Vaccination&quot;, indicating the Sailor is due for Polio vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;POLIO Vaccination&quot;)]" DisplayName="If - Polio Due" sap:VirtualizedContainerService.HintSize="578,152.66666666666666" sap2010:WorkflowViewState.IdRef="If_28">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -1651,16 +1602,16 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;-FLU&quot; (because sometimes Sailor's hit for &quot;-FLU Vaccination&quot; and sometimes &quot;-FLU Shot&quot;), indicating the Sailor is due for Influenza vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;-FLU&quot;)]" DisplayName="If - Influenza Due" sap:VirtualizedContainerService.HintSize="546.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="If_30">
+            <If sap2010:Annotation.AnnotationText="Checks if 'OVERDUE' column contains &quot;-FLU&quot; (because sometimes Sailor's hit for &quot;-FLU Vaccination&quot; and sometimes &quot;-FLU Shot&quot;), indicating the Sailor is due for Influenza vaccination" Condition="[CurrentRow(HEADER_NMO_OVERDUE).ToString.Contains(&quot;-FLU&quot;)]" DisplayName="If - Influenza Due" sap:VirtualizedContainerService.HintSize="578,3043.3333333333335" sap2010:WorkflowViewState.IdRef="If_30">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap2010:Annotation.AnnotationText="Check if Influenza vaccination is after the most recent September 1st (the current flu season). If it's after that date, the Sailor is current on their flu shot. If not, they are delinquent in MRRS and user may need to check physical record or Genesis for shots." DisplayName="Then - Check MRRS Influenza Date" sap:VirtualizedContainerService.HintSize="576,2672.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_160">
+                <Sequence sap2010:Annotation.AnnotationText="Check if Influenza vaccination is after the most recent September 1st (the current flu season). If it's after that date, the Sailor is current on their flu shot. If not, they are delinquent in MRRS and user may need to check physical record or Genesis for shots." DisplayName="Then - Check MRRS Influenza Date" sap:VirtualizedContainerService.HintSize="576,2842" sap2010:WorkflowViewState.IdRef="Sequence_160">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="strFluComparisonDate" />
                     <Variable x:TypeArguments="x:String" Default="Influenza Dt" Name="HEADER_MRRS_FLUDATE" />
@@ -1671,7 +1622,7 @@
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no Influenza date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need an influenza vaccination and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid Influenza Date" sap:VirtualizedContainerService.HintSize="542,2550.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                  <TryCatch sap2010:Annotation.AnnotationText="Sometimes there is no Influenza date in MRRS, so in the Excel report, the cell is blank. If that happens, ParseExact-ing will throw a FormatException, indicating they likely need an influenza vaccination and the delinquency cannot be fixed by this robot." DisplayName="Try Catch - Invalid Influenza Date" sap:VirtualizedContainerService.HintSize="542,2720" sap2010:WorkflowViewState.IdRef="TryCatch_15">
                     <TryCatch.Variables>
                       <Variable x:TypeArguments="ui:BusinessRuleException" Default="[New BusinessRuleException(&quot;INFLUENZA_OVERDUE&#xA;&quot;)]" Name="BRE_INFLUENZAOVERDUE" />
                       <Variable x:TypeArguments="ui:BusinessRuleException" Default="[New BusinessRuleException(&quot;NO_DOCUMENTED_INFLUENZA&quot;)]" Name="BRE_NOINFLUENZA" />
@@ -1810,7 +1761,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,453.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_204">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540,622.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_204">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="strErrorAmplifyingInformationInfluenza" />
                             </Sequence.Variables>
@@ -1819,21 +1770,11 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap2010:Annotation.AnnotationText="Search the error codes datatable to find the amplifying information based on the error code in the BusinessRuleException" DisplayName="Assign - Get Error Amplifying Information" sap:VirtualizedContainerService.HintSize="506,163.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_3">
-                              <Assign.To>
+                            <ui:LookupDataTable LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" RowIndex="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[DT_ERRORCODES]" DisplayName="Lookup Data Table - Blood Type Amplifying information" sap:VirtualizedContainerService.HintSize="506,332.6666666666667" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnName="Error Code" LookupValue="[exception.message.ToString]" TargetColumnName="Amplifying Information">
+                              <ui:LookupDataTable.CellValue>
                                 <OutArgument x:TypeArguments="x:String">[strErrorAmplifyingInformationInfluenza]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[(From row In DT_ERRORCODES.AsEnumerable
-Where row("Error Code").ToString.Equals(exception.Message.ToString)
-Select row("Amplifying Information")).ToString]</InArgument>
-                              </Assign.Value>
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                            </Assign>
+                              </ui:LookupDataTable.CellValue>
+                            </ui:LookupDataTable>
                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Add DataRow to Readiness Changes, indicating the Flu vaccination is also out of season in MRRS and isn't immediately fixable." DisplayName="Invoke Workflow File - AddDatarowToReadinessChanges - Flu out of season" sap:VirtualizedContainerService.HintSize="506,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="AddDatarowToReadinessChanges.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inout_dtReadinessChanges">[out_dtReadinessChanges]</InOutArgument>
